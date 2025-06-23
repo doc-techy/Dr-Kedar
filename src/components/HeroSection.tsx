@@ -27,7 +27,7 @@ export default function HeroSection() {
               Board-Certified Internal Medicine Physician
             </p>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              With over 15 years of experience in internal medicine, Dr. Smith is dedicated to 
+              With over 15 years of experience in internal medicine, Dr. Kedar Hibare is dedicated to 
               providing comprehensive, compassionate care to patients of all ages. Specializing 
               in preventive medicine and chronic disease management.
             </p>

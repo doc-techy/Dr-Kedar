@@ -3,7 +3,7 @@ export default function AboutSection() {
     <section id="about" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">About Dr. Smith</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">About Dr. Kedar Hibare </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Committed to excellence in patient care with a focus on building lasting relationships 
             and providing personalized treatment plans.

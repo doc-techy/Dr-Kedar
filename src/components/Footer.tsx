@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Dr. Smith Medical Center</h3>
+            <h3 className="text-xl font-bold mb-4">Dr. Kedar Hibare</h3>
             <div className="space-y-2 text-gray-300">
               <p>📍 123 Medical Plaza, Suite 456</p>
               <p>City, State 12345</p>
@@ -30,7 +30,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <div className="space-y-2">
               <a href="#about" className="block text-gray-300 hover:text-white transition-colors">
-                About Dr. Smith
+                About Dr. Kedar Hibare
               </a>
               <a href="#services" className="block text-gray-300 hover:text-white transition-colors">
                 Medical Services
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Dr. Smith Medical Center. All rights reserved.</p>
+          <p>&copy; 2024 Dr. Kedar Hibare. All rights reserved.</p>
           <p className="mt-2 text-sm">
             Providing quality healthcare with compassion and excellence.
           </p>

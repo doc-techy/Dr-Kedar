@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   // Optimize images for better performance
   images: {
     formats: ['image/webp'],
+    domains: [], // Add domains if loading external images
   },
   
   // Headers for better caching and security
@@ -26,6 +27,24 @@ const nextConfig: NextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block',
+          },
+        ],
+      },
+      // API CORS headers
+      {
+        source: '/api/(.*)',
+        headers: [
+          {
+            key: 'Access-Control-Allow-Origin',
+            value: '*',
+          },
+          {
+            key: 'Access-Control-Allow-Methods',
+            value: 'GET, POST, PUT, DELETE, OPTIONS',
+          },
+          {
+            key: 'Access-Control-Allow-Headers',
+            value: 'Content-Type, Authorization',
           },
         ],
       },

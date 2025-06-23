@@ -28,8 +28,8 @@ export default function BookAppointment() {
     setIsSubmitting(true)
     
     try {
-      // Connect to Django backend API
-      const response = await fetch('http://0.0.0.0:3001/api/appointments/', {
+      // Connect to Next.js API route
+      const response = await fetch('/api/appointments', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ export default function BookAppointment() {
       }
     } catch (error) {
       console.error('Error:', error)
-      alert('Error connecting to server. Please make sure the Django backend is running.')
+      alert('Error connecting to server. Please try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -100,7 +100,7 @@ export default function BookAppointment() {
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mb-4">Book Your Appointment</h1>
           <p className="text-lg text-gray-600">
-            Schedule your consultation with Dr. Smith. We'll confirm your appointment within 24 hours.
+            Schedule your consultation with Dr. Kedar Hibare. We'll confirm your appointment within 24 hours.
           </p>
         </div>
 
