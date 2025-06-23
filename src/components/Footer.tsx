@@ -6,22 +6,25 @@ export default function Footer() {
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Dr. Kedar Hibare</h3>
+            <p className="text-blue-400 mb-4 font-medium">Lead Consultant - Clinical & Interventional Pulmonologist</p>
             <div className="space-y-2 text-gray-300">
-              <p>📍 123 Medical Plaza, Suite 456</p>
-              <p>City, State 12345</p>
-              <p>📞 (555) 123-4567</p>
-              <p>✉️ info@drsmithmedical.com</p>
+              <p>🏥 SPARSH Hospital, Hennur Road</p>
+              <p>📍 HBR Layout, Hennur Road, Bengaluru - 560043</p>
+              <p>📞 080 61 222 000</p>
+              <p>🌐 Languages: English, Hindi, Kannada</p>
             </div>
           </div>
           
-          {/* Office Hours */}
+          {/* Specialities */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Office Hours</h3>
+            <h3 className="text-xl font-bold mb-4">Specialities</h3>
             <div className="space-y-2 text-gray-300">
-              <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-              <p>Saturday: 9:00 AM - 2:00 PM</p>
-              <p>Sunday: Closed</p>
-              <p className="text-blue-400 mt-3">Emergency: 24/7 On-Call</p>
+              <p>• Advanced Bronchoscopy</p>
+              <p>• Endobronchial Ultrasound (EBUS)</p>
+              <p>• Interventional Pulmonology</p>
+              <p>• Thoracic Oncology</p>
+              <p>• Interstitial Lung Diseases</p>
+              <p className="text-blue-400 mt-3">First in India - IAB Fellowship</p>
             </div>
           </div>
           
@@ -33,22 +36,26 @@ export default function Footer() {
                 About Dr. Kedar Hibare
               </a>
               <a href="#services" className="block text-gray-300 hover:text-white transition-colors">
-                Medical Services
+                Pulmonology Services
               </a>
               <a href="#achievements" className="block text-gray-300 hover:text-white transition-colors">
-                Achievements
+                Achievements & Research
               </a>
               <a href="/book-appointment" className="block text-blue-400 hover:text-blue-300 transition-colors">
-                Book Appointment
+                Book Consultation
               </a>
+            </div>
+            <div className="mt-4 pt-4 border-t border-gray-700">
+              <p className="text-sm text-gray-400">Professional Memberships:</p>
+              <p className="text-xs text-gray-500 mt-1">WABIP • ERS • ACCP • Indian Chest Society</p>
             </div>
           </div>
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 Dr. Kedar Hibare. All rights reserved.</p>
+          <p>&copy; 2024 Dr. Kedar Hibare - Interventional Pulmonologist. All rights reserved.</p>
           <p className="mt-2 text-sm">
-            Providing quality healthcare with compassion and excellence.
+            Advanced respiratory care with cutting-edge interventional pulmonology expertise.
           </p>
         </div>
       </div>

@@ -6,9 +6,12 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
-            <h1 className="text-2xl font-bold text-blue-600">
-             Dr. Kedar Hibare
-            </h1>
+            <div>
+              <h1 className="text-2xl font-bold text-blue-600">
+                Dr. Kedar Hibare
+              </h1>
+              <p className="text-sm text-gray-600">Interventional Pulmonologist</p>
+            </div>
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">
@@ -24,7 +27,7 @@ export default function Header() {
               href="/book-appointment" 
               className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Book Appointment
+              Book Consultation
             </Link>
           </nav>
           <div className="md:hidden">

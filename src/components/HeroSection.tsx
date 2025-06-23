@@ -24,19 +24,22 @@ export default function HeroSection() {
               Dr. Kedar Hibare
             </h2>
             <p className="text-xl text-gray-600 mb-4">
-              Board-Certified Internal Medicine Physician
+              Lead Consultant - Clinical & Interventional Pulmonologist
+            </p>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              DNB (Respiratory Diseases), FCCP | 15+ Years Experience
             </p>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-              With over 15 years of experience in internal medicine, Dr. Kedar Hibare is dedicated to 
-              providing comprehensive, compassionate care to patients of all ages. Specializing 
-              in preventive medicine and chronic disease management.
+              Expert in diagnosing and treating complex lung diseases with extensive experience in 
+              minimally invasive pulmonary interventions. Internationally trained in Germany, 
+              committed to excellence and patient-centered respiratory care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link 
                 href="/book-appointment"
                 className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors text-lg font-semibold"
               >
-                Schedule Consultation
+                Book Consultation
               </Link>
               <a 
                 href="#about"
