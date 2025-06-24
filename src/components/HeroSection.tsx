@@ -39,7 +39,7 @@ export default function HeroSection() {
             </div>
             
             {/* Professional Credentials */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               <div className="bg-white border border-gray-200 rounded-lg p-4 text-center shadow-sm hover:shadow-md transition-shadow">
                 <div className="text-2xl font-bold text-blue-600">15+</div>
                 <div className="text-sm text-gray-600 font-medium">Years Experience</div>
@@ -56,7 +56,7 @@ export default function HeroSection() {
                 <div className="text-2xl font-bold text-purple-600">🇩🇪</div>
                 <div className="text-sm text-gray-600 font-medium">Germany Trained</div>
               </div>
-            </div>
+            </div> */}
             
             {/* Description */}
             <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
