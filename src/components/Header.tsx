@@ -54,6 +54,10 @@ export default function Header() {
               Achievements
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
             </a>
+            <Link href="/courses" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider relative group py-2">
+              Courses
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
 
             <Link 
               href="/book-appointment" 
@@ -104,6 +108,9 @@ export default function Header() {
               <a href="#achievements" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
                 Achievements & Research
               </a>
+              <Link href="/courses" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
+                Courses
+              </Link>
               
               <div className="border-t border-gray-300 pt-4 px-4">
                 <p className="text-xs text-gray-500 font-medium mb-1">Emergency Contact</p>
