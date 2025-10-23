@@ -25,6 +25,13 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-padding-top: 148px;
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 120px;
+  }
 }
 
 body {
@@ -47,6 +54,32 @@ header {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   will-change: transform;
+}
+
+/* Glassmorphic header effects */
+.glassmorphic-header {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Enhanced glassmorphic effect for scrolled header */
+header.scrolled {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.2);
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Ensure content doesn't show through header */
@@ -162,6 +195,17 @@ main {
 /* Section spacing */
 .section-padding {
   @apply py-20 lg:py-24;
+}
+
+/* Hero section viewport handling */
+.hero-viewport {
+  min-height: calc(100vh - 120px);
+}
+
+@media (min-width: 640px) {
+  .hero-viewport {
+    min-height: calc(100vh - 148px);
+  }
 }
 
 /* Hover effects */

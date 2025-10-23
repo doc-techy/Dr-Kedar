@@ -51,16 +51,13 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section id="services" className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-teal-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft"></div>
+    <section id="services" className="relative overflow-hidden">
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-block bg-gradient-to-r from-blue-600 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+        <div className="text-center mb-8 animate-fade-in">
+          {/* <div className="inline-block bg-gradient-to-r from-blue-600 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Advanced Medical Services
-          </div>
+          </div> */}
           <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Specialized <span className="text-gradient">Pulmonology Services</span>
           </h2>
@@ -74,30 +71,30 @@ export default function ServicesSection() {
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="group card-gradient p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+              className="group card-gradient p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
               style={{animationDelay: `${index * 0.1}s`}}
             >
               {/* Service Icon */}
-              <div className="relative mb-6">
+              <div className="relative mb-4">
                 <div className={`absolute inset-0 bg-gradient-to-r ${service.bgGradient} rounded-2xl scale-110 opacity-50 group-hover:scale-125 transition-transform duration-500`}></div>
-                <div className="relative w-16 h-16 mx-auto bg-white rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-3xl medical-icon">{service.icon}</span>
+                <div className="relative w-12 h-12 mx-auto bg-white rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-2xl medical-icon">{service.icon}</span>
                 </div>
               </div>
               
               {/* Content */}
-              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors duration-300">
+              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                 {service.title}
               </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <p className="text-gray-600 leading-relaxed mb-4 text-sm">
                 {service.description}
               </p>
               
               {/* Features */}
-              <div className="space-y-2 mb-6">
+              <div className="space-y-1 mb-4">
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center text-sm text-gray-700">
-                    <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 group-hover:scale-125 transition-transform duration-300`}></div>
+                  <div key={featureIndex} className="flex items-center text-xs text-gray-700">
+                    <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2 group-hover:scale-125 transition-transform duration-300`}></div>
                     {feature}
                   </div>
                 ))}

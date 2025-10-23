@@ -65,9 +65,9 @@ export default function AchievementsSection() {
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
+          {/* <div className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Excellence & Recognition
-          </div>
+          </div> */}
           <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Achievements & <span className="text-gradient">Recognition</span>
           </h2>
@@ -78,7 +78,7 @@ export default function AchievementsSection() {
         </div>
 
         {/* Statistics */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        {/* <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {stats.map((stat, index) => (
             <div 
               key={index} 
@@ -94,38 +94,38 @@ export default function AchievementsSection() {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Awards */}
         <div className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 animate-fade-in">Awards & Recognition</h3>
+          {/* <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 animate-fade-in">Awards & Recognition</h3> */}
           <div className="grid md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => (
               <div 
                 key={index} 
-                className="group card p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
+                className="group card p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
                 style={{animationDelay: `${index * 0.1}s`}}
               >
-                <div className="flex items-start space-x-6">
+                <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${achievement.gradient} rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-12 h-12 bg-gradient-to-r ${achievement.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       {achievement.year === "2020-24" ? "📊" : achievement.year.slice(-2)}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center mb-3">
-                      <span className="text-3xl mr-3">{achievement.icon}</span>
-                      <h4 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                    <div className="flex items-center mb-2">
+                      <span className="text-2xl mr-2">{achievement.icon}</span>
+                      <h4 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                         {achievement.title}
                       </h4>
                     </div>
-                    <p className={`font-semibold mb-3 bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                    <p className={`font-semibold mb-2 text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
                       {achievement.organization}
                     </p>
-                    <p className="text-gray-600 leading-relaxed">
+                    <p className="text-gray-600 leading-relaxed text-sm">
                       {achievement.description}
                     </p>
-                    <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-4 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                    <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                   </div>
                 </div>
               </div>
@@ -135,7 +135,7 @@ export default function AchievementsSection() {
 
         {/* Professional Memberships */}
         <div className="mb-20 animate-fade-in">
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Professional Memberships</h3>
+          <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-12">Professional Memberships</h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {memberships.map((membership, index) => (
               <div 
@@ -181,6 +181,30 @@ export default function AchievementsSection() {
           </div>
         </div> */}
       </div>
+      
+
+      
     </section>
   )
 } 
+
+
+
+
+// <div className="mt-8 animate-fade-in">
+//           <div className="bg-gradient-to-r from-blue-600 via-teal-500 to-blue-600 rounded-2xl p-6 text-white">
+//             <h3 className="text-2xl font-bold mb-4 text-center">Why Choose Dr. Kedar Hibare?</h3>
+            
+//             <div className="grid md:grid-cols-3 gap-4">
+//               {achievements.map((achievement) => (
+//                 <div key={achievement.id} className="text-center">
+//                   <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mx-auto mb-3">
+//                     <span className="text-2xl">{achievement.icon}</span>
+//                   </div>
+//                   <h4 className="text-lg font-bold mb-1">{achievement.title}</h4>
+//                   <p className="text-blue-100 text-sm leading-relaxed">{achievement.description}</p>
+//                 </div>
+//               ))}
+//             </div>
+//           </div>
+//         </div>

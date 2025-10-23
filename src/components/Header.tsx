@@ -1,16 +1,31 @@
 'use client'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="bg-white shadow-lg border-b-4 border-blue-600 relative z-50">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/80 backdrop-blur-md shadow-xl border-b-2 border-blue-600/50' 
+        : 'bg-white shadow-lg border-b-4 border-blue-600'
+    }`}>
       {/* Top accent bar */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
       
@@ -74,7 +89,11 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 py-6 bg-gray-50">
+          <div className={`lg:hidden border-t py-6 transition-all duration-300 ${
+            isScrolled 
+              ? 'border-gray-200/50 bg-white/60 backdrop-blur-md' 
+              : 'border-gray-200 bg-gray-50'
+          }`}>
             <div className="flex flex-col space-y-6">
               <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
                 About Dr. Hibare
