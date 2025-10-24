@@ -169,10 +169,10 @@ export default function AboutSection() {
         
         {/* Combined Professional & Academic Journey */}
         <div className="animate-fade-in">
-          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white/95 backdrop-blur-sm border border-gray-200 shadow-xl'} rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
             {/* Specular highlights for Liquid Glass effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-br from-white/15 via-transparent to-white/5' : 'bg-gradient-to-br from-blue-50/30 via-transparent to-teal-50/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
+            <div className={`absolute top-0 left-0 w-full h-1 ${isDarkMode ? 'bg-gradient-to-r from-transparent via-white/25 to-transparent' : 'bg-gradient-to-r from-transparent via-blue-200/50 to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
             
             <div className="grid lg:grid-cols-2 gap-6">
               {/* Professional Background */}
@@ -185,9 +185,11 @@ export default function AboutSection() {
                       <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mx-auto"></div>
                 </div>
                 {Array.from({ length: 5 }, (_, index) => {
-                  const item = professionalBackground[index] || { id: index + 1, role: '', hospital: '', timePeriod: '', location: '', color: '', icon: '' };
+                  const item = professionalBackground[index] || { id: index + 1, role: '', hospital: '', timePeriod: '', location: '', color: 'blue', icon: '' };
+                  const colorClasses = getColorClasses(item.color);
+                  const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : 'bg-gray-50 border border-gray-200'} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
                       <div className="flex items-start space-x-3 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start mb-1">
@@ -231,9 +233,11 @@ export default function AboutSection() {
                       <div className="w-20 h-0.5 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full mx-auto"></div>
                 </div>
                 {Array.from({ length: 5 }, (_, index) => {
-                  const item = educationalBackground[index] || { id: index + 1, title: '', description: '', timePeriod: '', location: '', color: '', icon: '' };
+                  const item = educationalBackground[index] || { id: index + 1, title: '', description: '', timePeriod: '', location: '', color: 'blue', icon: '' };
+                  const colorClasses = getColorClasses(item.color);
+                  const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : 'bg-gray-50 border border-gray-200'} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
                       <div className="flex items-start space-x-3 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start mb-1">
