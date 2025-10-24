@@ -76,13 +76,13 @@ export default function Footer() {
           {/* Specialities */}
           <div>
             <h3 className="text-xl font-bold mb-4">Specialities</h3>
-            <div className="space-y-2 text-gray-300">
+            <div className={`space-y-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               <p>• Advanced Bronchoscopy</p>
               <p>• Endobronchial Ultrasound (EBUS)</p>
               <p>• Interventional Pulmonology</p>
               <p>• Thoracic Oncology</p>
               <p>• Interstitial Lung Diseases</p>
-              <p className="text-blue-400 mt-3">First in India - IAB Fellowship</p>
+              <p className={`${isDarkMode ? 'text-blue-400' : 'text-blue-600'} mt-3`}>First in India - IAB Fellowship</p>
             </div>
           </div>
           
@@ -90,29 +90,29 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <div className="space-y-2">
-              <a href="#about" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#about" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>
                 About Dr. Kedar Hibare
               </a>
-              <a href="#services" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#services" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>
                 Pulmonology Services
               </a>
-              <a href="#achievements" className="block text-gray-300 hover:text-white transition-colors">
+              <a href="#achievements" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'} transition-colors`}>
                 Achievements & Research
               </a>
-              <a href="/book-appointment" className="block text-blue-400 hover:text-blue-300 transition-colors">
+              <a href="/book-appointment" className={`block ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} transition-colors`}>
                 Book Consultation
               </a>
             </div>
-            <div className="mt-4 pt-4 border-t border-gray-700">
-              <p className="text-sm text-gray-400">Professional Memberships:</p>
-              <p className="text-xs text-gray-500 mt-1">WABIP • ERS • ACCP • Indian Chest Society</p>
+            <div className={`mt-4 pt-4 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`}>
+              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>Professional Memberships:</p>
+              <p className={`text-xs ${isDarkMode ? 'text-gray-500' : 'text-gray-600'} mt-1`}>WABIP • ERS • ACCP • Indian Chest Society</p>
             </div>
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <div className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'} mt-8 pt-8 text-center ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
           <p>&copy; 2024 Dr. Kedar Hibare - Interventional Pulmonologist. All rights reserved.</p>
-          <p className="mt-2 text-sm">
+          <p className={`mt-2 text-sm ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>
             Advanced respiratory care with cutting-edge interventional pulmonology expertise.
           </p>
         </div>
