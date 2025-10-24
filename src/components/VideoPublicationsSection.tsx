@@ -39,7 +39,7 @@ export default function VideoPublicationsSection() {
       id: 1,
       title: "Advanced Bronchoscopy Techniques",
       description: "Comprehensive guide to interventional pulmonology procedures and modern diagnostic techniques.",
-      thumbnail: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop&crop=center",
       duration: "15:30",
       views: "2.3K",
       date: "Dec 2024",

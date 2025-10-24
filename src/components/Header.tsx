@@ -47,24 +47,35 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-10">
-            <a href="#about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
+          <nav className="hidden lg:flex items-center space-x-10 ml-64">
+            <a href="#about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               About
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <a href="#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
+            <a href="#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               Services
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <a href="#achievements" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
+            <a href="#achievements" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               Achievements
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
+            <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               Courses
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </Link>
 
+            <Link 
+              href="/book-appointment" 
+              className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-8 py-3 font-semibold text-xs uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            >
+              Book Consultation
+            </Link>
+                 
+          </nav>
+
+          {/* Right side controls */}
+          <div className="hidden lg:flex items-center space-x-4">
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -81,21 +92,26 @@ export default function Header() {
                 </svg>
               )}
             </button>
-
-            <Link 
-              href="/book-appointment" 
-              className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
-            >
-              Book Consultation
-            </Link>
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-4">
-            {/* Mobile Contact */}
-                <div className="text-right">
-                  <p className={`text-xs ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} font-semibold`}>080 61 222 000</p>
-                </div>
+            {/* Mobile Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-lg transition-all duration-300 ${isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-100 hover:bg-gray-200'}`}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? (
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
 
             {/* Hamburger Menu Button */}
             <button 
@@ -140,9 +156,6 @@ export default function Header() {
               </Link>
               
               <div className={`border-t ${isDarkMode ? 'border-gray-600' : 'border-gray-300'} pt-4 px-4`}>
-                <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} font-medium mb-1`}>Emergency Contact</p>
-                <p className={`text-lg font-bold ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} mb-4`}>080 61 222 000</p>
-                
                 <Link 
                   href="/book-appointment" 
                   className="block bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider text-center transition-all duration-300"
