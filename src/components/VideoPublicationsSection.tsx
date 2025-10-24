@@ -15,6 +15,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop&crop=center",
       duration: "15:30",
       views: "2.3K",
+      date: "Dec 2024",
       category: "Medical Education",
       gradient: "from-blue-500 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100"
@@ -26,6 +27,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
       duration: "22:15",
       views: "1.8K",
+      date: "Nov 2024",
       category: "Oncology",
       gradient: "from-teal-500 to-teal-600",
       bgGradient: "from-teal-50 to-teal-100"
@@ -37,6 +39,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center",
       duration: "18:45",
       views: "3.1K",
+      date: "Oct 2024",
       category: "Research",
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100"
@@ -48,6 +51,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop&crop=center",
       duration: "12:20",
       views: "1.5K",
+      date: "Sep 2024",
       category: "Diagnostics",
       gradient: "from-green-500 to-green-600",
       bgGradient: "from-green-50 to-green-100"
@@ -59,6 +63,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center",
       duration: "20:10",
       views: "2.1K",
+      date: "Aug 2024",
       category: "Intervention",
       gradient: "from-orange-500 to-orange-600",
       bgGradient: "from-orange-50 to-orange-100"
@@ -70,6 +75,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
       duration: "16:35",
       views: "1.9K",
+      date: "Jul 2024",
       category: "Pleural Medicine",
       gradient: "from-red-500 to-red-600",
       bgGradient: "from-red-50 to-red-100"
@@ -81,6 +87,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1582719506-5e0d2b0b5b5b?w=400&h=300&fit=crop&crop=center",
       duration: "19:25",
       views: "2.7K",
+      date: "Jun 2024",
       category: "ILD",
       gradient: "from-indigo-500 to-indigo-600",
       bgGradient: "from-indigo-50 to-indigo-100"
@@ -92,6 +99,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
       duration: "14:50",
       views: "1.6K",
+      date: "May 2024",
       category: "Surgery",
       gradient: "from-pink-500 to-pink-600",
       bgGradient: "from-pink-50 to-pink-100"
@@ -103,6 +111,7 @@ export default function VideoPublicationsSection() {
       thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
       duration: "17:40",
       views: "2.4K",
+      date: "Apr 2024",
       category: "Testing",
       gradient: "from-cyan-500 to-cyan-600",
       bgGradient: "from-cyan-50 to-cyan-100"
@@ -254,31 +263,38 @@ export default function VideoPublicationsSection() {
 
         {/* Toggle Buttons */}
         <div className="flex justify-center mb-12">
-          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-2 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
-            {/* Specular highlights */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-            <div className="flex space-x-2 relative z-10">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-full p-2 shadow-lg relative w-fit mx-auto pr-4`}>
+            {/* Animated background slider */}
+            <div 
+              className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-300 ease-in-out ${
+                activeTab === 'videos' 
+                  ? 'left-2 w-[calc(50%+1rem)]' 
+                  : 'left-[calc(50%-1rem)] w-[calc(50%-1rem)]'
+              }`}
+            ></div>
+            
+            <div className="flex relative z-10">
               <button
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 relative z-10 cursor-pointer ${
+                className={`px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                   activeTab === 'videos'
-                    ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
-                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`
+                    ? 'text-white'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
                 }`}
               >
-                <span className="text-lg">🎥</span>
-                Videos ({videos.length})
+                <span className="text-base">🎥</span>
+                Videos
               </button>
               <button
                 onClick={() => setActiveTab('publications')}
-                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 relative z-10 cursor-pointer ${
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-0 cursor-pointer ${
                   activeTab === 'publications'
-                    ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
-                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`
+                    ? 'text-white'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
                 }`}
               >
-                <span className="text-lg">📚</span>
-                Publications ({publications.length})
+                <span className="text-base">📚</span>
+                Publications
               </button>
             </div>
           </div>
@@ -331,13 +347,14 @@ export default function VideoPublicationsSection() {
                   <div className="p-4 space-y-3">
                     <div className="flex items-center justify-between">
                       <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.views} views</span>
+                      <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.date}</span>
                     </div>
                     
                     <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 leading-tight line-clamp-2`}>
                       {video.title}
                     </h4>
                     
-                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs leading-relaxed line-clamp-2`}>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-xs leading-relaxed line-clamp-2`}>
                       {video.description}
                     </p>
                     
@@ -383,7 +400,7 @@ export default function VideoPublicationsSection() {
                     <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
                       {publication.authors}
                     </p>
-                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} leading-relaxed`}>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
                       {publication.description || "Research publication in the field of interventional pulmonology and respiratory medicine."}
                     </p>
                   </div>
