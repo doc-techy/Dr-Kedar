@@ -1,10 +1,12 @@
 'use client'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const { isDarkMode, toggleDarkMode } = useTheme()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -21,11 +23,15 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/80 backdrop-blur-md shadow-xl border-b-2 border-blue-600/50' 
-        : 'bg-white shadow-lg border-b-4 border-blue-600'
-    }`}>
+        <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isDarkMode
+            ? isScrolled
+              ? 'bg-black/80 backdrop-blur-md shadow-xl border-b-2 border-blue-400/50'
+              : 'bg-black/90 shadow-lg border-b-4 border-blue-400'
+            : isScrolled
+              ? 'bg-white/80 backdrop-blur-md shadow-xl border-b-2 border-blue-600/50'
+              : 'bg-white shadow-lg border-b-4 border-blue-600'
+        }`}>
       {/* Top accent bar */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
       
@@ -33,35 +39,52 @@ export default function Header() {
         <div className="flex justify-between items-center py-6">
           {/* Logo/Brand Section */}
           <div className="flex items-center">
-            <div className="border-l-4 border-blue-600 pl-4">
-              <h1 className="text-2xl lg:text-3xl font-bold text-gray-900 tracking-tight">
-                Dr. Kedar Hibare
-              </h1>
-            </div>
+                <div className={`border-l-4 ${isDarkMode ? 'border-blue-400' : 'border-blue-600'} pl-4`}>
+                  <h1 className={`text-2xl lg:text-3xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} tracking-tight`}>
+                    Dr. Kedar Hibare
+                  </h1>
+                </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-10">
-            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider relative group py-2">
+            <a href="#about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
               About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider relative group py-2">
+            <a href="#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
               Services
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <a href="#achievements" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider relative group py-2">
+            <a href="#achievements" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
               Achievements
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </a>
-            <Link href="/courses" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider relative group py-2">
+            <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-sm uppercase tracking-wider relative group py-2`}>
               Courses
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </Link>
+
+            {/* Dark Mode Toggle */}
+            <button
+              onClick={toggleDarkMode}
+              className={`p-2 rounded-lg transition-all duration-300 ${isDarkMode ? 'bg-white/10 hover:bg-white/20' : 'bg-gray-100 hover:bg-gray-200'}`}
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? (
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                </svg>
+              )}
+            </button>
 
             <Link 
               href="/book-appointment" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+              className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
             >
               Book Consultation
             </Link>
@@ -70,9 +93,9 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center space-x-4">
             {/* Mobile Contact */}
-            <div className="text-right">
-              <p className="text-xs text-blue-600 font-semibold">080 61 222 000</p>
-            </div>
+                <div className="text-right">
+                  <p className={`text-xs ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} font-semibold`}>080 61 222 000</p>
+                </div>
 
             {/* Hamburger Menu Button */}
             <button 
@@ -91,34 +114,38 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className={`lg:hidden border-t py-6 transition-all duration-300 ${
-            isScrolled 
-              ? 'border-gray-200/50 bg-white/60 backdrop-blur-md' 
-              : 'border-gray-200 bg-gray-50'
-          }`}>
+            {/* Mobile Menu */}
+            {isMenuOpen && (
+              <div className={`lg:hidden border-t py-6 transition-all duration-300 ${
+                isDarkMode
+                  ? isScrolled
+                    ? 'border-gray-600/50 bg-black/60 backdrop-blur-md'
+                    : 'border-gray-600 bg-gray-900/50'
+                  : isScrolled
+                    ? 'border-gray-300/50 bg-white/60 backdrop-blur-md'
+                    : 'border-gray-300 bg-gray-50'
+              }`}>
             <div className="flex flex-col space-y-6">
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
+              <a href="#about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
                 About Dr. Hibare
               </a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
+              <a href="#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
                 Pulmonology Services
               </a>
-              <a href="#achievements" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
+              <a href="#achievements" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
                 Achievements & Research
               </a>
-              <Link href="/courses" className="text-gray-700 hover:text-blue-600 transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4 hover:bg-white" onClick={toggleMenu}>
+              <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
                 Courses
               </Link>
               
-              <div className="border-t border-gray-300 pt-4 px-4">
-                <p className="text-xs text-gray-500 font-medium mb-1">Emergency Contact</p>
-                <p className="text-lg font-bold text-blue-600 mb-4">080 61 222 000</p>
+              <div className={`border-t ${isDarkMode ? 'border-gray-600' : 'border-gray-300'} pt-4 px-4`}>
+                <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} font-medium mb-1`}>Emergency Contact</p>
+                <p className={`text-lg font-bold ${isDarkMode ? 'text-blue-400' : 'text-blue-600'} mb-4`}>080 61 222 000</p>
                 
                 <Link 
                   href="/book-appointment" 
-                  className="block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider text-center transition-all duration-300"
+                  className="block bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider text-center transition-all duration-300"
                   onClick={toggleMenu}
                 >
                   Book Consultation

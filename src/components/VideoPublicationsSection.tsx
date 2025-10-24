@@ -1,7 +1,9 @@
 'use client'
 import { useState } from 'react'
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function VideoPublicationsSection() {
+  const { isDarkMode } = useTheme()
   const [activeTab, setActiveTab] = useState<'videos' | 'publications'>('videos')
   const [videosToShow, setVideosToShow] = useState(6) // 2 rows * 3 columns
   const [publicationsToShow, setPublicationsToShow] = useState(6) // 2 rows * 3 columns
@@ -242,8 +244,8 @@ export default function VideoPublicationsSection() {
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             Knowledge Sharing
           </div> */}
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-6">
-            Educational Videos & <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">Publications</span>
+          <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+            <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Educational Videos & Publications</span>
           </h2>
           {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Educational content and research publications showcasing expertise in interventional pulmonology and respiratory medicine.
@@ -252,14 +254,16 @@ export default function VideoPublicationsSection() {
 
         {/* Toggle Buttons */}
         <div className="flex justify-center mb-12">
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-2 shadow-lg">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-2 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+            {/* Specular highlights */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             <div className="flex space-x-2">
               <button
                 onClick={() => setActiveTab('videos')}
                 className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 ${
                   activeTab === 'videos'
-                    ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`
                 }`}
               >
                 <span className="text-lg">🎥</span>
@@ -269,8 +273,8 @@ export default function VideoPublicationsSection() {
                 onClick={() => setActiveTab('publications')}
                 className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 ${
                   activeTab === 'publications'
-                    ? 'bg-gradient-to-r from-blue-500 to-teal-500 text-white shadow-lg'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                    ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`
                 }`}
               >
                 <span className="text-lg">📚</span>
@@ -285,7 +289,9 @@ export default function VideoPublicationsSection() {
           <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {displayedVideos.map((video) => (
-                <div key={video.id} className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
+                  {/* Specular highlights */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
                   {/* Video Thumbnail - 70% height */}
                   <div className="relative h-48 overflow-hidden">
                     {/* Thumbnail Image */}
@@ -324,14 +330,14 @@ export default function VideoPublicationsSection() {
                   {/* Content - 30% height */}
                   <div className="p-4 space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs text-gray-500">{video.views} views</span>
+                      <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.views} views</span>
                     </div>
                     
-                    <h4 className="text-sm font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 leading-tight line-clamp-2">
+                    <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 leading-tight line-clamp-2`}>
                       {video.title}
                     </h4>
                     
-                    <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs leading-relaxed line-clamp-2`}>
                       {video.description}
                     </p>
                     
@@ -366,31 +372,33 @@ export default function VideoPublicationsSection() {
           <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {displayedPublications.map((publication) => (
-                <div key={publication.id} className="group bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1">
+                <div key={publication.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden`}>
+                  {/* Specular highlights */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                   {/* Title Section */}
                   <div className="mb-4">
-                    <h4 className="text-lg font-bold text-gray-900 leading-tight mb-2">
+                    <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight mb-2`}>
                       {publication.title}
                     </h4>
-                    <p className="text-sm text-gray-600 mb-3">
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
                       {publication.authors}
                     </p>
-                    <p className="text-sm text-gray-500 leading-relaxed">
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'} leading-relaxed`}>
                       {publication.description || "Research publication in the field of interventional pulmonology and respiratory medicine."}
                     </p>
                   </div>
 
                   {/* Separator */}
-                  <div className="border-t border-gray-200 mb-4"></div>
+                  <div className={`border-t ${isDarkMode ? 'border-white/20' : 'border-gray-200'} mb-4`}></div>
 
                   {/* Bottom Section */}
                   <div className="flex items-center justify-between">
                     {/* Publication Details */}
                     <div className="space-y-2">
-                      <p className="text-sm text-gray-700">
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                         {publication.journal}
                       </p>
-                      <p className="text-sm text-gray-700">
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                         {publication.year}
                       </p>
                     </div>

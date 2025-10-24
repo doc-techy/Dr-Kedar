@@ -1,4 +1,8 @@
+'use client'
+import { useTheme } from '@/contexts/ThemeContext'
+
 export default function ServicesSection() {
+  const { isDarkMode } = useTheme()
   const services = [
     {
       title: "Advanced Bronchoscopy",
@@ -58,10 +62,10 @@ export default function ServicesSection() {
           {/* <div className="inline-block bg-gradient-to-r from-blue-600 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Advanced Medical Services
           </div> */}
-          <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Specialized <span className="text-gradient">Pulmonology Services</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+                <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Specialized Pulmonology Services</span>
+              </h2>
+              <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
             Comprehensive respiratory care services with advanced interventional pulmonology 
             procedures designed to provide precise diagnosis and effective treatment for lung diseases.
           </p>
@@ -69,11 +73,14 @@ export default function ServicesSection() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group card-gradient p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
-              style={{animationDelay: `${index * 0.1}s`}}
-            >
+                <div 
+                  key={index} 
+                  className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-2xl relative overflow-hidden`}
+                  style={{animationDelay: `${index * 0.1}s`}}
+                >
+                  {/* Specular highlights for Liquid Glass effect */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               {/* Service Icon */}
               <div className="relative mb-4">
                 <div className={`absolute inset-0 bg-gradient-to-r ${service.bgGradient} rounded-2xl scale-110 opacity-50 group-hover:scale-125 transition-transform duration-500`}></div>
@@ -83,17 +90,17 @@ export default function ServicesSection() {
               </div>
               
               {/* Content */}
-              <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-4 text-sm">
-                {service.description}
-              </p>
+                  <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} mb-3 transition-colors duration-300`}>
+                    {service.title}
+                  </h3>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed mb-4 text-sm`}>
+                    {service.description}
+                  </p>
               
               {/* Features */}
               <div className="space-y-1 mb-4">
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className="flex items-center text-xs text-gray-700">
+                  <div key={featureIndex} className={`flex items-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                     <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2 group-hover:scale-125 transition-transform duration-300`}></div>
                     {feature}
                   </div>

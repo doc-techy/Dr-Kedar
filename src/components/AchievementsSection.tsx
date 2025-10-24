@@ -1,4 +1,8 @@
+'use client'
+import { useTheme } from '@/contexts/ThemeContext'
+
 export default function AchievementsSection() {
+  const { isDarkMode } = useTheme()
   const achievements = [
     {
       year: "2024",
@@ -58,20 +62,20 @@ export default function AchievementsSection() {
   ]
 
   return (
-    <section id="achievements" className="section-padding bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+    <section id="achievements" className="section-padding relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full filter blur-3xl opacity-30 animate-pulse-soft"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full filter blur-3xl opacity-30 animate-pulse-soft"></div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in">
           {/* <div className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Excellence & Recognition
           </div> */}
-          <h2 className="section-title text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Achievements & <span className="text-gradient">Recognition</span>
+          <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+            <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Achievements & Recognition</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
             Pioneer in Interventional Pulmonology in India with international recognition and 
             outstanding contributions to respiratory medicine research and education.
           </p>
@@ -85,12 +89,12 @@ export default function AchievementsSection() {
               className="text-center group animate-fade-in hover-lift"
               style={{animationDelay: `${index * 0.1}s`}}
             >
-              <div className="card p-8 group-hover:shadow-2xl transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-8 group-hover:shadow-2xl transition-all duration-300 rounded-2xl">
                 <div className="text-4xl mb-4 animate-float" style={{animationDelay: `${index * 0.5}s`}}>
                   {stat.icon}
                 </div>
                 <div className={`stat-number mb-2 ${stat.color}`}>{stat.number}</div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-gray-300 font-medium">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -101,11 +105,14 @@ export default function AchievementsSection() {
           {/* <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 animate-fade-in">Awards & Recognition</h3> */}
           <div className="grid md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => (
-              <div 
-                key={index} 
-                className="group card p-6 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in"
-                style={{animationDelay: `${index * 0.1}s`}}
-              >
+                  <div 
+                    key={index} 
+                    className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-2xl relative overflow-hidden`}
+                    style={{animationDelay: `${index * 0.1}s`}}
+                  >
+                    {/* Specular highlights for Liquid Glass effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
                     <div className={`w-12 h-12 bg-gradient-to-r ${achievement.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
@@ -115,16 +122,16 @@ export default function AchievementsSection() {
                   <div className="flex-1">
                     <div className="flex items-center mb-2">
                       <span className="text-2xl mr-2">{achievement.icon}</span>
-                      <h4 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                        {achievement.title}
-                      </h4>
-                    </div>
-                    <p className={`font-semibold mb-2 text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
-                      {achievement.organization}
-                    </p>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {achievement.description}
-                    </p>
+                          <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                            {achievement.title}
+                          </h4>
+                        </div>
+                        <p className={`font-semibold mb-2 text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                          {achievement.organization}
+                        </p>
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-sm`}>
+                          {achievement.description}
+                        </p>
                     <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                   </div>
                 </div>
@@ -135,23 +142,27 @@ export default function AchievementsSection() {
 
         {/* Professional Memberships */}
         <div className="mb-20 animate-fade-in">
-          <h3 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-12">Professional Memberships</h3>
+          <h3 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-center mb-12`}>
+            <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Professional Memberships</span>
+          </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {memberships.map((membership, index) => (
               <div 
                 key={index} 
-                className="group card p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl relative overflow-hidden`}
                 style={{animationDelay: `${index * 0.1}s`}}
               >
+                {/* Specular highlights */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="flex items-center space-x-4">
                   <div className={`w-12 h-12 ${membership.color} rounded-xl flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}>
                     {membership.short}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                    <h4 className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
                       {membership.short}
                     </h4>
-                    <p className="text-sm text-gray-600">{membership.name}</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{membership.name}</p>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ThemeProvider } from '@/contexts/ThemeContext';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -21,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+        <ThemeProvider>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

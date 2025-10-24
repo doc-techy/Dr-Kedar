@@ -1,13 +1,17 @@
+'use client'
+import { useTheme } from '@/contexts/ThemeContext'
+
 export default function Footer() {
+  const { isDarkMode } = useTheme()
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className={`${isDarkMode ? 'bg-black/90 backdrop-blur-xl border-t border-white/20 text-white' : 'bg-gray-50 border-t border-gray-200 text-gray-900'} py-12`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-bold mb-4">Dr. Kedar Hibare</h3>
-            <p className="text-blue-400 mb-4 font-medium">Lead Consultant - Clinical & Interventional Pulmonologist</p>
-            <div className="space-y-2 text-gray-300">
+            <p className={`${isDarkMode ? 'text-blue-400' : 'text-blue-600'} mb-4 font-medium`}>Lead Consultant - Clinical & Interventional Pulmonologist</p>
+            <div className={`space-y-2 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               <p>🏥 SPARSH Hospital, Hennur Road</p>
               <p>📍 HBR Layout, Hennur Road, Bengaluru - 560043</p>
               <p>📞 080 61 222 000</p>
@@ -22,7 +26,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/in/drkedarhibare" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors"
+                  className={`${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} transition-colors`}
                   title="LinkedIn Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

@@ -1,8 +1,12 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import img from '../../public/images/Dr-Kedar-Hibare-01.jpg'
+import { useTheme } from '@/contexts/ThemeContext'
 
 export default function HeroSection() {
+  const { isDarkMode } = useTheme()
+  
   return (
     <section className="relative overflow-hidden min-h-screen">
       
@@ -12,22 +16,23 @@ export default function HeroSection() {
           {/* Content Section */}
           <div className="order-2 lg:order-1 space-y-8">
             
-            {/* Professional Badge */}
-            <div className="inline-flex items-center gap-3 bg-blue-600/10 border border-blue-200 rounded-full px-6 py-3">
-              <div className="w-3 h-3 bg-blue-600 rounded-full animate-pulse"></div>
-              <span className="text-blue-700 font-semibold text-sm uppercase tracking-wider">
+            {/* Professional Badge - Liquid Glass */}
+            {/* <div className={`inline-flex items-center gap-3 ${isDarkMode ? 'bg-white/8 backdrop-blur-2xl border border-white/15' : 'bg-blue-50 border border-blue-200'} rounded-full px-6 py-3 shadow-2xl relative overflow-hidden group`}>
+              <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-white/20 via-transparent to-white/10' : 'bg-gradient-to-r from-blue-100 via-transparent to-blue-50'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse relative z-10"></div>
+              <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-700'} font-semibold text-sm uppercase tracking-wider relative z-10`}>
                 Lead Consultant Pulmonologist
               </span>
-            </div>
+            </div> */}
             
             {/* Main Heading */}
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight`}>
                 Dr. Kedar Hibare
               </h1>
-              <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-teal-500"></div>
-              <h2 className="text-2xl lg:text-3xl text-gray-700 font-medium">
-                Interventional Pulmonology Expert
+              <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-teal-400"></div>
+              <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
+                <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Interventional Pulmonology Expert</span>
               </h2>
             </div>
             
@@ -52,27 +57,31 @@ export default function HeroSection() {
             </div> */}
             
             {/* Description */}
-            <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+            <p className={`text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed max-w-xl`}>
               Internationally trained specialist in advanced bronchoscopy and interventional pulmonology. 
               Expert in minimally invasive procedures for complex respiratory conditions with a focus on 
-              <span className="font-semibold text-gray-900"> patient-centered care and cutting-edge treatment</span>.
+              <span className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}> patient-centered care and cutting-edge treatment</span>.
             </p>
             
             {/* Specializations */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-gray-900">Key Specializations</h3>
+              <h3 className={`text-lg font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Key Specializations</h3>
               <div className="flex flex-wrap gap-2">
-                <span className="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">
-                  Advanced Bronchoscopy
+                <span className={`${isDarkMode ? 'bg-white/8 backdrop-blur-2xl text-blue-300 border border-white/15' : 'bg-blue-50 text-blue-700 border border-blue-200'} px-4 py-2 rounded-full text-sm font-medium shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-300`}>
+                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-white/15 via-transparent to-white/5' : 'bg-gradient-to-r from-blue-100 via-transparent to-blue-50'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <span className="relative z-10">Advanced Bronchoscopy</span>
                 </span>
-                <span className="bg-teal-50 text-teal-700 px-4 py-2 rounded-full text-sm font-medium border border-teal-200">
-                  EBUS Procedures
+                <span className={`${isDarkMode ? 'bg-white/8 backdrop-blur-2xl text-teal-300 border border-white/15' : 'bg-teal-50 text-teal-700 border border-teal-200'} px-4 py-2 rounded-full text-sm font-medium shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-300`}>
+                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-white/15 via-transparent to-white/5' : 'bg-gradient-to-r from-teal-100 via-transparent to-teal-50'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <span className="relative z-10">EBUS Procedures</span>
                 </span>
-                <span className="bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200">
-                  Thoracic Oncology
+                <span className={`${isDarkMode ? 'bg-white/8 backdrop-blur-2xl text-green-300 border border-white/15' : 'bg-green-50 text-green-700 border border-green-200'} px-4 py-2 rounded-full text-sm font-medium shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-300`}>
+                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-white/15 via-transparent to-white/5' : 'bg-gradient-to-r from-green-100 via-transparent to-green-50'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <span className="relative z-10">Thoracic Oncology</span>
                 </span>
-                <span className="bg-purple-50 text-purple-700 px-4 py-2 rounded-full text-sm font-medium border border-purple-200">
-                  Airway Interventions
+                <span className={`${isDarkMode ? 'bg-white/8 backdrop-blur-2xl text-purple-300 border border-white/15' : 'bg-purple-50 text-purple-700 border border-purple-200'} px-4 py-2 rounded-full text-sm font-medium shadow-xl relative overflow-hidden group hover:shadow-2xl transition-all duration-300`}>
+                  <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-r from-white/15 via-transparent to-white/5' : 'bg-gradient-to-r from-purple-100 via-transparent to-purple-50'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+                  <span className="relative z-10">Airway Interventions</span>
                 </span>
               </div>
             </div>
@@ -81,7 +90,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <Link 
                 href="/book-appointment"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
+                className="bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-8 py-4 font-semibold text-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 group"
               >
                 <span className="flex items-center justify-center gap-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +104,7 @@ export default function HeroSection() {
               </Link>
               <a 
                 href="tel:08061222000"
-                className="border-2 border-gray-300 hover:border-blue-600 text-gray-700 hover:text-blue-600 px-8 py-4 font-semibold text-lg transition-all duration-300 group"
+                className={`border-2 ${isDarkMode ? 'border-gray-600 hover:border-blue-400 text-gray-300 hover:text-blue-400' : 'border-gray-400 hover:border-blue-600 text-gray-700 hover:text-blue-600'} px-8 py-4 font-semibold text-lg transition-all duration-300 group`}
               >
                 <span className="flex items-center justify-center gap-3">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -112,12 +121,15 @@ export default function HeroSection() {
             <div className="relative">
               
                              {/* Professional frame */}
-               <div className="relative bg-white rounded-2xl p-8 shadow-2xl">
-                 <div className="relative w-full max-w-lg mx-auto">
+               <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
+                 {/* Specular highlights for Liquid Glass effect */}
+                 <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                 <div className="relative w-full max-w-md mx-auto">
                    
                    {/* Background decorative elements */}
-                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-100 rounded-full opacity-60"></div>
-                   <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-100 rounded-full opacity-40"></div>
+                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-400/30 rounded-full opacity-60"></div>
+                   <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-400/30 rounded-full opacity-40"></div>
                    
                    {/* Main image */}
                    <div className="relative rounded-xl overflow-hidden">

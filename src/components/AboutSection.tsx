@@ -1,4 +1,8 @@
+'use client'
+import { useTheme } from '@/contexts/ThemeContext'
+
 export default function AboutSection() {
+  const { isDarkMode } = useTheme()
   // Professional Background Data Array
   const professionalBackground = [
     {
@@ -36,6 +40,15 @@ export default function AboutSection() {
       location: "Multiple locations",
       color: "blue",
       icon: "⚕️"
+    },
+    {
+      id: 5,
+      role: "",
+      hospital: "",
+      timePeriod: "",
+      location: "",
+      color: "",
+      icon: ""
     }
   ];
 
@@ -148,42 +161,57 @@ export default function AboutSection() {
             Professional Excellence
           </div> */}
           
-          <h2 className="text-4xl lg:text-5xl font-black text-gray-900 mb-2">
-            Academic Excellence & <span className="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent font-black">Professional Mastery</span>
-          </h2>
-          <p className="text-gray-600 text-sm max-w-2xl mx-auto">Leading pulmonology expert with international training and cutting-edge expertise</p>
+              <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2`}>
+                <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Academic Excellence & Professional Mastery</span>
+              </h2>
+              {/* <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-sm max-w-2xl mx-auto`}>Leading pulmonology expert with international training and cutting-edge expertise</p> */}
         </div>
         
         {/* Combined Professional & Academic Journey */}
         <div className="animate-fade-in">
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl p-6 shadow-xl">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
+            {/* Specular highlights for Liquid Glass effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             <div className="grid lg:grid-cols-2 gap-6">
               {/* Professional Background */}
               <div className="space-y-3">
                 <div className="text-center mb-4">
-                  <h4 className="text-3xl font-black text-gray-900 mb-2 flex items-center justify-center">
-                    {/* <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></div> */}
-                    Professional Journey
-                  </h4>
-                  <div className="w-20 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mx-auto"></div>
+                      <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
+                        {/* <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></div> */}
+                        Professional Journey
+                      </h4>
+                      <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mx-auto"></div>
                 </div>
-                {professionalBackground.map((item) => {
-                  const colors = getColorClasses(item.color);
+                {Array.from({ length: 5 }, (_, index) => {
+                  const item = professionalBackground[index] || { id: index + 1, role: '', hospital: '', timePeriod: '', location: '', color: '', icon: '' };
                   return (
-                    <div key={item.id} className={`${colors.bg} p-3 rounded-lg border border-gray-200/50`}>
-                      <div className="flex items-start space-x-3">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : 'bg-gray-50 border border-gray-200'} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex items-start space-x-3 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start mb-1">
                             <div className="flex-1">
-                              <p className="font-semibold text-gray-900 text-base leading-tight">{item.role}</p>
-                              <p className="text-gray-600 text-sm font-medium mt-1">{item.hospital}</p>
+                              {item.role ? (
+                                <>
+                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'} text-base leading-tight transition-colors duration-300`}>{item.role}</p>
+                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-sm font-medium mt-1 transition-colors duration-300`}>{item.hospital}</p>
+                                </>
+                              ) : (
+                                <div className="h-8"></div>
+                              )}
                             </div>
                             <div className="text-right flex-shrink-0 ml-2">
-                              <span className={`${colors.text} text-sm font-medium block`}>
-                                {item.timePeriod}
-                              </span>
-                              <p className={`${colors.text} text-sm mt-1`}>{item.location}</p>
+                              {item.timePeriod ? (
+                                <>
+                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
+                                    {item.timePeriod}
+                                  </span>
+                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm mt-1`}>{item.location}</p>
+                                </>
+                              ) : (
+                                <div className="h-8"></div>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -196,28 +224,40 @@ export default function AboutSection() {
               {/* Educational Background */}
               <div className="space-y-3">
                 <div className="text-center mb-4">
-                  <h4 className="text-3xl font-black text-gray-900 mb-2 flex items-center justify-center">
-                    {/* <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mr-3 shadow-sm"></div> */}
-                    Academic Journey
-                  </h4>
-                  <div className="w-20 h-0.5 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mx-auto"></div>
+                      <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
+                        {/* <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mr-3 shadow-sm"></div> */}
+                        Academic Journey
+                      </h4>
+                      <div className="w-20 h-0.5 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full mx-auto"></div>
                 </div>
-                {educationalBackground.map((item) => {
-                  const colors = getColorClasses(item.color);
+                {Array.from({ length: 5 }, (_, index) => {
+                  const item = educationalBackground[index] || { id: index + 1, title: '', description: '', timePeriod: '', location: '', color: '', icon: '' };
                   return (
-                    <div key={item.id} className={`${colors.bg} p-3 rounded-lg border border-gray-200/50`}>
-                      <div className="flex items-start space-x-3">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : 'bg-gray-50 border border-gray-200'} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex items-start space-x-3 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start mb-1">
                             <div className="flex-1">
-                              <p className="font-semibold text-gray-900 text-base leading-tight">{item.title}</p>
-                              <p className="text-gray-600 text-sm font-medium mt-1">{item.description}</p>
+                              {item.title ? (
+                                <>
+                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-teal-300' : 'text-gray-900 group-hover:text-teal-600'} text-base leading-tight transition-colors duration-300`}>{item.title}</p>
+                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-sm font-medium mt-1 transition-colors duration-300`}>{item.description}</p>
+                                </>
+                              ) : (
+                                <div className="h-8"></div>
+                              )}
                             </div>
                             <div className="text-right flex-shrink-0 ml-2">
-                              <span className={`${colors.text} text-sm font-medium block`}>
-                                {item.timePeriod}
-                              </span>
-                              <p className={`${colors.text} text-sm mt-1`}>{item.location}</p>
+                              {item.timePeriod ? (
+                                <>
+                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
+                                    {item.timePeriod}
+                                  </span>
+                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm mt-1`}>{item.location}</p>
+                                </>
+                              ) : (
+                                <div className="h-8"></div>
+                              )}
                             </div>
                           </div>
                         </div>

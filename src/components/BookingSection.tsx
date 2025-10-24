@@ -2,28 +2,28 @@ import Link from 'next/link'
 
 export default function BookingSection() {
   return (
-    <section className="section-padding bg-gray-50">
+    <section className="section-padding bg-black/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Content */}
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl overflow-hidden">
           <div className="grid lg:grid-cols-2">
             
             {/* Left Content */}
             <div className="p-12 lg:p-16">
               <div className="max-w-lg">
-                <div className="inline-flex items-center gap-3 bg-blue-50 border border-blue-200 rounded-full px-4 py-2 mb-6">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span className="text-blue-700 font-medium text-sm uppercase tracking-wider">
+                <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                  <span className="text-blue-300 font-medium text-sm uppercase tracking-wider">
                     Book Consultation
                   </span>
                 </div>
                 
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
                   Schedule Your Expert Consultation
                 </h2>
                 
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-lg text-gray-300 mb-8 leading-relaxed">
                   Get specialized respiratory care from India's leading interventional pulmonologist. 
                   Expert diagnosis and treatment for complex lung conditions.
                 </p>
@@ -37,8 +37,8 @@ export default function BookingSection() {
                       </svg>
                     </div>
                     <div>
-                      <div className="font-semibold text-gray-900">Call Direct</div>
-                      <div className="text-blue-600 font-medium">080 61 222 000</div>
+                      <div className="font-semibold text-white">Call Direct</div>
+                      <div className="text-blue-400 font-medium">080 61 222 000</div>
                     </div>
                   </div>
                   
