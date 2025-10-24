@@ -23,7 +23,7 @@ export default function VideoPublicationsSection() {
       id: 2,
       title: "Lung Cancer Diagnosis & Treatment",
       description: "Latest advances in thoracic oncology and personalized treatment approaches.",
-      thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
       duration: "22:15",
       views: "1.8K",
       category: "Oncology",
@@ -56,7 +56,7 @@ export default function VideoPublicationsSection() {
       id: 5,
       title: "Airway Stenting Procedures",
       description: "Comprehensive overview of airway stenting techniques and patient management.",
-      thumbnail: "https://images.unsplash.com/photo-1576091160550-2173dba0ef54?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center",
       duration: "20:10",
       views: "2.1K",
       category: "Intervention",
@@ -236,7 +236,7 @@ export default function VideoPublicationsSection() {
   const displayedPublications = publications.slice(0, publicationsToShow)
 
   return (
-    <section id="video-publications" className="py-16 lg:py-20 relative overflow-hidden">
+    <section id="video-publications" className="relative overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
@@ -256,11 +256,11 @@ export default function VideoPublicationsSection() {
         <div className="flex justify-center mb-12">
           <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-2 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500`}>
             {/* Specular highlights */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-            <div className="flex space-x-2">
+            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+            <div className="flex space-x-2 relative z-10">
               <button
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 ${
+                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 relative z-10 cursor-pointer ${
                   activeTab === 'videos'
                     ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`
@@ -271,7 +271,7 @@ export default function VideoPublicationsSection() {
               </button>
               <button
                 onClick={() => setActiveTab('publications')}
-                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 ${
+                className={`px-8 py-4 rounded-xl font-semibold text-sm transition-all duration-300 flex items-center gap-3 relative z-10 cursor-pointer ${
                   activeTab === 'publications'
                     ? 'bg-gradient-to-r from-blue-400 to-teal-400 text-white shadow-lg'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/10' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100'}`

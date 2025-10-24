@@ -7,7 +7,7 @@ export default function ServicesSection() {
     {
       title: "Advanced Bronchoscopy",
       description: "Rigid & Flexible bronchoscopy procedures for precise lung diagnosis and treatment planning with state-of-the-art imaging technology.",
-      icon: "🫁",
+      icon: "🩺",
       gradient: "from-blue-500 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
       features: ["Rigid Bronchoscopy", "Flexible Bronchoscopy", "Real-time Imaging"]
@@ -31,7 +31,7 @@ export default function ServicesSection() {
     {
       title: "Lung Cancer Diagnosis",
       description: "Comprehensive thoracic oncology care with cutting-edge diagnostic and personalized treatment solutions.",
-      icon: "🎯",
+      icon: "🫀",
       gradient: "from-red-500 to-red-600",
       bgGradient: "from-red-50 to-red-100",
       features: ["Early Detection", "Staging", "Treatment Planning"]
@@ -39,7 +39,7 @@ export default function ServicesSection() {
     {
       title: "Interstitial Lung Diseases",
       description: "Expert diagnosis and management of complex lung conditions, pulmonary fibrosis, and rare respiratory disorders.",
-      icon: "📊",
+      icon: "🫁",
       gradient: "from-green-500 to-green-600",
       bgGradient: "from-green-50 to-green-100",
       features: ["ILD Diagnosis", "Pulmonary Function", "Treatment Plans"]
@@ -47,7 +47,7 @@ export default function ServicesSection() {
     {
       title: "Therapeutic Thoracoscopy",
       description: "Minimally invasive procedures including pleuroscopy and IPC placement for pleural conditions and lung diseases.",
-      icon: "🔧",
+      icon: "🏥",
       gradient: "from-orange-500 to-orange-600",
       bgGradient: "from-orange-50 to-orange-100",
       features: ["Pleuroscopy", "IPC Placement", "Pleural Biopsy"]
@@ -93,14 +93,14 @@ export default function ServicesSection() {
                   <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} mb-3 transition-colors duration-300`}>
                     {service.title}
                   </h3>
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed mb-4 text-sm`}>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-4 text-sm`}>
                     {service.description}
                   </p>
               
               {/* Features */}
               <div className="space-y-1 mb-4">
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className={`flex items-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                  <div key={featureIndex} className={`flex items-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                     <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2 group-hover:scale-125 transition-transform duration-300`}></div>
                     {feature}
                   </div>
