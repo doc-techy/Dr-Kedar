@@ -7,6 +7,33 @@ export default function VideoPublicationsSection() {
   const [activeTab, setActiveTab] = useState<'videos' | 'publications'>('videos')
   const [videosToShow, setVideosToShow] = useState(6) // 2 rows * 3 columns
   const [publicationsToShow, setPublicationsToShow] = useState(6) // 2 rows * 3 columns
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  const [currentPublicationIndex, setCurrentPublicationIndex] = useState(0)
+
+  const scrollVideosLeft = () => {
+    if (currentVideoIndex > 0) {
+      setCurrentVideoIndex(currentVideoIndex - 1)
+    }
+  }
+
+  const scrollVideosRight = () => {
+    if (currentVideoIndex < Math.ceil(videos.length / 2) - 1) {
+      setCurrentVideoIndex(currentVideoIndex + 1)
+    }
+  }
+
+  const scrollPublicationsLeft = () => {
+    if (currentPublicationIndex > 0) {
+      setCurrentPublicationIndex(currentPublicationIndex - 1)
+    }
+  }
+
+  const scrollPublicationsRight = () => {
+    if (currentPublicationIndex < Math.ceil(publications.length / 2) - 1) {
+      setCurrentPublicationIndex(currentPublicationIndex + 1)
+    }
+  }
+
   const videos = [
     {
       id: 1,
@@ -303,7 +330,8 @@ export default function VideoPublicationsSection() {
         {/* Content based on active tab */}
         {activeTab === 'videos' ? (
           <div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {/* Desktop Videos Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {displayedVideos.map((video) => (
                 <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
                   {/* Specular highlights */}
@@ -384,10 +412,100 @@ export default function VideoPublicationsSection() {
                 )}
               </div>
             )}
+
+            {/* Mobile Videos Scrolling */}
+            <div className="md:hidden mb-8">
+              {/* Navigation Buttons */}
+              <div className="flex justify-between items-center mb-6">
+                <button
+                  onClick={scrollVideosLeft}
+                  disabled={currentVideoIndex === 0}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <div className="flex space-x-2">
+                  {Array.from({ length: Math.ceil(videos.length / 2) }, (_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentVideoIndex 
+                          ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                          : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                <button
+                  onClick={scrollVideosRight}
+                  disabled={currentVideoIndex === Math.ceil(videos.length / 2) - 1}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === Math.ceil(videos.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Mobile Videos Cards */}
+              <div className="relative overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentVideoIndex * 100}%)` }}
+                >
+                  {Array.from({ length: Math.ceil(videos.length / 2) }, (_, pageIndex) => (
+                    <div key={pageIndex} className="w-full flex-shrink-0 px-4">
+                      <div className="space-y-4">
+                        {videos.slice(pageIndex * 2, (pageIndex + 1) * 2).map((video) => (
+                          <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
+                            {/* Specular highlights */}
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
+                            
+                            {/* Video Thumbnail - 70% height */}
+                            <div className="relative h-48 overflow-hidden">
+                              <img 
+                                src={video.thumbnail} 
+                                alt={video.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                              <div className="absolute top-3 right-3 bg-black/70 text-white px-2 py-1 rounded text-xs font-medium">
+                                {video.duration}
+                              </div>
+                              <div className="absolute bottom-3 left-3 text-white">
+                                <div className="flex items-center justify-between">
+                                  <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.views} views</span>
+                                  <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.date}</span>
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Video Content - 30% height */}
+                            <div className="p-4">
+                              <h3 className={`text-sm font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 mb-2`}>
+                                {video.title}
+                              </h3>
+                              <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-xs leading-relaxed line-clamp-2`}>
+                                {video.description}
+                              </p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         ) : (
           <div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {/* Desktop Publications Grid */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {displayedPublications.map((publication) => (
                 <div key={publication.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden`}>
                   {/* Specular highlights */}
@@ -454,6 +572,92 @@ export default function VideoPublicationsSection() {
             )}
           </div>
         )}
+
+        {/* Mobile Publications Scrolling */}
+        <div className="md:hidden mb-8">
+          {/* Navigation Buttons */}
+          <div className="flex justify-between items-center mb-6">
+            <button
+              onClick={scrollPublicationsLeft}
+              disabled={currentPublicationIndex === 0}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <div className="flex space-x-2">
+              {Array.from({ length: Math.ceil(publications.length / 2) }, (_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentPublicationIndex 
+                      ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                      : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={scrollPublicationsRight}
+              disabled={currentPublicationIndex === Math.ceil(publications.length / 2) - 1}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === Math.ceil(publications.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Publications Cards */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentPublicationIndex * 100}%)` }}
+            >
+              {Array.from({ length: Math.ceil(publications.length / 2) }, (_, pageIndex) => (
+                <div key={pageIndex} className="w-full flex-shrink-0 px-4">
+                  <div className="space-y-4">
+                    {publications.slice(pageIndex * 2, (pageIndex + 1) * 2).map((publication) => (
+                      <div key={publication.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden`}>
+                        {/* Specular highlights */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                        
+                        {/* Title Section */}
+                        <div className="mb-4">
+                          <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight mb-2`}>
+                            {publication.title}
+                          </h4>
+                          <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
+                            {publication.authors}
+                          </p>
+                          <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
+                            {publication.description}
+                          </p>
+                        </div>
+                        
+                        {/* Separator */}
+                        <div className={`border-t ${isDarkMode ? 'border-white/20' : 'border-gray-200'} mb-4`}></div>
+                        
+                        {/* Journal and Year */}
+                        <div className="flex justify-between items-center">
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                            {publication.journal}
+                          </span>
+                          <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                            {publication.year}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
 
         {/* Read More Button */}
         {/* <div className="flex justify-end mt-12">

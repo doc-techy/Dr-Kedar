@@ -1,8 +1,24 @@
 'use client'
+import { useState, useRef } from 'react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function ServicesSection() {
   const { isDarkMode } = useTheme()
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1)
+    }
+  }
+
+  const scrollRight = () => {
+    if (currentIndex < services.length - 1) {
+      setCurrentIndex(currentIndex + 1)
+    }
+  }
+
   const services = [
     {
       title: "Advanced Bronchoscopy",
@@ -71,7 +87,8 @@ export default function ServicesSection() {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
                 <div 
                   key={index} 
@@ -111,6 +128,88 @@ export default function ServicesSection() {
               <div className={`h-1 bg-gradient-to-r ${service.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile Scrolling View */}
+        <div className="md:hidden mb-16">
+          {/* Navigation Buttons */}
+          <div className="flex justify-between items-center mb-6">
+            <button
+              onClick={scrollLeft}
+              disabled={currentIndex === 0}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <div className="flex space-x-2">
+              {services.map((_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex 
+                      ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                      : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={scrollRight}
+              disabled={currentIndex === services.length - 1}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentIndex === services.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Mobile Service Card */}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {services.map((service, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-4">
+                  <div className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-2xl relative overflow-hidden`}>
+                    {/* Specular highlights for Liquid Glass effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Service Icon */}
+                    <div className="text-center mb-6">
+                      <div className={`w-16 h-16 bg-gradient-to-r ${service.gradient} rounded-2xl flex items-center justify-center text-white text-2xl mx-auto mb-4 shadow-2xl group-hover:scale-110 transition-all duration-500 group-hover:shadow-3xl`}>
+                        {service.icon}
+                      </div>
+                      <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                        {service.title}
+                      </h3>
+                    </div>
+
+                    {/* Service Description */}
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-4 text-sm`}>
+                      {service.description}
+                    </p>
+
+                    {/* Service Features */}
+                    <div className="space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className={`flex items-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                          <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 shadow-sm`}></div>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
         
       </div>

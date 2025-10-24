@@ -1,8 +1,10 @@
 'use client'
+import { useState } from 'react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function AboutSection() {
   const { isDarkMode } = useTheme()
+  const [activeTab, setActiveTab] = useState('professional')
   // Professional Background Data Array
   const professionalBackground = [
     {
@@ -174,9 +176,44 @@ export default function AboutSection() {
             <div className={`absolute inset-0 ${isDarkMode ? 'bg-gradient-to-br from-white/15 via-transparent to-white/5' : 'bg-gradient-to-br from-blue-50/30 via-transparent to-teal-50/20'} opacity-0 group-hover:opacity-100 transition-opacity duration-700`}></div>
             <div className={`absolute top-0 left-0 w-full h-1 ${isDarkMode ? 'bg-gradient-to-r from-transparent via-white/25 to-transparent' : 'bg-gradient-to-r from-transparent via-blue-200/50 to-transparent'} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
             
+            {/* Mobile Toggle Button - Only visible on mobile */}
+            <div className="lg:hidden mb-8">
+              <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-full p-2 shadow-lg relative w-fit mx-auto`}>
+                <div 
+                  className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-300 ease-in-out ${
+                    activeTab === 'professional' 
+                      ? 'left-2 w-[calc(50%-0.25rem)]' 
+                      : 'left-[calc(50%-0.25rem)] w-[calc(50%-0.25rem)]'
+                  }`}
+                ></div>
+                <button
+                  onClick={() => setActiveTab('professional')}
+                  className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
+                    activeTab === 'professional'
+                      ? 'text-white'
+                      : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
+                  }`}
+                >
+                  <span className="text-base">💼</span>
+                  Professional
+                </button>
+                <button
+                  onClick={() => setActiveTab('academic')}
+                  className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
+                    activeTab === 'academic'
+                      ? 'text-white'
+                      : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
+                  }`}
+                >
+                  <span className="text-base">🎓</span>
+                  Academic
+                </button>
+              </div>
+            </div>
+
             <div className="grid lg:grid-cols-2 gap-6">
               {/* Professional Background */}
-              <div className="space-y-3">
+              <div className={`space-y-3 ${activeTab === 'professional' ? 'block' : 'hidden'} lg:block`}>
                 <div className="text-center mb-4">
                       <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></div> */}
@@ -224,7 +261,7 @@ export default function AboutSection() {
               </div>
               
               {/* Educational Background */}
-              <div className="space-y-3">
+              <div className={`space-y-3 ${activeTab === 'academic' ? 'block' : 'hidden'} lg:block`}>
                 <div className="text-center mb-4">
                       <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mr-3 shadow-sm"></div> */}
