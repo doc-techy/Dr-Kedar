@@ -129,7 +129,7 @@ export default function CoursesPage() {
             {/* Courses Grid */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {courses.map((course) => (
-                <div key={course.id} className="group relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 hover:bg-white/12 hover:border-white/25 shadow-xl h-full flex flex-col overflow-hidden">
+                <div key={course.id} className={`group relative ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 ${isDarkMode ? 'hover:bg-white/12 hover:border-white/25' : 'hover:bg-white hover:border-gray-300'} shadow-xl h-full flex flex-col overflow-hidden`}>
                   {/* Liquid Glass Effect - Multiple Layers */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/6 via-white/2 to-transparent rounded-3xl pointer-events-none"></div>
                   <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/4 to-white/8 rounded-3xl pointer-events-none"></div>
@@ -146,31 +146,31 @@ export default function CoursesPage() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-white mb-2 drop-shadow-lg group-hover:text-gray-100 transition-colors duration-500">{course.title}</h3>
-                    <p className="text-gray-300 text-sm font-medium group-hover:text-gray-200 transition-colors duration-500">{course.mode}</p>
+                    <h3 className={`text-xl font-bold ${isDarkMode ? 'text-white group-hover:text-gray-100' : 'text-gray-900 group-hover:text-gray-800'} mb-2 drop-shadow-lg transition-colors duration-500`}>{course.title}</h3>
+                    <p className={`text-sm font-medium ${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} transition-colors duration-500`}>{course.mode}</p>
                   </div>
 
                   {/* Course Details - Liquid Glass Style */}
                   <div className="space-y-3 mb-6 relative z-10 flex-grow">
-                    <div className="flex justify-between items-center py-3 px-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 group-hover:bg-white/8 transition-all duration-500">
-                      <span className="text-sm text-gray-300 font-medium">Duration:</span>
-                      <span className="font-semibold text-white text-sm">{course.duration}</span>
+                    <div className={`flex justify-between items-center py-3 px-4 ${isDarkMode ? 'bg-white/5 backdrop-blur-sm border border-white/10 group-hover:bg-white/8' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-xl transition-all duration-500`}>
+                      <span className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Duration:</span>
+                      <span className={`font-semibold text-sm ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{course.duration}</span>
                     </div>
-                    <div className="flex justify-between items-center py-3 px-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 group-hover:bg-white/8 transition-all duration-500">
-                      <span className="text-sm text-gray-300 font-medium">Price:</span>
+                    <div className={`flex justify-between items-center py-3 px-4 ${isDarkMode ? 'bg-white/5 backdrop-blur-sm border border-white/10 group-hover:bg-white/8' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-xl transition-all duration-500`}>
+                      <span className={`text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Price:</span>
                       <span className="font-bold text-lg bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">{course.price}</span>
                     </div>
                   </div>
 
                   {/* Description - Enhanced with Liquid Glass */}
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4 relative z-10 group-hover:text-gray-200 transition-colors duration-500">
+                  <p className={`text-sm leading-relaxed mb-4 relative z-10 ${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} transition-colors duration-500`}>
                     {course.description}
                   </p>
 
                   {/* Features - Liquid Glass Style */}
                   <div className="space-y-2 mb-6 relative z-10 flex-grow">
                     {course.features.map((feature, index) => (
-                      <div key={index} className="flex items-center text-xs text-gray-200 py-2 px-3 bg-white/3 backdrop-blur-sm rounded-lg border border-white/5 group-hover:bg-white/6 transition-all duration-500">
+                      <div key={index} className={`flex items-center text-xs py-2 px-3 ${isDarkMode ? 'text-gray-200 bg-white/3 backdrop-blur-sm border border-white/5 group-hover:bg-white/6' : 'text-gray-700 bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-lg transition-all duration-500`}>
                         <div className={`w-2 h-2 bg-gradient-to-r ${course.gradient} rounded-full mr-3 shadow-sm`}></div>
                         {feature}
                       </div>
@@ -211,62 +211,62 @@ export default function CoursesPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Full Name</label>
+                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-1`}>Full Name</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                  className={`w-full px-3 py-2 ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-white placeholder-gray-400' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Email</label>
+                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-1`}>Email</label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                  className={`w-full px-3 py-2 ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-white placeholder-gray-400' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Phone Number</label>
+                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-1`}>Phone Number</label>
                 <input
                   type="tel"
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                  className={`w-full px-3 py-2 ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-white placeholder-gray-400' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Medical Qualification</label>
+                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-1`}>Medical Qualification</label>
                 <input
                   type="text"
                   name="qualification"
                   value={formData.qualification}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                  className={`w-full px-3 py-2 ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-white placeholder-gray-400' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-300 mb-1">Years of Experience</label>
+                <label className={`block text-sm font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-1`}>Years of Experience</label>
                 <input
                   type="text"
                   name="experience"
                   value={formData.experience}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                  className={`w-full px-3 py-2 ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-white placeholder-gray-400' : 'bg-white border border-gray-300 text-gray-900 placeholder-gray-500'} rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent`}
                 />
               </div>
 
@@ -274,7 +274,7 @@ export default function CoursesPage() {
                 <button
                   type="button"
                   onClick={() => setIsModalOpen(false)}
-                  className="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+                  className={`flex-1 px-4 py-2 border ${isDarkMode ? 'border-gray-600 text-gray-300 hover:bg-gray-800' : 'border-gray-300 text-gray-700 hover:bg-gray-50'} rounded-lg transition-colors`}
                 >
                   Cancel
                 </button>
