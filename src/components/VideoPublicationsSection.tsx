@@ -431,65 +431,8 @@ export default function VideoPublicationsSection() {
               ))}
             </div>
 
-            {/* Load More/Less Buttons for Videos */}
-            {videos.length > 6 && (
-              <div className="flex justify-center">
-                {videosToShow < videos.length ? (
-                  <button
-                    onClick={handleLoadMore}
-                    className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                  >
-                    Load More Videos ({videos.length - videosToShow} remaining)
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleLoadLess}
-                    className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                  >
-                    Show Less
-                  </button>
-                )}
-              </div>
-            )}
-
             {/* Mobile Videos Scrolling */}
             <div className="md:hidden mb-8">
-              {/* Navigation Buttons */}
-              <div className="flex justify-between items-center mb-6">
-                <button
-                  onClick={scrollVideosLeft}
-                  disabled={currentVideoIndex === 0}
-                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                
-                <div className="flex space-x-2">
-                  {Array.from({ length: Math.ceil(videos.length / 2) }, (_, index) => (
-                    <div
-                      key={index}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentVideoIndex 
-                          ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
-                          : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
-                      }`}
-                    />
-                  ))}
-                </div>
-                
-                <button
-                  onClick={scrollVideosRight}
-                  disabled={currentVideoIndex === Math.ceil(videos.length / 2) - 1}
-                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === Math.ceil(videos.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
               {/* Mobile Videos Cards */}
               <div className="relative overflow-hidden">
                 <div 
@@ -539,7 +482,64 @@ export default function VideoPublicationsSection() {
                   ))}
                 </div>
               </div>
+
+              {/* Navigation Buttons - Moved below content */}
+              <div className="flex justify-between items-center mt-6">
+                <button
+                  onClick={scrollVideosLeft}
+                  disabled={currentVideoIndex === 0}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <div className="flex space-x-2">
+                  {Array.from({ length: Math.ceil(videos.length / 2) }, (_, index) => (
+                    <div
+                      key={index}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentVideoIndex 
+                          ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                          : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
+                      }`}
+                    />
+                  ))}
+                </div>
+                
+                <button
+                  onClick={scrollVideosRight}
+                  disabled={currentVideoIndex === Math.ceil(videos.length / 2) - 1}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === Math.ceil(videos.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
+
+            {/* Load More/Less Buttons for Videos - Desktop only */}
+            {videos.length > 6 && (
+              <div className="hidden md:flex justify-center mt-8">
+                {videosToShow < videos.length ? (
+                  <button
+                    onClick={handleLoadMore}
+                    className="bg-gradient-to-r from-blue-500 to-teal-500 text-white px-8 py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Load More Videos ({videos.length - videosToShow} remaining)
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleLoadLess}
+                    className="bg-gray-500 text-white px-8 py-3 rounded-xl font-semibold text-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  >
+                    Show Less
+                  </button>
+                )}
+              </div>
+            )}
           </div>
         ) : (
           <div>
@@ -589,9 +589,9 @@ export default function VideoPublicationsSection() {
               ))}
             </div>
 
-            {/* Load More/Less Buttons for Publications */}
+            {/* Load More/Less Buttons for Publications - Desktop only */}
             {publications.length > 6 && (
-              <div className="flex justify-center">
+              <div className="hidden md:flex justify-center mt-8">
                 {publicationsToShow < publications.length ? (
                   <button
                     onClick={handleLoadMore}
@@ -613,50 +613,15 @@ export default function VideoPublicationsSection() {
         )}
 
         {/* Mobile Publications Scrolling */}
-        <div className="md:hidden mb-8">
-          {/* Navigation Buttons */}
-          <div className="flex justify-between items-center mb-6">
-            <button
-              onClick={scrollPublicationsLeft}
-              disabled={currentPublicationIndex === 0}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            
-            <div className="flex space-x-2">
-              {Array.from({ length: Math.ceil(publications.length / 2) }, (_, index) => (
-                <div
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentPublicationIndex 
-                      ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
-                      : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
-                  }`}
-                />
-              ))}
-            </div>
-            
-            <button
-              onClick={scrollPublicationsRight}
-              disabled={currentPublicationIndex === Math.ceil(publications.length / 2) - 1}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === Math.ceil(publications.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-
+        {activeTab === 'publications' && (
+          <div className="md:hidden mb-8">
           {/* Mobile Publications Cards */}
           <div className="relative overflow-hidden">
             <div 
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentPublicationIndex * 100}%)` }}
             >
-              {Array.from({ length: Math.ceil(publications.length / 2) }, (_, pageIndex) => (
+              {Array.from({ length: 3 }, (_, pageIndex) => (
                 <div key={pageIndex} className="w-full flex-shrink-0 px-4">
                   <div className="space-y-4">
                     {publications.slice(pageIndex * 2, (pageIndex + 1) * 2).map((publication) => (
@@ -681,7 +646,7 @@ export default function VideoPublicationsSection() {
                         <div className={`border-t ${isDarkMode ? 'border-white/20' : 'border-gray-200'} mb-4`}></div>
                         
                         {/* Journal and Year */}
-                        <div className="flex justify-between items-center">
+                        <div className="flex justify-between items-center mb-4">
                           <span className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                             {publication.journal}
                           </span>
@@ -689,6 +654,14 @@ export default function VideoPublicationsSection() {
                             {publication.year}
                           </span>
                         </div>
+
+                        {/* Read Paper Button */}
+                        <button className="text-red-500 hover:text-red-600 transition-colors duration-300 flex items-center gap-1 text-sm font-medium">
+                          <span>Read Paper</span>
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
                       </div>
                     ))}
                   </div>
@@ -696,7 +669,44 @@ export default function VideoPublicationsSection() {
               ))}
             </div>
           </div>
+
+          {/* Navigation Buttons - Moved below content */}
+          <div className="flex justify-between items-center mt-6">
+            <button
+              onClick={scrollPublicationsLeft}
+              disabled={currentPublicationIndex === 0}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            
+            <div className="flex space-x-2">
+              {Array.from({ length: 3 }, (_, index) => (
+                <div
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentPublicationIndex 
+                      ? (isDarkMode ? 'bg-blue-400' : 'bg-blue-600') 
+                      : (isDarkMode ? 'bg-white/30' : 'bg-gray-300')
+                  }`}
+                />
+              ))}
+            </div>
+            
+            <button
+              onClick={scrollPublicationsRight}
+              disabled={currentPublicationIndex === 2}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
+        )}
 
         {/* Read More Button */}
         {/* <div className="flex justify-end mt-12">
