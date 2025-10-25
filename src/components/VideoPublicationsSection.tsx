@@ -275,12 +275,12 @@ export default function VideoPublicationsSection() {
     <section id="video-publications" className="relative overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-6">
           {/* <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-6 shadow-lg">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
             Knowledge Sharing
           </div> */}
-          <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+          <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>
             <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Educational Videos & Publications</span>
           </h2>
           {/* <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
