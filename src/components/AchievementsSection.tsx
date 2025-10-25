@@ -102,8 +102,8 @@ export default function AchievementsSection() {
 
         {/* Awards */}
         <div className="mb-20">
-          {/* <h3 className="text-3xl font-bold text-gray-900 text-center mb-12 animate-fade-in">Awards & Recognition</h3> */}
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Desktop View */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8">
             {achievements.map((achievement, index) => (
                   <div 
                     key={index} 
@@ -134,6 +134,37 @@ export default function AchievementsSection() {
                         </p>
                     <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile View - 2x2 Grid */}
+          <div className="md:hidden grid grid-cols-2 gap-4">
+            {achievements.map((achievement, index) => (
+              <div 
+                key={index} 
+                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in rounded-xl relative overflow-hidden`}
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                {/* Specular highlights for Liquid Glass effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="text-center">
+                  <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 mb-2`}>
+                    {achievement.title}
+                  </h4>
+                  
+                  <p className={`font-semibold mb-2 text-xs bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                    {achievement.organization}
+                  </p>
+                  
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-xs`}>
+                    {achievement.description}
+                  </p>
+                  
+                  <div className={`h-0.5 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                 </div>
               </div>
             ))}
