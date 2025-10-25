@@ -221,8 +221,7 @@ export default function AboutSection() {
                       </h4>
                       <div className="w-12 sm:w-16 md:w-20 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mx-auto"></div>
                 </div>
-                {Array.from({ length: 5 }, (_, index) => {
-                  const item = professionalBackground[index] || { id: index + 1, role: '', hospital: '', timePeriod: '', location: '', color: 'blue', icon: '' };
+                {professionalBackground.filter(item => item.role && item.role.trim() !== '').map((item) => {
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
@@ -231,26 +230,14 @@ export default function AboutSection() {
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                             <div className="flex-1">
-                              {item.role ? (
-                                <>
-                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'} text-xs sm:text-xs md:text-sm md:text-base leading-tight transition-colors duration-300`}>{item.role}</p>
-                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-xs sm:text-xs md:text-sm font-medium mt-1 transition-colors duration-300`}>{item.hospital}</p>
-                                </>
-                              ) : (
-                                <div className="h-4 sm:h-6 md:h-8"></div>
-                              )}
+                              <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'} text-xs sm:text-xs md:text-sm md:text-base leading-tight transition-colors duration-300`}>{item.role}</p>
+                              <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-xs sm:text-xs md:text-sm font-medium mt-1 transition-colors duration-300`}>{item.hospital}</p>
                             </div>
                             <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-0.5 sm:mt-1 md:mt-2 lg:mt-0">
-                              {item.timePeriod ? (
-                                <>
-                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-xs md:text-sm font-medium block`}>
-                                    {item.timePeriod}
-                                  </span>
-                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-xs md:text-sm mt-1`}>{item.location}</p>
-                                </>
-                              ) : (
-                                <div className="h-4 sm:h-6 md:h-8"></div>
-                              )}
+                              <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-xs md:text-sm font-medium block`}>
+                                {item.timePeriod}
+                              </span>
+                              <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-xs md:text-sm mt-1`}>{item.location}</p>
                             </div>
                           </div>
                         </div>
