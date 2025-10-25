@@ -134,9 +134,9 @@ export default function ServicesSection() {
               {/* Features */}
               <div className="space-y-1 mb-4">
                 {service.features.map((feature, featureIndex) => (
-                  <div key={featureIndex} className={`flex items-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                    <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2 group-hover:scale-125 transition-transform duration-300`}></div>
-                    {feature}
+                  <div key={featureIndex} className={`flex items-start text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                    <div className={`w-1.5 h-1.5 bg-gradient-to-r ${service.gradient} rounded-full mr-2 mt-0.5 group-hover:scale-125 transition-transform duration-300 flex-shrink-0`}></div>
+                    <span className="leading-tight">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -180,9 +180,9 @@ export default function ServicesSection() {
                     {/* Service Features */}
                     <div className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className={`flex items-center justify-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
-                          <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 shadow-sm`}></div>
-                          {feature}
+                        <div key={featureIndex} className={`flex items-start justify-center text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
+                          <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-3 mt-0.5 shadow-sm flex-shrink-0`}></div>
+                          <span className="leading-tight">{feature}</span>
                         </div>
                       ))}
                     </div>
