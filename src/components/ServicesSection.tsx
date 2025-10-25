@@ -1,5 +1,5 @@
 'use client'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function ServicesSection() {
@@ -69,6 +69,23 @@ export default function ServicesSection() {
       features: ["Pleuroscopy", "IPC Placement", "Pleural Biopsy"]
     }
   ]
+
+  // Auto-slide functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        // If at the last slide, go back to the first slide (infinite loop)
+        if (prevIndex === services.length - 1) {
+          return 0
+        }
+        // Otherwise, go to the next slide
+        return prevIndex + 1
+      })
+    }, 3000) // Auto-slide every 3 seconds
+
+    // Cleanup interval on component unmount
+    return () => clearInterval(interval)
+  }, [services.length])
 
   return (
     <section id="services" className="relative overflow-hidden">
@@ -183,7 +200,7 @@ export default function ServicesSection() {
             <button
               onClick={scrollLeft}
               disabled={currentIndex === 0}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -206,7 +223,7 @@ export default function ServicesSection() {
             <button
               onClick={scrollRight}
               disabled={currentIndex === services.length - 1}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentIndex === services.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentIndex === services.length - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

@@ -482,7 +482,7 @@ export default function VideoPublicationsSection() {
                 <button
                   onClick={scrollVideosLeft}
                   disabled={currentVideoIndex === 0}
-                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -505,7 +505,7 @@ export default function VideoPublicationsSection() {
                 <button
                   onClick={scrollVideosRight}
                   disabled={currentVideoIndex === Math.ceil(videos.length / 2) - 1}
-                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === Math.ceil(videos.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+                  className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentVideoIndex === Math.ceil(videos.length / 2) - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
                 >
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -572,7 +572,7 @@ export default function VideoPublicationsSection() {
                     </div>
 
                     {/* Read Paper Button */}
-                    <button className="text-red-500 hover:text-red-600 transition-colors duration-300 flex items-center gap-1 text-sm font-medium">
+                    <button className={`${isDarkMode ? 'text-red-400 hover:text-red-300' : 'text-red-500 hover:text-red-600'} transition-colors duration-300 flex items-center gap-1 text-sm font-medium`}>
                       <span>Read Paper</span>
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -650,7 +650,7 @@ export default function VideoPublicationsSection() {
                         </div>
 
                         {/* Read Paper Button */}
-                        <button className="text-red-500 hover:text-red-600 transition-colors duration-300 flex items-center gap-1 text-sm font-medium">
+                        <button className={`${isDarkMode ? 'text-red-400 hover:text-red-300' : 'text-red-500 hover:text-red-600'} transition-colors duration-300 flex items-center gap-1 text-sm font-medium`}>
                           <span>Read Paper</span>
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -669,7 +669,7 @@ export default function VideoPublicationsSection() {
             <button
               onClick={scrollPublicationsLeft}
               disabled={currentPublicationIndex === 0}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -692,7 +692,7 @@ export default function VideoPublicationsSection() {
             <button
               onClick={scrollPublicationsRight}
               disabled={currentPublicationIndex === 2}
-              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/10 border border-white/20' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
+              className={`p-3 rounded-full ${isDarkMode ? 'bg-white/20 border border-white/40 text-white' : 'bg-gray-100 border border-gray-300'} ${currentPublicationIndex === 2 ? 'opacity-50 cursor-not-allowed' : 'hover:scale-110'} transition-all duration-300`}
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
