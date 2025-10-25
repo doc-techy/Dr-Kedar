@@ -39,7 +39,7 @@ export default function VideoPublicationsSection() {
       id: 1,
       title: "Advanced Bronchoscopy Techniques",
       description: "Comprehensive guide to interventional pulmonology procedures and modern diagnostic techniques.",
-      thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image1.png",
       duration: "15:30",
       views: "2.3K",
       date: "Dec 2024",
@@ -51,7 +51,7 @@ export default function VideoPublicationsSection() {
       id: 2,
       title: "Lung Cancer Diagnosis & Treatment",
       description: "Latest advances in thoracic oncology and personalized treatment approaches.",
-      thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image2.png",
       duration: "22:15",
       views: "1.8K",
       date: "Nov 2024",
@@ -63,7 +63,7 @@ export default function VideoPublicationsSection() {
       id: 3,
       title: "3D Printing in Airway Disorders",
       description: "Pioneering research on 3D printing applications in respiratory medicine.",
-      thumbnail: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image3.png",
       duration: "18:45",
       views: "3.1K",
       date: "Oct 2024",
@@ -75,7 +75,7 @@ export default function VideoPublicationsSection() {
       id: 4,
       title: "Endobronchial Ultrasound (EBUS)",
       description: "Advanced diagnostic techniques using EBUS for lung cancer staging and diagnosis.",
-      thumbnail: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image4.png",
       duration: "12:20",
       views: "1.5K",
       date: "Sep 2024",
@@ -87,7 +87,7 @@ export default function VideoPublicationsSection() {
       id: 5,
       title: "Airway Stenting Procedures",
       description: "Comprehensive overview of airway stenting techniques and patient management.",
-      thumbnail: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image5.png",
       duration: "20:10",
       views: "2.1K",
       date: "Aug 2024",
@@ -99,7 +99,7 @@ export default function VideoPublicationsSection() {
       id: 6,
       title: "Pleural Disease Management",
       description: "Diagnosis and treatment of pleural effusions and pneumothorax management.",
-      thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image6.png",
       duration: "16:35",
       views: "1.9K",
       date: "Jul 2024",
@@ -111,7 +111,7 @@ export default function VideoPublicationsSection() {
       id: 7,
       title: "Interstitial Lung Disease",
       description: "Understanding ILD diagnosis, classification, and treatment strategies.",
-      thumbnail: "https://images.unsplash.com/photo-1582719506-5e0d2b0b5b5b?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image1.png",
       duration: "19:25",
       views: "2.7K",
       date: "Jun 2024",
@@ -123,7 +123,7 @@ export default function VideoPublicationsSection() {
       id: 8,
       title: "Thoracoscopy Techniques",
       description: "Minimally invasive procedures for pleural and lung disease diagnosis.",
-      thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image2.png",
       duration: "14:50",
       views: "1.6K",
       date: "May 2024",
@@ -135,7 +135,7 @@ export default function VideoPublicationsSection() {
       id: 9,
       title: "Respiratory Function Testing",
       description: "Comprehensive guide to pulmonary function tests and interpretation.",
-      thumbnail: "https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=400&h=300&fit=crop&crop=center",
+      thumbnail: "/thumbnail/image3.png",
       duration: "17:40",
       views: "2.4K",
       date: "Apr 2024",
@@ -402,12 +402,6 @@ export default function VideoPublicationsSection() {
                       {video.duration}
                     </div>
                     
-                    {/* Category badge */}
-                    <div className="absolute top-3 left-3">
-                      <span className={`text-xs font-semibold bg-gradient-to-r ${video.gradient} text-white px-2 py-1 rounded-full`}>
-                        {video.category}
-                      </span>
-                    </div>
                   </div>
 
                   {/* Content - 30% height */}
