@@ -288,22 +288,61 @@ export default function VideoPublicationsSection() {
           </p> */}
         </div>
 
-        {/* Toggle Buttons */}
-        <div className="flex justify-center mb-12">
-          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-full p-2 shadow-lg relative w-fit mx-auto pr-4`}>
+        {/* Desktop Toggle Buttons - Redesigned */}
+        <div className="hidden md:flex justify-center mb-16">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-1 shadow-2xl relative w-fit mx-auto`}>
             {/* Animated background slider */}
             <div 
-              className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-300 ease-in-out ${
+              className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl transition-all duration-500 ease-in-out ${
                 activeTab === 'videos' 
-                  ? 'left-2 w-[calc(50%+1rem)]' 
-                  : 'left-[calc(50%-1rem)] w-[calc(50%-1rem)]'
+                  ? 'left-1 w-[calc(50%-0.25rem)]' 
+                  : 'left-[calc(50%-0.25rem)] w-[calc(50%-0.25rem)]'
               }`}
             ></div>
             
             <div className="flex relative z-10">
               <button
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+                className={`px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                  activeTab === 'videos'
+                    ? 'text-white shadow-lg'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
+                }`}
+              >
+                <span className="text-xl">🎥</span>
+                <span>Educational Videos</span>
+              </button>
+              <button
+                onClick={() => setActiveTab('publications')}
+                className={`px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                  activeTab === 'publications'
+                    ? 'text-white shadow-lg'
+                    : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
+                }`}
+              >
+                <span className="text-xl">📚</span>
+                <span>Research Publications</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Toggle Buttons - Keep original design */}
+        <div className="md:hidden flex justify-center mb-12">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-full p-2 shadow-lg relative w-fit mx-auto pr-4`}>
+            {/* Animated background slider */}
+            <div 
+              className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-300 ease-in-out ${
+                activeTab === 'videos' 
+                  ? 'left-2 w-[calc(50%-0.5rem)]' 
+                  : 'left-[calc(50%-0.5rem)] w-[calc(50%-0.5rem)]'
+              }`}
+            ></div>
+            
+            <div className="flex relative z-10">
+              <button
+                onClick={() => setActiveTab('videos')}
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                   activeTab === 'videos'
                     ? 'text-white'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
@@ -314,7 +353,7 @@ export default function VideoPublicationsSection() {
               </button>
               <button
                 onClick={() => setActiveTab('publications')}
-                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-0 cursor-pointer ${
+                className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer ${
                   activeTab === 'publications'
                     ? 'text-white'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
