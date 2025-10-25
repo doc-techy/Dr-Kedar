@@ -117,19 +117,19 @@ export default function HeroSection() {
           </div>
           
           {/* Doctor Image Section */}
-          <div className="order-1 lg:order-2 relative">
+          <div className="order-1 lg:order-2 relative mt-4 sm:mt-6 lg:mt-0">
             <div className="relative">
               
                              {/* Professional frame */}
-               <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-2xl p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
+               <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-2xl p-3 sm:p-4 md:p-6 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500">
                  {/* Specular highlights for Liquid Glass effect */}
                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                 <div className="relative w-full max-w-md mx-auto">
+                 <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto">
                    
                    {/* Background decorative elements */}
-                   <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-400/30 rounded-full opacity-60"></div>
-                   <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-teal-400/30 rounded-full opacity-40"></div>
+                   <div className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 w-16 h-16 sm:w-24 sm:h-24 bg-blue-400/30 rounded-full opacity-60"></div>
+                   <div className="absolute -bottom-2 -left-2 sm:-bottom-4 sm:-left-4 w-20 h-20 sm:w-32 sm:h-32 bg-teal-400/30 rounded-full opacity-40"></div>
                    
                    {/* Main image */}
                    <div className="relative rounded-xl overflow-hidden">
