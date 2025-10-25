@@ -176,7 +176,9 @@ export default function AchievementsSection() {
           <h3 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-center mb-12`}>
             <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Professional Memberships</span>
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          {/* Desktop View */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {memberships.map((membership, index) => (
               <div 
                 key={index} 
@@ -195,6 +197,34 @@ export default function AchievementsSection() {
                     </h4>
                     <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{membership.name}</p>
                   </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile View - 2x3 Grid */}
+          <div className="md:hidden grid grid-cols-2 gap-4">
+            {memberships.map((membership, index) => (
+              <div 
+                key={index} 
+                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-xl relative overflow-hidden`}
+                style={{animationDelay: `${index * 0.1}s`}}
+              >
+                {/* Specular highlights */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="text-center">
+                  <div className={`w-8 h-8 ${membership.color} rounded-lg flex items-center justify-center text-white font-bold text-xs group-hover:scale-110 transition-transform duration-300 mx-auto mb-3`}>
+                    {membership.short}
+                  </div>
+                  
+                  <h4 className={`font-semibold text-sm ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 mb-2`}>
+                    {membership.short}
+                  </h4>
+                  
+                  <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
+                    {membership.name}
+                  </p>
                 </div>
               </div>
             ))}
