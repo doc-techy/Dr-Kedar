@@ -116,7 +116,7 @@ export default function Header() {
             {/* Hamburger Menu Button - Responsive */}
             <button 
               onClick={toggleMenu}
-              className="w-10 h-10 sm:w-10 sm:h-10 bg-blue-600 hover:bg-blue-700 flex items-center justify-center text-white transition-all duration-300 rounded-lg"
+              className="w-10 h-10 sm:w-10 sm:h-10 bg-gradient-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 flex items-center justify-center text-white transition-all duration-300 rounded-lg shadow-lg hover:shadow-xl"
               aria-label="Toggle menu"
             >
               <svg className={`w-5 h-5 sm:w-5 sm:h-5 transition-transform duration-300 ${isMenuOpen ? 'rotate-45' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
