@@ -156,7 +156,7 @@ export default function AboutSection() {
   return (
     <section id="about" className="py-6 lg:py-8 relative overflow-hidden min-h-[calc(100vh-148px)]">
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           {/* <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4 shadow-lg">
             <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
@@ -178,17 +178,17 @@ export default function AboutSection() {
             
             {/* Mobile Toggle Button - Only visible on mobile */}
             <div className="lg:hidden mb-8">
-              <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-full p-2 shadow-lg relative w-fit mx-auto`}>
+              <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl p-2 shadow-lg relative w-full max-w-lg mx-auto flex`}>
                 <div 
-                  className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-full transition-all duration-300 ease-in-out ${
+                  className={`absolute top-2 bottom-2 bg-gradient-to-r from-blue-400 to-teal-400 rounded-lg transition-all duration-300 ease-in-out ${
                     activeTab === 'professional' 
-                      ? 'left-2 w-[calc(50%-0.25rem)]' 
-                      : 'left-[calc(50%-0.25rem)] w-[calc(50%-0.25rem)]'
+                      ? 'left-2 w-[calc(50%-0.5rem)]' 
+                      : 'left-[calc(50%-0.5rem)] w-[calc(50%-0.5rem)]'
                   }`}
                 ></div>
                 <button
                   onClick={() => setActiveTab('professional')}
-                  className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
+                  className={`px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
                     activeTab === 'professional'
                       ? 'text-white'
                       : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
@@ -199,7 +199,7 @@ export default function AboutSection() {
                 </button>
                 <button
                   onClick={() => setActiveTab('academic')}
-                  className={`px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
+                  className={`px-6 py-2 rounded-lg font-medium text-sm transition-all duration-300 flex items-center gap-2 cursor-pointer relative z-10 ${
                     activeTab === 'academic'
                       ? 'text-white'
                       : `${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`
@@ -211,9 +211,9 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Professional Background */}
-              <div className={`space-y-3 ${activeTab === 'professional' ? 'block' : 'hidden'} lg:block`}>
+              <div className={`space-y-4 ${activeTab === 'professional' ? 'block' : 'hidden'} lg:block`}>
                 <div className="text-center mb-4">
                       <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></div> */}
@@ -226,10 +226,10 @@ export default function AboutSection() {
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
-                      <div className="flex items-start space-x-3 w-full">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
-                          <div className="flex justify-between items-start mb-1">
+                          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                             <div className="flex-1">
                               {item.role ? (
                                 <>
@@ -240,7 +240,7 @@ export default function AboutSection() {
                                 <div className="h-8"></div>
                               )}
                             </div>
-                            <div className="text-right flex-shrink-0 ml-2">
+                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-2 lg:mt-0">
                               {item.timePeriod ? (
                                 <>
                                   <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
@@ -261,7 +261,7 @@ export default function AboutSection() {
               </div>
               
               {/* Educational Background */}
-              <div className={`space-y-3 ${activeTab === 'academic' ? 'block' : 'hidden'} lg:block`}>
+              <div className={`space-y-4 ${activeTab === 'academic' ? 'block' : 'hidden'} lg:block`}>
                 <div className="text-center mb-4">
                       <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mr-3 shadow-sm"></div> */}
@@ -274,10 +274,10 @@ export default function AboutSection() {
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-3 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-[100px] flex items-center cursor-pointer isolate hover:z-10`}>
-                      <div className="flex items-start space-x-3 w-full">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
-                          <div className="flex justify-between items-start mb-1">
+                          <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                             <div className="flex-1">
                               {item.title ? (
                                 <>
@@ -288,7 +288,7 @@ export default function AboutSection() {
                                 <div className="h-8"></div>
                               )}
                             </div>
-                            <div className="text-right flex-shrink-0 ml-2">
+                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-2 lg:mt-0">
                               {item.timePeriod ? (
                                 <>
                                   <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
