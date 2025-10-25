@@ -109,8 +109,8 @@ export default function CoursesPage() {
       
       {/* Main content */}
       <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-16 lg:py-20 relative overflow-hidden">
+        {/* Hero Section - Enhanced Responsive */}
+        <section className="py-12 sm:py-16 md:py-18 lg:py-20 xl:py-24 relative overflow-hidden">
           {/* Background floating circles for glassmorphic effect - only in dark mode */}
           {isDarkMode && (
             <>
@@ -122,19 +122,19 @@ export default function CoursesPage() {
           )}
           
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h1 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+            <div className="text-center mb-12 sm:mb-16">
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4 sm:mb-6`}>
                 <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Professional Medical Courses</span>
               </h1>
-              <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-3xl mx-auto leading-relaxed`}>
+              <p className={`text-lg sm:text-xl lg:text-2xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4`}>
                 Advance your medical career with our specialized courses in interventional pulmonology, bronchoscopy, and AI in medicine.
               </p>
             </div>
 
-            {/* Courses Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Courses Grid - Enhanced Responsive */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
               {courses.map((course) => (
-                <div key={course.id} className={`group relative ${isDarkMode ? 'bg-white/10 backdrop-blur-3xl border border-white/20' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} rounded-2xl p-4 md:p-6 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 ${isDarkMode ? 'hover:bg-white/15 hover:border-white/30' : 'hover:bg-white hover:border-gray-300'} shadow-xl h-full flex flex-col overflow-hidden`}>
+                <div key={course.id} className={`group relative ${isDarkMode ? 'bg-white/10 backdrop-blur-3xl border border-white/20' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 ${isDarkMode ? 'hover:bg-white/15 hover:border-white/30' : 'hover:bg-white hover:border-gray-300'} shadow-xl h-full flex flex-col overflow-hidden`}>
                   {/* Enhanced Liquid Glass Effect - Mobile Optimized */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/3 to-transparent rounded-2xl pointer-events-none"></div>
                   <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/6 to-white/10 rounded-2xl pointer-events-none"></div>
@@ -146,26 +146,26 @@ export default function CoursesPage() {
                   <div className="absolute bottom-2 right-2 w-4 h-4 bg-white/12 rounded-full blur-sm"></div>
                   <div className="absolute top-1/2 left-1/2 w-8 h-8 bg-white/5 rounded-full blur-md transform -translate-x-1/2 -translate-y-1/2"></div>
                   
-                  {/* Course Header - Compact */}
-                  <div className="text-center mb-4 relative z-10">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${course.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm mx-auto mb-3 shadow-2xl group-hover:scale-110 transition-all duration-500 group-hover:shadow-3xl`}>
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {/* Course Header - Responsive */}
+                  <div className="text-center mb-3 sm:mb-4 relative z-10">
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${course.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm mx-auto mb-2 sm:mb-3 shadow-2xl group-hover:scale-110 transition-all duration-500 group-hover:shadow-3xl`}>
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
                     </div>
-                    <h3 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-gray-100' : 'text-gray-900 group-hover:text-gray-800'} mb-1 drop-shadow-lg transition-colors duration-500`}>{course.title}</h3>
+                    <h3 className={`text-base sm:text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-gray-100' : 'text-gray-900 group-hover:text-gray-800'} mb-1 drop-shadow-lg transition-colors duration-500`}>{course.title}</h3>
                     <p className={`text-xs font-medium ${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} transition-colors duration-500`}>{course.mode}</p>
                   </div>
 
-                  {/* Course Details - Compact */}
-                  <div className="space-y-2 mb-4 relative z-10 flex-grow">
-                    <div className={`flex justify-between items-center py-2 px-3 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 group-hover:bg-white/12' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-lg transition-all duration-500`}>
+                  {/* Course Details - Responsive */}
+                  <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4 relative z-10 flex-grow">
+                    <div className={`flex justify-between items-center py-1.5 sm:py-2 px-2 sm:px-3 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 group-hover:bg-white/12' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-lg transition-all duration-500`}>
                       <span className={`text-xs font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Duration:</span>
                       <span className={`font-semibold text-xs ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>{course.duration}</span>
                     </div>
-                    <div className={`flex justify-between items-center py-2 px-3 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 group-hover:bg-white/12' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-lg transition-all duration-500`}>
+                    <div className={`flex justify-between items-center py-1.5 sm:py-2 px-2 sm:px-3 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 group-hover:bg-white/12' : 'bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-lg transition-all duration-500`}>
                       <span className={`text-xs font-medium ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>Price:</span>
-                      <span className="font-bold text-sm bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">{course.price}</span>
+                      <span className="font-bold text-xs sm:text-sm bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">{course.price}</span>
                     </div>
                   </div>
 
@@ -186,20 +186,20 @@ export default function CoursesPage() {
                     </div>
                   )}
 
-                  {/* View More Button */}
+                  {/* View More Button - Responsive */}
                   {course.features.length > 0 && (
                     <button
                       onClick={() => toggleExpanded(course.id)}
-                      className={`w-full mb-3 py-2 px-4 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 hover:bg-white/12' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'} rounded-lg font-medium text-xs transition-all duration-300 relative z-10`}
+                      className={`w-full mb-2 sm:mb-3 py-1.5 sm:py-2 px-3 sm:px-4 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 hover:bg-white/12' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'} rounded-lg font-medium text-xs transition-all duration-300 relative z-10`}
                     >
                       {expandedCourse === course.id ? 'View Less' : 'View More'}
                     </button>
                   )}
 
-                  {/* Apply Button - Compact */}
+                  {/* Apply Button - Responsive */}
                   <button
                     onClick={() => handleApply(course.title)}
-                    className={`w-full bg-gradient-to-r ${course.gradient} hover:shadow-2xl text-white px-4 py-3 font-semibold text-xs uppercase tracking-wider transition-all duration-500 hover:-translate-y-1 rounded-xl relative z-10 shadow-xl mt-auto backdrop-blur-sm border border-white/20 hover:border-white/30`}
+                    className={`w-full bg-gradient-to-r ${course.gradient} hover:shadow-2xl text-white px-3 sm:px-4 py-2 sm:py-3 font-semibold text-xs uppercase tracking-wider transition-all duration-500 hover:-translate-y-1 rounded-xl relative z-10 shadow-xl mt-auto backdrop-blur-sm border border-white/20 hover:border-white/30`}
                   >
                     Apply Now
                   </button>
