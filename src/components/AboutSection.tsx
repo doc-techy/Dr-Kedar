@@ -214,42 +214,42 @@ export default function AboutSection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Professional Background */}
               <div className={`space-y-4 ${activeTab === 'professional' ? 'block' : 'hidden'} lg:block`}>
-                <div className="text-center mb-4">
-                      <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
+                <div className="text-center mb-3 sm:mb-4">
+                      <h4 className={`text-xl sm:text-2xl lg:text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mr-3 shadow-sm"></div> */}
                         Professional Journey
                       </h4>
-                      <div className="w-20 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mx-auto"></div>
+                      <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full mx-auto"></div>
                 </div>
                 {Array.from({ length: 5 }, (_, index) => {
                   const item = professionalBackground[index] || { id: index + 1, role: '', hospital: '', timePeriod: '', location: '', color: 'blue', icon: '' };
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
-                      <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-4 w-full">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-2 sm:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex flex-col lg:flex-row lg:items-start space-y-1 sm:space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                             <div className="flex-1">
                               {item.role ? (
                                 <>
-                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'} text-base leading-tight transition-colors duration-300`}>{item.role}</p>
-                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-sm font-medium mt-1 transition-colors duration-300`}>{item.hospital}</p>
+                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-300' : 'text-gray-900 group-hover:text-blue-600'} text-sm sm:text-base leading-tight transition-colors duration-300`}>{item.role}</p>
+                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-xs sm:text-sm font-medium mt-1 transition-colors duration-300`}>{item.hospital}</p>
                                 </>
                               ) : (
-                                <div className="h-8"></div>
+                                <div className="h-6 sm:h-8"></div>
                               )}
                             </div>
-                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-2 lg:mt-0">
+                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-1 sm:mt-2 lg:mt-0">
                               {item.timePeriod ? (
                                 <>
-                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
+                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-sm font-medium block`}>
                                     {item.timePeriod}
                                   </span>
-                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm mt-1`}>{item.location}</p>
+                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-sm mt-1`}>{item.location}</p>
                                 </>
                               ) : (
-                                <div className="h-8"></div>
+                                <div className="h-6 sm:h-8"></div>
                               )}
                             </div>
                           </div>
@@ -262,42 +262,42 @@ export default function AboutSection() {
               
               {/* Educational Background */}
               <div className={`space-y-4 ${activeTab === 'academic' ? 'block' : 'hidden'} lg:block`}>
-                <div className="text-center mb-4">
-                      <h4 className={`text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
+                <div className="text-center mb-3 sm:mb-4">
+                      <h4 className={`text-xl sm:text-2xl lg:text-3xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 flex items-center justify-center`}>
                         {/* <div className="w-3 h-3 bg-gradient-to-r from-teal-500 to-teal-600 rounded-full mr-3 shadow-sm"></div> */}
                         Academic Journey
                       </h4>
-                      <div className="w-20 h-0.5 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full mx-auto"></div>
+                      <div className="w-16 sm:w-20 h-0.5 bg-gradient-to-r from-teal-400 to-teal-500 rounded-full mx-auto"></div>
                 </div>
                 {Array.from({ length: 5 }, (_, index) => {
                   const item = educationalBackground[index] || { id: index + 1, title: '', description: '', timePeriod: '', location: '', color: 'blue', icon: '' };
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
-                      <div className="flex flex-col lg:flex-row lg:items-start space-y-2 lg:space-y-0 lg:space-x-4 w-full">
+                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-2 sm:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                      <div className="flex flex-col lg:flex-row lg:items-start space-y-1 sm:space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
                             <div className="flex-1">
                               {item.title ? (
                                 <>
-                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-teal-300' : 'text-gray-900 group-hover:text-teal-600'} text-base leading-tight transition-colors duration-300`}>{item.title}</p>
-                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-sm font-medium mt-1 transition-colors duration-300`}>{item.description}</p>
+                                  <p className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-teal-300' : 'text-gray-900 group-hover:text-teal-600'} text-sm sm:text-base leading-tight transition-colors duration-300`}>{item.title}</p>
+                                  <p className={`${isDarkMode ? 'text-gray-300 group-hover:text-gray-200' : 'text-gray-600 group-hover:text-gray-700'} text-xs sm:text-sm font-medium mt-1 transition-colors duration-300`}>{item.description}</p>
                                 </>
                               ) : (
-                                <div className="h-8"></div>
+                                <div className="h-6 sm:h-8"></div>
                               )}
                             </div>
-                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-2 lg:mt-0">
+                            <div className="lg:text-right flex-shrink-0 lg:ml-2 mt-1 sm:mt-2 lg:mt-0">
                               {item.timePeriod ? (
                                 <>
-                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm font-medium block`}>
+                                  <span className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-sm font-medium block`}>
                                     {item.timePeriod}
                                   </span>
-                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-sm mt-1`}>{item.location}</p>
+                                  <p className={`${isDarkMode ? 'text-blue-300' : 'text-blue-600'} text-xs sm:text-sm mt-1`}>{item.location}</p>
                                 </>
                               ) : (
-                                <div className="h-8"></div>
+                                <div className="h-6 sm:h-8"></div>
                               )}
                             </div>
                           </div>
