@@ -289,11 +289,11 @@ export default function VideoPublicationsSection() {
         </div>
 
         {/* Desktop Toggle Buttons - Redesigned */}
-        <div className="hidden md:flex justify-center mb-16">
-          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-2xl p-1 shadow-2xl relative w-fit mx-auto`}>
+        <div className="hidden md:flex justify-center mb-12">
+          <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl p-1 shadow-lg relative w-fit mx-auto`}>
             {/* Animated background slider */}
             <div 
-              className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl transition-all duration-500 ease-in-out ${
+              className={`absolute top-1 bottom-1 bg-gradient-to-r from-blue-500 to-teal-500 rounded-lg transition-all duration-500 ease-in-out ${
                 activeTab === 'videos' 
                   ? 'left-1 w-[calc(50%-0.25rem)]' 
                   : 'left-[calc(50%-0.25rem)] w-[calc(50%-0.25rem)]'
@@ -303,24 +303,24 @@ export default function VideoPublicationsSection() {
             <div className="flex relative z-10">
               <button
                 onClick={() => setActiveTab('videos')}
-                className={`px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                className={`px-6 py-3 rounded-lg font-medium text-sm transition-all duration-500 flex items-center gap-2 cursor-pointer ${
                   activeTab === 'videos'
-                    ? 'text-white shadow-lg'
+                    ? 'text-white shadow-md'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
                 }`}
               >
-                <span className="text-xl">🎥</span>
+                <span className="text-lg">🎥</span>
                 <span>Educational Videos</span>
               </button>
               <button
                 onClick={() => setActiveTab('publications')}
-                className={`px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 flex items-center gap-3 cursor-pointer ${
+                className={`px-6 py-3 rounded-lg font-medium text-sm transition-all duration-500 flex items-center gap-2 cursor-pointer ${
                   activeTab === 'publications'
-                    ? 'text-white shadow-lg'
+                    ? 'text-white shadow-md'
                     : `${isDarkMode ? 'text-gray-300 hover:text-white hover:bg-white/5' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`
                 }`}
               >
-                <span className="text-xl">📚</span>
+                <span className="text-lg">📚</span>
                 <span>Research Publications</span>
               </button>
             </div>
