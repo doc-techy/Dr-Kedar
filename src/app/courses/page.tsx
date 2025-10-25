@@ -128,10 +128,10 @@ export default function CoursesPage() {
               </h1>
             </div>
 
-            {/* Courses Grid - Enhanced Responsive */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            {/* Courses Grid - Enhanced Responsive with Centering */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
               {courses.map((course) => (
-                <div key={course.id} className={`group relative ${isDarkMode ? 'bg-white/10 backdrop-blur-3xl border border-white/20' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 ${isDarkMode ? 'hover:bg-white/15 hover:border-white/30' : 'hover:bg-white hover:border-gray-300'} shadow-xl h-full flex flex-col overflow-hidden`}>
+                <div key={course.id} className={`group relative ${isDarkMode ? 'bg-white/10 backdrop-blur-3xl border border-white/20' : 'bg-white/95 backdrop-blur-sm border border-gray-200'} rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 hover:shadow-2xl transition-all duration-700 hover:-translate-y-2 ${isDarkMode ? 'hover:bg-white/15 hover:border-white/30' : 'hover:bg-white hover:border-gray-300'} shadow-xl h-full flex flex-col overflow-hidden w-full max-w-sm`}>
                   {/* Enhanced Liquid Glass Effect - Mobile Optimized */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/8 via-white/3 to-transparent rounded-2xl pointer-events-none"></div>
                   <div className="absolute inset-0 bg-gradient-to-tl from-transparent via-white/6 to-white/10 rounded-2xl pointer-events-none"></div>
