@@ -126,9 +126,6 @@ export default function CoursesPage() {
               <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4 sm:mb-6`}>
                 <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Professional Medical Courses</span>
               </h1>
-              <p className={`text-lg sm:text-xl lg:text-2xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-4`}>
-                Advance your medical career with our specialized courses in interventional pulmonology, bronchoscopy, and AI in medicine.
-              </p>
             </div>
 
             {/* Courses Grid - Enhanced Responsive */}
@@ -174,9 +171,10 @@ export default function CoursesPage() {
                     {course.description}
                   </p>
 
-                  {/* Features - Hidden initially, show only when expanded */}
-                  {expandedCourse === course.id && (
-                    <div className="space-y-1 mb-4 relative z-10 flex-grow">
+                  {/* Features - Desktop: Always show, Mobile: Show only when expanded */}
+                  <div className="space-y-1 mb-4 relative z-10 flex-grow">
+                    {/* Desktop: Show all features with more spacing */}
+                    <div className="hidden md:block space-y-2">
                       {course.features.map((feature, index) => (
                         <div key={index} className={`flex items-center text-xs py-1.5 px-2 ${isDarkMode ? 'text-gray-200 bg-white/6 backdrop-blur-sm border border-white/8 group-hover:bg-white/8' : 'text-gray-700 bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-md transition-all duration-500`}>
                           <div className={`w-1.5 h-1.5 bg-gradient-to-r ${course.gradient} rounded-full mr-2 shadow-sm`}></div>
@@ -184,16 +182,28 @@ export default function CoursesPage() {
                         </div>
                       ))}
                     </div>
-                  )}
+                    
+                    {/* Mobile: Show only when expanded */}
+                    <div className="md:hidden">
+                      {expandedCourse === course.id && course.features.map((feature, index) => (
+                        <div key={index} className={`flex items-center text-xs py-1.5 px-2 ${isDarkMode ? 'text-gray-200 bg-white/6 backdrop-blur-sm border border-white/8 group-hover:bg-white/8' : 'text-gray-700 bg-gray-50 border border-gray-200 group-hover:bg-gray-100'} rounded-md transition-all duration-500`}>
+                          <div className={`w-1.5 h-1.5 bg-gradient-to-r ${course.gradient} rounded-full mr-2 shadow-sm`}></div>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
-                  {/* View More Button - Responsive */}
+                  {/* View More Button - Mobile Only */}
                   {course.features.length > 0 && (
-                    <button
-                      onClick={() => toggleExpanded(course.id)}
-                      className={`w-full mb-2 sm:mb-3 py-1.5 sm:py-2 px-3 sm:px-4 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 hover:bg-white/12' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'} rounded-lg font-medium text-xs transition-all duration-300 relative z-10`}
-                    >
-                      {expandedCourse === course.id ? 'View Less' : 'View More'}
-                    </button>
+                    <div className="md:hidden">
+                      <button
+                        onClick={() => toggleExpanded(course.id)}
+                        className={`w-full mb-2 sm:mb-3 py-1.5 sm:py-2 px-3 sm:px-4 ${isDarkMode ? 'bg-white/8 backdrop-blur-sm border border-white/15 hover:bg-white/12' : 'bg-gray-100 border border-gray-200 hover:bg-gray-200'} rounded-lg font-medium text-xs transition-all duration-300 relative z-10`}
+                      >
+                        {expandedCourse === course.id ? 'View Less' : 'View More'}
+                      </button>
+                    </div>
                   )}
 
                   {/* Apply Button - Responsive */}
