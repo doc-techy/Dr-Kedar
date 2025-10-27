@@ -4,8 +4,11 @@ import { useTheme } from '@/contexts/ThemeContext'
 export default function Footer() {
   const { isDarkMode } = useTheme()
   return (
-    <footer className={`${isDarkMode ? 'bg-black/90 backdrop-blur-xl border-t border-white/20 text-white' : 'bg-gray-900 border-t border-gray-700 text-white'} py-12`}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className={`${isDarkMode ? 'bg-black/90 backdrop-blur-xl text-white' : 'bg-gray-900 text-white'} py-12`}>
+      {/* Top accent bar */}
+      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
+      
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
         <div className="flex flex-col lg:flex-row gap-16">
           {/* Contact Info */}
           <div className="flex-1">

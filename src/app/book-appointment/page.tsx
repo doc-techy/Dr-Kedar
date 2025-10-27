@@ -28,8 +28,8 @@ export default function BookAppointment() {
     setIsSubmitting(true)
     
     try {
-      // Connect to Next.js API route
-      const response = await fetch('/api/appointments', {
+      // Connect to Django backend API
+      const response = await fetch('http://localhost:8000/api/appointments/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export default function BookAppointment() {
       
       const result = await response.json()
       
-      if (response.ok && result.success) {
+      if (response.ok) {
         setSubmitted(true)
         setFormData({
           name: '',
