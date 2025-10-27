@@ -35,7 +35,7 @@ export default function Header() {
       {/* Top accent bar */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
       
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl 4xl:max-w-8xl 5xl:max-w-9xl 6xl:max-w-10xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 4xl:px-12 5xl:px-16">
         <div className="flex justify-between items-center py-6 sm:py-5 md:py-6">
           {/* Logo/Brand Section - Responsive */}
           <div className="flex items-center">

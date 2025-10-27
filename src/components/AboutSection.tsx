@@ -225,7 +225,7 @@ export default function AboutSection() {
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                    <div key={item.id} className={`professional-box ${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
                       <div className="flex flex-col lg:flex-row lg:items-start space-y-0.5 sm:space-y-1 md:space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
@@ -260,7 +260,7 @@ export default function AboutSection() {
                   const colorClasses = getColorClasses(item.color);
                   const lightModeClasses = `${colorClasses.bg} ${colorClasses.border} backdrop-blur-sm shadow-md`;
                   return (
-                    <div key={item.id} className={`${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
+                    <div key={item.id} className={`academic-box ${isDarkMode ? 'bg-white/6 backdrop-blur-2xl border border-white/12' : lightModeClasses} p-1.5 sm:p-2 md:p-3 lg:p-4 rounded-lg shadow-lg relative overflow-hidden group hover:shadow-2xl hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 ease-out h-auto lg:h-[110px] lg:flex lg:items-center cursor-pointer isolate hover:z-10`}>
                       <div className="flex flex-col lg:flex-row lg:items-start space-y-0.5 sm:space-y-1 md:space-y-2 lg:space-y-0 lg:space-x-4 w-full">
                         <div className="flex-1 min-w-0">
                           <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start">
