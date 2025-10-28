@@ -35,7 +35,7 @@ export default function Header() {
       {/* Top accent bar */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
       
-      <div className="max-w-7xl 4xl:max-w-8xl 5xl:max-w-9xl 6xl:max-w-10xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 4xl:px-12 5xl:px-16">
+      <div className="max-w-8xl 4xl:max-w-9xl 5xl:max-w-10xl 6xl:max-w-11xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 4xl:px-12 5xl:px-16">
         <div className="flex justify-between items-center py-6 sm:py-5 md:py-6">
           {/* Logo/Brand Section - Responsive */}
           <div className="flex items-center">
@@ -79,7 +79,7 @@ export default function Header() {
           </nav>
 
           {/* Right side controls */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-6">
             {/* Dark Mode Toggle */}
             <button
               onClick={toggleDarkMode}
@@ -99,7 +99,7 @@ export default function Header() {
           </div>
 
              {/* Mobile Menu Button - Enhanced Responsive */}
-             <div className="lg:hidden flex items-center space-x-2 sm:space-x-3 md:space-x-4">
+             <div className="lg:hidden flex items-center space-x-3 sm:space-x-4 md:space-x-5">
             {/* Mobile Dark Mode Toggle - Responsive */}
             <button
               onClick={toggleDarkMode}
@@ -135,8 +135,12 @@ export default function Header() {
         </div>
 
             {/* Mobile Menu */}
-            {isMenuOpen && (
-              <div className={`lg:hidden border-t py-6 transition-all duration-300 ${
+            <div className={`lg:hidden transition-all duration-500 ease-in-out overflow-hidden ${
+              isMenuOpen 
+                ? 'max-h-screen opacity-100' 
+                : 'max-h-0 opacity-0'
+            }`}>
+              <div className={`border-t py-6 transition-all duration-500 ${
                 isDarkMode
                   ? isScrolled
                     ? 'border-gray-600/50 bg-black/60 backdrop-blur-md'
@@ -145,35 +149,37 @@ export default function Header() {
                     ? 'border-gray-300/50 bg-white/60 backdrop-blur-md'
                     : 'border-gray-300 bg-gray-50'
               }`}>
-            <div className="flex flex-col space-y-6">
-              <Link href="/" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
-                Home
-              </Link>
-              <Link href="/#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
-                Pulmonology Services
-              </Link>
-              <Link href="/#video-publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
-                Educational Content
-              </Link>
-              <Link href="/about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
-                About Dr. Hibare
-              </Link>
-              <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-colors font-medium text-sm uppercase tracking-wider py-2 px-4`} onClick={toggleMenu}>
-                Courses
-              </Link>
-              
-              <div className={`border-t ${isDarkMode ? 'border-gray-600' : 'border-gray-300'} pt-4 px-4`}>
-                <Link 
-                  href="/book-appointment" 
-                  className="block bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider text-center transition-all duration-300"
-                  onClick={toggleMenu}
-                >
-                  Book Consultation
-                </Link>
+                <div className={`flex flex-col space-y-6 transition-all duration-500 ${
+                  isMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                }`}>
+                  <Link href="/" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Home
+                  </Link>
+                  <Link href="/#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Pulmonology Services
+                  </Link>
+                  <Link href="/#video-publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Educational Content
+                  </Link>
+                  <Link href="/about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    About Dr. Hibare
+                  </Link>
+                  <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Courses
+                  </Link>
+                  
+                  <div className={`border-t ${isDarkMode ? 'border-gray-600' : 'border-gray-300'} pt-4 px-4`}>
+                    <Link 
+                      href="/book-appointment" 
+                      className="block bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-6 py-3 font-semibold text-sm uppercase tracking-wider text-center transition-all duration-300 rounded-lg hover:shadow-lg"
+                      onClick={toggleMenu}
+                    >
+                      Book Consultation
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        )}
       </div>
     </header>
   )
