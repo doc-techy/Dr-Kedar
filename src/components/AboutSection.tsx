@@ -112,7 +112,7 @@ export default function AboutSection() {
         const nextIndex = (prevIndex + 1) % uniqueYears.length;
         return nextIndex;
       });
-    }, 1000); // Move to next position every 1 second
+    }, 5000); // Move to next position every 1 second
 
     return () => clearInterval(markerInterval);
   }, [uniqueYears])
