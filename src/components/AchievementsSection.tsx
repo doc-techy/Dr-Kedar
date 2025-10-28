@@ -100,71 +100,39 @@ export default function AchievementsSection() {
           ))}
         </div> */}
 
-        {/* Awards */}
-        <div className="mb-20">
-          {/* Desktop View */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8">
+        {/* Awards - Responsive Grid */}
+        <div className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {achievements.map((achievement, index) => (
                   <div 
                     key={index} 
-                    className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-2xl relative overflow-hidden`}
+                    className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 sm:p-5 lg:p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-xl sm:rounded-2xl relative overflow-hidden`}
                     style={{animationDelay: `${index * 0.1}s`}}
                   >
                     {/* Specular highlights for Liquid Glass effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="flex items-start space-x-4">
+                <div className="flex items-start space-x-3 sm:space-x-4">
                   <div className="flex-shrink-0">
-                    <div className={`w-12 h-12 bg-gradient-to-r ${achievement.gradient} rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${achievement.gradient} rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       {achievement.year === "2020-24" ? "📊" : achievement.year.slice(-2)}
                     </div>
                   </div>
                   <div className="flex-1">
-                    <div className="flex items-center mb-2">
-                      <span className="text-2xl mr-2">{achievement.icon}</span>
-                          <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                    <div className="flex items-center mb-1 sm:mb-2">
+                      <span className="text-lg sm:text-xl lg:text-2xl mr-2">{achievement.icon}</span>
+                          <h4 className={`text-sm sm:text-base lg:text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
                             {achievement.title}
                           </h4>
                         </div>
-                        <p className={`font-semibold mb-2 text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                        <p className={`font-semibold mb-1 sm:mb-2 text-xs sm:text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
                           {achievement.organization}
                         </p>
-                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-sm`}>
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-xs sm:text-sm`}>
                           {achievement.description}
                         </p>
-                    <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                    <div className={`h-1 bg-gradient-to-r ${achievement.gradient} rounded-full mt-2 sm:mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile View - 2x2 Grid */}
-          <div className="md:hidden grid grid-cols-2 gap-4">
-            {achievements.map((achievement, index) => (
-              <div 
-                key={index} 
-                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 animate-fade-in rounded-xl relative overflow-hidden`}
-                style={{animationDelay: `${index * 0.1}s`}}
-              >
-                {/* Specular highlights for Liquid Glass effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="text-center">
-                  <h4 className={`text-sm font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 mb-2`}>
-                    {achievement.title}
-                  </h4>
-                  
-                  <p className={`font-semibold mb-2 text-xs bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
-                    {achievement.organization}
-                  </p>
-                  
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-xs`}>
-                    {achievement.description}
-                  </p>
-                  
-                  <div className={`h-0.5 bg-gradient-to-r ${achievement.gradient} rounded-full mt-3 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
                 </div>
               </div>
             ))}
@@ -172,59 +140,31 @@ export default function AchievementsSection() {
         </div>
 
         {/* Professional Memberships */}
-        <div className="mb-20 animate-fade-in">
-          <h3 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-center mb-12`}>
+        <div className="mb-12 sm:mb-16 lg:mb-20 animate-fade-in">
+          <h3 className={`text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-center mb-8 sm:mb-10 lg:mb-12`}>
             <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Professional Memberships</span>
           </h3>
           
-          {/* Desktop View */}
-          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Responsive Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {memberships.map((membership, index) => (
               <div 
                 key={index} 
-                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl relative overflow-hidden`}
+                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 sm:p-5 lg:p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-xl sm:rounded-2xl relative overflow-hidden`}
                 style={{animationDelay: `${index * 0.1}s`}}
               >
                 {/* Specular highlights */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="flex items-center space-x-4">
-                  <div className={`w-12 h-12 ${membership.color} rounded-xl flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300`}>
+                <div className="flex items-center space-x-3 sm:space-x-4">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 ${membership.color} rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                     {membership.short}
                   </div>
-                  <div>
-                    <h4 className={`font-semibold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                  <div className="min-w-0 flex-1">
+                    <h4 className={`font-semibold text-sm sm:text-base ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
                       {membership.short}
                     </h4>
-                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>{membership.name}</p>
+                    <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>{membership.name}</p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Mobile View - 2x3 Grid */}
-          <div className="md:hidden grid grid-cols-2 gap-4">
-            {memberships.map((membership, index) => (
-              <div 
-                key={index} 
-                className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-xl relative overflow-hidden`}
-                style={{animationDelay: `${index * 0.1}s`}}
-              >
-                {/* Specular highlights */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                <div className="text-center">
-                  <div className={`w-8 h-8 ${membership.color} rounded-lg flex items-center justify-center text-white font-bold text-xs group-hover:scale-110 transition-transform duration-300 mx-auto mb-3`}>
-                    {membership.short}
-                  </div>
-                  
-                  <h4 className={`font-semibold text-sm ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 mb-2`}>
-                    {membership.short}
-                  </h4>
-                  
-                  <p className={`text-xs ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>
-                    {membership.name}
-                  </p>
                 </div>
               </div>
             ))}
