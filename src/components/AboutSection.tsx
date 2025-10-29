@@ -243,121 +243,87 @@ export default function AboutSection() {
                     );
                   })}
                   
-                  {/* Dropping ball animation */}
-                  {animatingMarker && (() => {
-                    const prevIndex = currentMarkerIndex === 0 ? uniqueYears.length - 1 : currentMarkerIndex - 1;
-                    const nextIndex = currentMarkerIndex;
+                  {/* Smooth moving marker - similar to mobile */}
+                  <defs>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                      <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                      </feMerge>
+                    </filter>
                     
-                    // Current and next positions
-                    const prevX = (prevIndex / (uniqueYears.length - 1)) * 100;
-                    const prevY = prevIndex % 2 === 0 ? 20 : 80;
-                    const nextX = (nextIndex / (uniqueYears.length - 1)) * 100;
-                    const nextY = nextIndex % 2 === 0 ? 20 : 80;
-                    
-                    // Calculate arc path with parabolic curve (gravity effect)
-                    const midX = (prevX + nextX) / 2;
-                    const midY = Math.max(prevY, nextY) + 15; // Apex point below
-                    
-                    // Quadratic bezier curve for dropping/bouncing effect
-                    const pathD = `M ${prevX} ${prevY} Q ${midX} ${midY} ${nextX} ${nextY}`;
+                    <radialGradient id="ballGradient">
+                      <stop offset="0%" stopColor={isDarkMode ? '#60a5fa' : '#3b82f6'} />
+                      <stop offset="50%" stopColor={isDarkMode ? '#3b82f6' : '#2563eb'} />
+                      <stop offset="100%" stopColor={isDarkMode ? '#1e40af' : '#1e3a8a'} />
+                    </radialGradient>
+                  </defs>
+                  
+                  {/* Animated marker ball */}
+                  {(() => {
+                    const markerX = (currentMarkerIndex / (uniqueYears.length - 1)) * 100;
+                    const markerY = currentMarkerIndex % 2 === 0 ? 20 : 80;
                     
                     return (
                       <>
-                        {/* Glow and shadow effects */}
-                        <defs>
-                          <filter id="glow">
-                            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                            <feMerge>
-                              <feMergeNode in="coloredBlur"/>
-                              <feMergeNode in="SourceGraphic"/>
-                            </feMerge>
-                          </filter>
-                          
-                          <radialGradient id="ballGradient">
-                            <stop offset="0%" stopColor={isDarkMode ? '#60a5fa' : '#3b82f6'} />
-                            <stop offset="70%" stopColor={isDarkMode ? '#3b82f6' : '#2563eb'} />
-                            <stop offset="100%" stopColor={isDarkMode ? '#1e40af' : '#1e3a8a'} />
-                          </radialGradient>
-                        </defs>
-                        
-                        {/* Arc path trail */}
-                        <path
-                          d={pathD}
-                          fill="none"
-                          stroke={isDarkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(37, 99, 235, 0.3)'}
-                          strokeWidth="2"
-                          strokeDasharray="4 4"
+                        {/* Main marker ball */}
+                        <circle
+                          cx={`${markerX}%`}
+                          cy={`${markerY}%`}
+                          r="14"
+                          fill="url(#ballGradient)"
+                          filter="url(#glow)"
+                          className="transition-all duration-1000 ease-in-out"
                         />
                         
-                        {/* Shadow following the ball */}
-                        <ellipse
-                          rx="8"
-                          ry="3"
-                          fill="rgba(0, 0, 0, 0.3)"
-                          filter="blur(2px)"
+                        {/* Outer glow ring 1 */}
+                        <circle
+                          cx={`${markerX}%`}
+                          cy={`${markerY}%`}
+                          r="20"
+                          fill="none"
+                          stroke={isDarkMode ? '#60a5fa' : '#3b82f6'}
+                          strokeWidth="2"
+                          opacity="0.4"
+                          className="transition-all duration-1000 ease-in-out"
                         >
-                          <animateMotion
-                            dur="1s"
-                            repeatCount="1"
-                            fill="freeze"
-                            path={`M ${prevX} 85 Q ${midX} 85 ${nextX} 85`}
+                          <animate
+                            attributeName="r"
+                            values="14;24;14"
+                            dur="2s"
+                            repeatCount="indefinite"
                           />
                           <animate
                             attributeName="opacity"
-                            values="0.3;0.6;0.3"
-                            dur="1s"
-                            repeatCount="1"
-                          />
-                        </ellipse>
-                        
-                        {/* Dropping ball with gradient */}
-                        <circle
-                          r="12"
-                          fill="url(#ballGradient)"
-                          filter="url(#glow)"
-                        >
-                          <animateMotion
-                            dur="1s"
-                            repeatCount="1"
-                            fill="freeze"
-                            path={pathD}
-                            keyTimes="0; 0.5; 1"
-                            keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"
-                            calcMode="spline"
-                          />
-                          {/* Squash and stretch effect */}
-                          <animate
-                            attributeName="r"
-                            values="12;10;12;14;12"
-                            dur="1s"
-                            repeatCount="1"
+                            values="0.6;0;0.6"
+                            dur="2s"
+                            repeatCount="indefinite"
                           />
                         </circle>
                         
-                        {/* Impact ripple at destination */}
+                        {/* Outer glow ring 2 */}
                         <circle
-                          cx={`${nextX}%`}
-                          cy={`${nextY}%`}
-                          r="12"
+                          cx={`${markerX}%`}
+                          cy={`${markerY}%`}
+                          r="18"
                           fill="none"
                           stroke={isDarkMode ? '#3b82f6' : '#2563eb'}
-                          strokeWidth="2"
+                          strokeWidth="3"
+                          opacity="0.6"
+                          className="transition-all duration-1000 ease-in-out"
                         >
                           <animate
                             attributeName="r"
-                            from="12"
-                            to="30"
-                            dur="0.4s"
-                            begin="0.6s"
-                            repeatCount="1"
+                            values="14;20;14"
+                            dur="1.5s"
+                            repeatCount="indefinite"
                           />
                           <animate
                             attributeName="opacity"
-                            from="0.8"
-                            to="0"
-                            dur="0.4s"
-                            begin="0.6s"
-                            repeatCount="1"
+                            values="0.8;0.2;0.8"
+                            dur="1.5s"
+                            repeatCount="indefinite"
                           />
                         </circle>
                       </>
