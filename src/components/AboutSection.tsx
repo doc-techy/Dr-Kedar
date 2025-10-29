@@ -8,6 +8,7 @@ export default function AboutSection() {
   const [activeYear, setActiveYear] = useState('2025')
   const [animatingMarker, setAnimatingMarker] = useState(true)
   const [currentMarkerIndex, setCurrentMarkerIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   // Timeline Data Array
   const timelineData = [
@@ -121,7 +122,17 @@ export default function AboutSection() {
   useEffect(() => {
     // Set active year to the current marker position
     if (currentMarkerIndex < uniqueYears.length) {
+      setIsTransitioning(true);
+      
+      // Fade out
+      setTimeout(() => {
       setActiveYear(uniqueYears[currentMarkerIndex]);
+      }, 150);
+      
+      // Fade in
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 300);
     }
   }, [currentMarkerIndex, uniqueYears])
 
@@ -184,8 +195,8 @@ export default function AboutSection() {
           </h2>
           
           <div className="relative max-w-7xl mx-auto">
-            {/* Accurate Zigzag Timeline Container */}
-            <div className={`${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-3xl p-8 mb-12`}>
+            {/* Desktop: Horizontal Zigzag Timeline */}
+            <div className={`hidden lg:block ${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-3xl p-8 mb-12`}>
               <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-xl font-bold text-center mb-12`}>
                 Professional Journey
               </h3>
@@ -376,8 +387,14 @@ export default function AboutSection() {
                           onClick={() => {
                             const yearIndex = uniqueYears.indexOf(year);
                             if (yearIndex !== -1) {
+                              setIsTransitioning(true);
                               setCurrentMarkerIndex(yearIndex);
+                              setTimeout(() => {
                               setActiveYear(year);
+                              }, 150);
+                              setTimeout(() => {
+                                setIsTransitioning(false);
+                              }, 300);
                             }
                           }}
                           className="relative group transition-all duration-700 ease-in-out transform hover:scale-110"
@@ -418,11 +435,165 @@ export default function AboutSection() {
               </div>
             </div>
               
-            {/* Content Box */}
-            <div className={`${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-3xl p-8 transition-all duration-700 ease-in-out`}>
+            {/* Mobile: Vertical Timeline */}
+            <div className="lg:hidden">
+              <div className="flex gap-4">
+                {/* Vertical Timeline on Left */}
+                <div className="relative w-20 flex-shrink-0" style={{ minHeight: '600px' }}>
+                  {/* Vertical Line - Behind everything */}
+                  <div className={`absolute left-1/2 top-8 bottom-8 w-1 -translate-x-1/2 rounded-full z-0 ${isDarkMode ? 'bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-teal-500/30' : 'bg-gradient-to-b from-blue-400/40 via-purple-400/40 to-teal-400/40'}`}></div>
+                  
+                  {/* Animated Marker Moving Vertically */}
+                  <div 
+                    className={`absolute left-1/2 w-4 h-4 rounded-full -translate-x-1/2 transition-all duration-1000 ease-in-out z-20 ${isDarkMode ? 'bg-gradient-to-br from-blue-400 to-purple-500 shadow-lg shadow-blue-500/50' : 'bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg shadow-blue-600/50'}`}
+                    style={{ 
+                      top: `${8 + (currentMarkerIndex / (uniqueYears.length - 1)) * (100 - 16)}%`
+                    }}
+                  >
+                    <div className={`absolute -inset-1 rounded-full border-2 ${isDarkMode ? 'border-blue-400' : 'border-blue-500'} animate-pulse`}></div>
+                  </div>
+                  
+                  {/* Year Nodes */}
+                  <div className="relative h-full pt-8 pb-8 z-10">
+                    {uniqueYears.map((year, index) => {
+                      const isActive = activeYear === year;
+                      const position = (index / (uniqueYears.length - 1)) * 100;
+                      
+                      return (
+                        <div
+                          key={`mobile-${year}-${index}`}
+                          className="absolute left-1/2 -translate-x-1/2 z-30"
+                          style={{ 
+                            top: `${position}%`,
+                            transform: 'translate(-50%, -50%)'
+                          }}
+                        >
+                          <button
+                            onClick={() => {
+                              const yearIndex = uniqueYears.indexOf(year);
+                              if (yearIndex !== -1) {
+                                setIsTransitioning(true);
+                                setCurrentMarkerIndex(yearIndex);
+                                setTimeout(() => {
+                                  setActiveYear(year);
+                                }, 150);
+                                setTimeout(() => {
+                                  setIsTransitioning(false);
+                                }, 300);
+                              }
+                            }}
+                            className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 z-30 ${
+                              isActive
+                                ? `${isDarkMode ? 'bg-gradient-to-br from-blue-500 to-purple-500 border-3 border-blue-400 shadow-xl shadow-blue-500/50 scale-110' : 'bg-gradient-to-br from-blue-600 to-purple-600 border-3 border-blue-500 shadow-xl shadow-blue-600/50 scale-110'}`
+                                : `${isDarkMode ? 'bg-white/10 border-2 border-white/20 hover:bg-white/20 hover:scale-105' : 'bg-gray-100 border-2 border-gray-300 hover:bg-gray-200 hover:scale-105'}`
+                            }`}
+                          >
+                            <span className={`text-sm font-bold transition-all duration-500 ${
+                              isActive
+                                ? 'text-white'
+                                : `${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`
+                            }`}>
+                              {year}
+                            </span>
+                            
+                            {/* Active Glow */}
+                            {isActive && (
+                              <div className={`absolute -inset-3 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-md`}></div>
+                            )}
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Content on Right */}
+                <div className="flex-1 overflow-hidden relative">
+                  <div 
+                    className={`${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-2xl p-5 shadow-lg transition-all duration-500 ease-in-out transform ${
+                      isTransitioning 
+                        ? 'opacity-0 translate-x-8 scale-95' 
+                        : 'opacity-100 translate-x-0 scale-100'
+                    }`}
+                  >
+                    {activeYearEntries.map((entry, entryIndex) => (
+                      <div 
+                        key={`mobile-${entry.year}-${entryIndex}`} 
+                        className={`${entryIndex > 0 ? 'mt-5 pt-5 border-t border-gray-200/20' : ''} transition-all duration-500 ease-out`}
+                        style={{
+                          transitionDelay: isTransitioning ? '0ms' : `${entryIndex * 100}ms`
+                        }}
+                      >
+                        {/* Icon and Title */}
+                        <div className="flex items-start gap-3 mb-4">
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-teal-500 flex items-center justify-center text-xl shadow-lg flex-shrink-0`}>
+                            {entry.icon}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base font-black mb-1.5 leading-tight`}>
+                              {entry.title || entry.role}
+                            </h3>
+                            <span className={`inline-block px-2.5 py-1 rounded-full text-xs font-bold ${
+                              entry.role 
+                                ? `${isDarkMode ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'}`
+                                : `${isDarkMode ? 'bg-green-500/20 text-green-300' : 'bg-green-100 text-green-700'}`
+                            }`}>
+                              {entry.role ? 'Professional' : 'Educational'}
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Description */}
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm mb-4 font-medium leading-relaxed`}>
+                          {entry.hospital || entry.description}
+                        </p>
+                        
+                        {/* Details Grid */}
+                        <div className="grid grid-cols-1 gap-2.5">
+                          <div className={`${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-gradient-to-r from-blue-50 to-teal-50 border border-gray-200'} rounded-xl p-3`}>
+                            <div className="flex items-center gap-2 mb-1">
+                              <svg className={`w-4 h-4 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              </svg>
+                              <h5 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-bold text-xs`}>Time Period</h5>
+                            </div>
+                            <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-700'} text-xs font-medium`}>{entry.timePeriod}</p>
+                          </div>
+                          <div className={`${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-gradient-to-r from-purple-50 to-pink-50 border border-gray-200'} rounded-xl p-3`}>
+                            <div className="flex items-center gap-2 mb-1">
+                              <svg className={`w-4 h-4 ${isDarkMode ? 'text-purple-400' : 'text-purple-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                              <h5 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-bold text-xs`}>Location</h5>
+                            </div>
+                            <p className={`${isDarkMode ? 'text-gray-400' : 'text-gray-700'} text-xs font-medium`}>{entry.location}</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+            {/* Desktop Content Box */}
+            <div 
+              className={`hidden lg:block ${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-3xl p-8 transition-all duration-500 ease-in-out transform ${
+                isTransitioning 
+                  ? 'opacity-0 translate-y-8 scale-98' 
+                  : 'opacity-100 translate-y-0 scale-100'
+              }`}
+            >
               {/* Show all entries for the selected year */}
               {activeYearEntries.map((entry, entryIndex) => (
-                <div key={`${entry.year}-${entryIndex}`} className={entryIndex > 0 ? 'mt-8 pt-8 border-t border-gray-200/20' : ''}>
+                <div 
+                  key={`${entry.year}-${entryIndex}`} 
+                  className={`${entryIndex > 0 ? 'mt-8 pt-8 border-t border-gray-200/20' : ''} transition-all duration-500 ease-out`}
+                  style={{
+                    transitionDelay: isTransitioning ? '0ms' : `${entryIndex * 150}ms`
+                  }}
+                >
                   <div className="flex items-center gap-6 mb-6">
                     <div className={`w-20 h-20 rounded-2xl bg-gradient-to-r ${entry.color} flex items-center justify-center text-4xl shadow-lg`}>
                       {entry.icon}
