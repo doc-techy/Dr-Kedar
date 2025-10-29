@@ -209,11 +209,11 @@ export default function CoursesPage() {
               {filteredCourses.map((course, index) => (
                 <div 
                   key={course.id} 
-                  className={`relative ${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group`}
+                  className={`relative h-full ${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 group flex flex-col`}
                   style={{animationDelay: `${index * 0.1}s`}}
                 >
                   {/* Course Image */}
-                  <div className="relative h-32 overflow-hidden">
+                  <div className="relative h-52 overflow-hidden flex-shrink-0">
                     <img 
                       src={course.image} 
                       alt={course.title}
@@ -236,7 +236,7 @@ export default function CoursesPage() {
                   </div>
 
                   {/* Course Content */}
-                  <div className="p-4">
+                  <div className="p-4 flex-1 flex flex-col">
                     {/* Title and Subtitle */}
                     <div className="mb-3">
                       <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-lg font-black mb-1 group-hover:text-blue-600 transition-colors line-clamp-2`}>
@@ -304,7 +304,7 @@ export default function CoursesPage() {
                     </div>
 
                     {/* Pricing & CTA */}
-                    <div className={`${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'} pt-3`}>
+                    <div className={`${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'} pt-3 mt-auto`}>
                       {/* Price Section */}
                       <div className="mb-3">
                         <div className="flex items-baseline gap-2 flex-wrap">
