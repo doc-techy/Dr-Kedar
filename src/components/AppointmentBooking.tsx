@@ -46,7 +46,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
     {
       name: 'ChanReveena Clinic',
       address: 'Ground Floor, 531/B, 19th Main Rd, Sector 3, HSR Layout, Bengaluru, Karnataka 560102',
-      availableAt: 'Mon to Fri: 9:30 AM - 4:00 PM',
+      availableAt: 'Mon to Saturday: 8:00 AM - 8:00 PM',
       phone: '09606957688',
       website: 'https://chanreveena.chanrericr.com/',
       mapLink: 'https://maps.app.goo.gl/N3GTF4hrakhE12tU6',
@@ -137,7 +137,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                       <MapPin className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </div>
                     <h3 className={`text-lg sm:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-1 sm:mb-2`}>{hospital.name}</h3>
-                    <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} line-clamp-2`}>{hospital.description}</p>
+                    {/* <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} line-clamp-2`}>{hospital.description}</p> */}
                   </div>
 
                   {/* Hospital Details */}
@@ -176,29 +176,29 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                       ) : (
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>See website for contact</p>
                       )}
-                      <div className="flex items-center gap-2 mt-1">
-                        <a
-                          href={hospital.website}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`inline-flex items-center px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-semibold ${isDarkMode ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'} transition-colors`}
-                        >
-                          Contact
-                        </a>
-                      </div>
+                      
                       </div>
                     </div>
                   </div>
 
                   {/* Contact/Appointment CTA */}
                   <div className="text-center mt-auto flex-shrink-0">
-                    <button
-                      onClick={() => handleOpenModal(hospital)}
-                      className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-teal-700 focus:ring-4 focus:ring-blue-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
-                    >
-                      <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
-                      Book Appointment
-                    </button>
+                    {(hospital as any).callOnly && hospital.phone ? (
+                      <a
+                        href={`tel:${hospital.phone.replace(/[^0-9+]/g, '')}`}
+                        className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
+                      >
+                        Contact
+                      </a>
+                    ) : (
+                      <button
+                        onClick={() => handleOpenModal(hospital)}
+                        className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-teal-700 focus:ring-4 focus:ring-blue-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
+                      >
+                        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        Book Appointment
+                      </button>
+                    )}
                   </div>
 
                   {/* Hover Effect Accent */}
