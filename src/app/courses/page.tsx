@@ -29,12 +29,12 @@ export default function CoursesPage() {
   const courses = [
     {
       id: 1,
-      title: "Interventional Pulmonology Fellowship",
+      title: "Interventional Pulmonology",
       subtitle: "Advanced Training Program",
-      duration: "12 months",
-      mode: "Hybrid Learning",
+      duration: "1 year",
+      mode: "Online / Offline",
       price: "₹1,00,000",
-      originalPrice: "₹1,20,000",
+      originalPrice: null,
       description: "Comprehensive fellowship program covering advanced interventional pulmonology techniques, bronchoscopy procedures, and cutting-edge respiratory medicine practices.",
       image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&auto=format&fit=crop",
       features: [
@@ -64,12 +64,12 @@ export default function CoursesPage() {
     },
     {
       id: 2,
-      title: "Bronchoscopy Masterclass",
+      title: "Bronchoscopy",
       subtitle: "Intensive Training Program",
       duration: "4 months",
-      mode: "Hands-on Workshop",
+      mode: "Online / Offline",
       price: "₹40,000",
-      originalPrice: "₹50,000",
+      originalPrice: null,
       description: "Specialized intensive training in bronchoscopic procedures, diagnostic techniques, and therapeutic interventions for respiratory conditions.",
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop",
       features: [
@@ -98,7 +98,7 @@ export default function CoursesPage() {
     },
     {
       id: 3,
-      title: "AI in Respiratory Medicine",
+      title: "AI in Medicine - by MedXchange",
       subtitle: "Future of Healthcare",
       duration: "6 months",
       mode: "Online Learning",
@@ -128,7 +128,8 @@ export default function CoursesPage() {
       seats: 25,
       enrolled: 15,
       rating: 4.7,
-      reviews: 12
+      reviews: 12,
+      externalLink: "https://medxchange.in/"
     }
   ]
 
@@ -271,7 +272,8 @@ export default function CoursesPage() {
 
                     {/* Key Features Preview */}
                     <div className="mb-3">
-                      <div className={`space-y-1.5 overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'max-h-96' : 'max-h-20'}`}>
+                      {/* Mobile: fully hidden by default, show on View more; Desktop: small preview */}
+                      <div className={`space-y-1.5 overflow-hidden transition-all duration-300 ${expandedCourse === course.id ? 'max-h-96 sm:max-h-96' : 'max-h-0 sm:max-h-20'}`}>
                         {course.features.map((feature, idx) => (
                           <div key={idx} className="flex items-start gap-2">
                             <div className={`mt-1 w-1 h-1 rounded-full bg-gradient-to-r ${course.gradient} flex-shrink-0`}></div>
@@ -279,27 +281,54 @@ export default function CoursesPage() {
                           </div>
                         ))}
                       </div>
-                      {course.features.length > 2 && (
-                        <button
-                          onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
-                          className={`text-xs ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} font-semibold transition-colors mt-1.5 flex items-center gap-1`}
-                        >
-                          {expandedCourse === course.id ? (
-                            <>
-                              Show less
-                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                              </svg>
-                            </>
-                          ) : (
-                            <>
-                              +{course.features.length - 2} more features
-                              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                              </svg>
-                            </>
+                      {course.features.length > 0 && (
+                        <>
+                          {/* Mobile toggle */}
+                          <button
+                            onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
+                            className={`sm:hidden text-xs ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} font-semibold transition-colors mt-1.5 inline-flex items-center gap-1`}
+                          >
+                            {expandedCourse === course.id ? (
+                              <>
+                                Show less
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                                </svg>
+                              </>
+                            ) : (
+                              <>
+                                View more
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </>
+                            )}
+                          </button>
+
+                          {/* Desktop toggle retains preview semantics */}
+                          {course.features.length > 2 && (
+                            <button
+                              onClick={() => setExpandedCourse(expandedCourse === course.id ? null : course.id)}
+                              className={`hidden sm:inline-flex text-xs ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-600 hover:text-blue-700'} font-semibold transition-colors mt-1.5 items-center gap-1`}
+                            >
+                              {expandedCourse === course.id ? (
+                                <>
+                                  Show less
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                                  </svg>
+                                </>
+                              ) : (
+                                <>
+                                  +{course.features.length - 2} more features
+                                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                  </svg>
+                                </>
+                              )}
+                            </button>
                           )}
-                        </button>
+                        </>
                       )}
                     </div>
 
@@ -317,22 +346,36 @@ export default function CoursesPage() {
                                 {course.originalPrice}
                               </div>
                               <span className="px-2 py-0.5 rounded-md text-xs font-bold bg-gradient-to-r from-green-500 to-emerald-500 text-white">
-                                -{Math.round((1 - parseInt(course.price.replace(/[^0-9]/g, '')) / parseInt(course.originalPrice.replace(/[^0-9]/g, ''))) * 100)}%
+                                -{Math.round((1 - parseInt(String(course.price).replace(/[^0-9]/g, '')) / parseInt(String(course.originalPrice).replace(/[^0-9]/g, ''))) * 100)}%
                               </span>
                             </>
                           )}
                         </div>
                       </div>
 
-                      <button
-                        onClick={() => handleApply(course)}
-                        className={`w-full bg-gradient-to-r ${course.gradient} hover:shadow-lg text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-1 group/btn flex items-center justify-center gap-2`}
-                      >
-                        Apply Now
-                        <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </button>
+                      { (course as any).externalLink ? (
+                        <a
+                          href={(course as any).externalLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`w-full bg-gradient-to-r ${course.gradient} hover:shadow-lg text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-1 group/btn flex items-center justify-center gap-2`}
+                        >
+                          Book Now
+                          <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        </a>
+                      ) : (
+                        <button
+                          onClick={() => handleApply(course)}
+                          className={`w-full bg-gradient-to-r ${course.gradient} hover:shadow-lg text-white px-4 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 hover:-translate-y-1 group/btn flex items-center justify-center gap-2`}
+                        >
+                          Apply Now
+                          <svg className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>
