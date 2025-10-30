@@ -34,13 +34,24 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
       description: 'Multi-specialty hospital with comprehensive pulmonology care and advanced diagnostic services'
     },
     {
-      name: 'SPARSH Hospital',
-      address: 'HBR Layout, Hennur Road, Bengaluru - 560043',
-      availableAt: 'Mon, Wed, Fri: 9:30 AM - 4:00 PM',
-      phone: '080 61 222 000',
-      website: 'https://www.sparshhospital.com/doctors/dr-kedar-hibare/',
-      mapLink: 'https://maps.google.com',
-      description: 'Multi-specialty hospital with comprehensive pulmonology care and advanced diagnostic services'
+      name: 'Marvel Multi-Speciality Hospital',
+      address: '#153, 1st Cross Rd, 1st Block Koramangala, Besides Bandhan Bank, Bengaluru – 560034',
+      availableAt: 'Open 24/7',
+      phone: '+91 9591413707',
+      website: 'https://www.marvelhospitals.in/',
+      mapLink: 'https://maps.google.com/?q=Marvel+Multi+Speciality+Hospital+Koramangala',
+      description: 'Integrated multi-speciality hospital with 24x7 ICU, pharmacy, lab and ambulance services',
+      callOnly: true
+    },
+    {
+      name: 'ChanReveena Clinic',
+      address: 'Ground Floor, 531/B, 19th Main Rd, Sector 3, HSR Layout, Bengaluru, Karnataka 560102',
+      availableAt: 'Mon to Fri: 9:30 AM - 4:00 PM',
+      phone: '09606957688',
+      website: 'https://chanreveena.chanrericr.com/',
+      mapLink: 'https://maps.app.goo.gl/N3GTF4hrakhE12tU6',
+      description: 'Specialty clinic with comprehensive pulmonology care and advanced diagnostic services',
+      callOnly: true
     }
   ]
 
@@ -102,9 +113,9 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
   
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+      <div className="grid grid-cols-1 gap-6 sm:gap-8">
         {/* Location Selection */}
-        <div className="lg:col-span-2 pt-4 sm:pt-6 lg:pt-8">
+        <div className="pt-4 sm:pt-6 lg:pt-8">
           <div className={`${isDarkMode ? 'bg-white/10 backdrop-blur-2xl border-white/20' : 'bg-white border-gray-100'} rounded-2xl sm:rounded-3xl shadow-2xl border p-4 sm:p-6 lg:p-8 ${className}`}>
             {/* Header */}
             <div className="text-center mb-8 sm:mb-10 lg:mb-12">
@@ -117,7 +128,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
             </div>
 
             {/* Hospital Sections */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
               {hospitals.map((hospital, index) => (
                 <div key={index} className={`group relative ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-blue-400/50' : 'bg-gradient-to-br from-gray-50 to-white border-gray-200 hover:border-blue-200'} border rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full`}>
                   {/* Hospital Header */}
@@ -159,13 +170,27 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                     <div className="flex items-start space-x-2 sm:space-x-3">
                       <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 mt-0.5 sm:mt-1 flex-shrink-0" />
                       <div>
-                        <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-xs sm:text-sm`}>Phone</h4>
+                      <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-xs sm:text-sm`}>Phone</h4>
+                      {hospital.phone ? (
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.phone}</p>
+                      ) : (
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>See website for contact</p>
+                      )}
+                      <div className="flex items-center gap-2 mt-1">
+                        <a
+                          href={hospital.website}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`inline-flex items-center px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-semibold ${isDarkMode ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-blue-50 text-blue-700 hover:bg-blue-100'} transition-colors`}
+                        >
+                          Contact
+                        </a>
+                      </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Book Appointment Button */}
+                  {/* Contact/Appointment CTA */}
                   <div className="text-center mt-auto flex-shrink-0">
                     <button
                       onClick={() => handleOpenModal(hospital)}
@@ -211,9 +236,9 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
           </div>
         </div>
 
-        {/* Sidebar */}
+        {/* Sidebar removed as per request */}
+        {/*
         <div className="space-y-4 sm:space-y-6 pt-4 sm:pt-6 lg:pt-8">
-          {/* Doctor Info */}
           <div className={`${isDarkMode ? 'bg-white/10 backdrop-blur-2xl border-white/20' : 'bg-white border-gray-100'} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 shadow-lg border`}>
             <div className="text-center mb-4 sm:mb-6">
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-blue-600 to-teal-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
@@ -243,7 +268,6 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
             </div>
           </div>
 
-          {/* Contact Info */}
           <div className={`${isDarkMode ? 'bg-blue-900/20 border-blue-700/50' : 'bg-gradient-to-br from-blue-50 to-teal-50 border-blue-100'} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border`}>
             <h3 className={`text-lg sm:text-xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-3 sm:mb-4`}>
               Need Immediate Help?
@@ -270,7 +294,6 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
             </div>
           </div>
 
-          {/* Quick Info */}
           <div className={`${isDarkMode ? 'bg-green-900/20 border-green-700/50' : 'bg-gradient-to-r from-green-50 to-emerald-50 border-green-100'} rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 border`}>
             <h3 className={`text-base sm:text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-2 sm:mb-3`}>
               What to Expect
@@ -295,6 +318,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
             </ul>
           </div>
         </div>
+        */}
       </div>
 
       {/* Appointment Booking Modal */}

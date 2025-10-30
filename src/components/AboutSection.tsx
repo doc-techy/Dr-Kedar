@@ -5,86 +5,23 @@ import { useTheme } from '@/contexts/ThemeContext'
 export default function AboutSection() {
   const { isDarkMode } = useTheme()
   const [isVisible, setIsVisible] = useState(false)
-  const [activeYear, setActiveYear] = useState('2025')
-  const [animatingMarker, setAnimatingMarker] = useState(true)
-  const [currentMarkerIndex, setCurrentMarkerIndex] = useState(0)
-  const [isTransitioning, setIsTransitioning] = useState(false)
 
-  // Timeline Data Array
-  const timelineData = [
-    {
-      id: 7,
-      role: "Lead Consultant - Clinical & Interventional Pulmonologist",
-      hospital: "SPARSH Hospital",
-      timePeriod: "Aug 2025 - Present",
-      location: "Bangalore",
-      color: "blue",
-      icon: "🏥",
-      order:9,
-      year: "2025"
-    },
-    {
-      id: 6,
-      title: "International Observership",
-      description: "National University Hospital, Singapore & Serdang Hospital, Malaysia",
-      location: "Singapore & Malaysia",
-      timePeriod: "2016",
-      color: "blue",
-      icon: "🔬",
-      order:5,
-      year: "2016"
-    },
-    {
-      id: 5,
-      title: "Fellowship in Interventional Pulmonology",
-      description: "Ruhrlandklinik West Germany Lung Center",
-      location: "Essen, Germany",
-      timePeriod: "2016",
-      color: "blue",
-      icon: "🌍",
-      year: "2016"
-    },
-    {
-      id: 4,
-      title: "Fellowship in Interventional Pulmonology & Thoracic Oncology",
-      description: "Rajiv Gandhi Cancer Institute & Research Center",
-      location: "New Delhi",
-      timePeriod: "2015",
-      color: "blue",
-      icon: "🎯",
-      year: "2015"
-    },
-    {
-      id: 3,
-      role: "Lead Consultant - Clinical & Interventional Pulmonologist",
-      hospital: "Narayana Multispeciality Hospital",
-      timePeriod: "2012 - 2025",
-      location: "Bangalore",
-      color: "blue",
-      icon: "🏥",
-      year: "2012"
-    },
-    {
-      id: 2,
-      title: "DNB (Respiratory Diseases)",
-      description: "St John's National Academy of Health Sciences",
-      location: "Bangalore, Karnataka",
-      timePeriod: "2012",
-      color: "blue",
-      icon: "🏥",
-      year: "2012"
-    },
-    {
-      id: 1,
-      title: "MBBS",
-      description: "Dr B R Ambedkar Medical College & Hospital",
-      location: "Bangalore, Karnataka",
-      timePeriod: "2006",
-      color: "blue",
-      icon: "🎓",
-      year: "2006"
-    }
-  ].sort((a, b) => a.id - b.id);
+  // New concise data
+  const highlights = [
+    { title: 'Interventional Pulmonologist', desc: 'Advanced airway & pleural procedures' },
+    { title: 'International Training', desc: 'Germany, Singapore, Malaysia' },
+    { title: 'Research & Teaching', desc: 'Publications, talks, and workshops' },
+  ]
+  const experience = [
+    { title: 'Lead Consultant - Interventional Pulmonology', place: 'SPARSH Hospital, Bengaluru', period: '2025 – Present' },
+    { title: 'Lead Consultant - Clinical & Interventional Pulmonology', place: 'Narayana Multispeciality Hospital, Bengaluru', period: '2012 – 2025' },
+  ]
+  const education = [
+    { title: 'Fellowship – Interventional Pulmonology & Thoracic Oncology', place: 'Rajiv Gandhi Cancer Institute, New Delhi', period: '2015' },
+    { title: 'Fellowship – Interventional Pulmonology', place: 'Ruhrlandklinik, West German Lung Center', period: '2016' },
+    { title: 'DNB (Respiratory Diseases)', place: "St John's National Academy of Health Sciences", period: '2012' },
+    { title: 'MBBS', place: 'Dr B R Ambedkar Medical College & Hospital', period: '2006' },
+  ]
 
   // Key Statistics
   const stats = [
@@ -94,47 +31,19 @@ export default function AboutSection() {
     { number: '1000+', label: 'Patients Treated', description: 'Successful Outcomes' }
   ]
 
-  // Get unique years for buttons
-  const uniqueYears = [...new Set(timelineData.map(item => item.year))].sort((a, b) => parseInt(a) - parseInt(b))
-  
-  // Get all entries for the selected year
-  const activeYearEntries = timelineData.filter(item => item.year === activeYear)
-  const activeData = activeYearEntries[0] || timelineData[0]
+  // legacy timeline removed; placeholders to avoid runtime/lint errors while UI no longer uses timeline
+  const uniqueYears: string[] = []
+  const currentMarkerIndex = 0
+  const activeYear = ''
+  const isTransitioning = false
+  const activeYearEntries: any[] = []
 
   // Visibility effect
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
-  // Continuously move marker every second
-  useEffect(() => {
-    const markerInterval = setInterval(() => {
-      setCurrentMarkerIndex(prevIndex => {
-        const nextIndex = (prevIndex + 1) % uniqueYears.length;
-        return nextIndex;
-      });
-    }, 5000); // Move to next position every 1 second
-
-    return () => clearInterval(markerInterval);
-  }, [uniqueYears])
-
-  // Update active year based on marker position (every 5 seconds = 5 moves)
-  useEffect(() => {
-    // Set active year to the current marker position
-    if (currentMarkerIndex < uniqueYears.length) {
-      setIsTransitioning(true);
-      
-      // Fade out
-      setTimeout(() => {
-      setActiveYear(uniqueYears[currentMarkerIndex]);
-      }, 150);
-      
-      // Fade in
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 300);
-    }
-  }, [currentMarkerIndex, uniqueYears])
+  // timeline animation removed
 
   return (
     <section id="about" className="py-20 lg:py-32 relative overflow-hidden">
@@ -374,19 +283,7 @@ export default function AboutSection() {
                       >
                         {/* Enhanced Year Button */}
                         <button
-                          onClick={() => {
-                            const yearIndex = uniqueYears.indexOf(year);
-                            if (yearIndex !== -1) {
-                              setIsTransitioning(true);
-                              setCurrentMarkerIndex(yearIndex);
-                              setTimeout(() => {
-                              setActiveYear(year);
-                              }, 150);
-                              setTimeout(() => {
-                                setIsTransitioning(false);
-                              }, 300);
-                            }
-                          }}
+                          onClick={() => {}}
                           className="relative group transition-all duration-500 ease-in-out transform hover:scale-125 active:scale-110"
                         >
                           {/* Button Circle with enhanced styling */}
@@ -463,19 +360,7 @@ export default function AboutSection() {
                           }}
                         >
                           <button
-                            onClick={() => {
-                              const yearIndex = uniqueYears.indexOf(year);
-                              if (yearIndex !== -1) {
-                                setIsTransitioning(true);
-                                setCurrentMarkerIndex(yearIndex);
-                                setTimeout(() => {
-                                  setActiveYear(year);
-                                }, 150);
-                                setTimeout(() => {
-                                  setIsTransitioning(false);
-                                }, 300);
-                              }
-                            }}
+                            onClick={() => {}}
                             className={`relative w-16 h-16 rounded-full flex items-center justify-center transition-all duration-500 z-30 ${
                               isActive
                                 ? `${isDarkMode ? 'bg-gradient-to-br from-blue-500 to-purple-500 border-3 border-blue-400 shadow-xl shadow-blue-500/50 scale-110' : 'bg-gradient-to-br from-blue-600 to-purple-600 border-3 border-blue-500 shadow-xl shadow-blue-600/50 scale-110'}`
