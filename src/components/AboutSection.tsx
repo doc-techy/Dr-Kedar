@@ -32,10 +32,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header (kept) */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
-          <div className={`inline-flex items-center gap-2.5 bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-teal-500/10 backdrop-blur-xl border ${isDarkMode ? 'border-white/20' : 'border-gray-200'} px-6 py-3 rounded-full text-sm font-semibold mb-6`}>
-            <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full animate-pulse"></div>
-            <span className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} font-bold`}>Medical Excellence & Innovation</span>
-          </div>
+
           <h1 className={`text-5xl sm:text-6xl lg:text-7xl font-black ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-4 leading-tight`}>
             <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500 bg-clip-text text-transparent">
               Meet Dr. Kedar Hibare

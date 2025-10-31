@@ -102,7 +102,7 @@ export default function AchievementsSection() {
 
         {/* Awards - Responsive Grid */}
         <div className="mb-12 sm:mb-16 lg:mb-20">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             {achievements.map((achievement, index) => (
                   <div 
                     key={index} 
@@ -112,20 +112,20 @@ export default function AchievementsSection() {
                     {/* Specular highlights for Liquid Glass effect */}
                     <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="flex-shrink-0">
+                <div className="flex flex-col sm:flex-row sm:items-start space-y-2 sm:space-y-0 sm:space-x-4">
+                  <div className="hidden sm:flex flex-shrink-0">
                     <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r ${achievement.gradient} rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                       {achievement.year === "2020-24" ? "📊" : achievement.year.slice(-2)}
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <div className="flex items-center mb-1 sm:mb-2">
-                      <span className="text-lg sm:text-xl lg:text-2xl mr-2">{achievement.icon}</span>
-                          <h4 className={`text-sm sm:text-base lg:text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                  <div className="flex-1 text-center sm:text-left">
+                    <div className="flex flex-col sm:flex-row sm:items-center items-center mb-1 sm:mb-2 space-y-1 sm:space-y-0">
+                      <span className="hidden sm:inline text-lg sm:text-xl lg:text-2xl mr-2">{achievement.icon}</span>
+                          <h4 className={`text-xs sm:text-base lg:text-lg font-bold bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
                             {achievement.title}
                           </h4>
                         </div>
-                        <p className={`font-semibold mb-1 sm:mb-2 text-xs sm:text-sm bg-gradient-to-r ${achievement.gradient} bg-clip-text text-transparent`}>
+                        <p className={`font-semibold mb-1 sm:mb-2 text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                           {achievement.organization}
                         </p>
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed text-xs sm:text-sm`}>
@@ -146,7 +146,7 @@ export default function AchievementsSection() {
           </h3>
           
           {/* Responsive Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {memberships.map((membership, index) => (
               <div 
                 key={index} 
@@ -155,12 +155,12 @@ export default function AchievementsSection() {
               >
                 {/* Specular highlights */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="flex items-center space-x-3 sm:space-x-4">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 ${membership.color} rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-xs sm:text-sm group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                <div className="flex flex-col sm:flex-row sm:items-center items-center text-center sm:text-left space-y-2 sm:space-y-0 sm:space-x-4">
+                  <div className={`hidden sm:flex w-10 h-10 sm:w-12 sm:h-12 ${membership.color} rounded-lg sm:rounded-xl items-center justify-center text-white font-bold text-xs sm:text-sm group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
                     {membership.short}
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <h4 className={`font-semibold text-sm sm:text-base ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
+                  <div className="min-w-0 flex-1 w-full">
+                    <h4 className={`font-semibold text-xs sm:text-base ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300`}>
                       {membership.short}
                     </h4>
                     <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} leading-relaxed`}>{membership.name}</p>

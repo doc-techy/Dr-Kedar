@@ -17,7 +17,7 @@ export default function VideoPublicationsSection() {
   }
 
   const scrollVideosRight = () => {
-    if (currentVideoIndex < Math.ceil(videos.length / 2) - 1) {
+    if (currentVideoIndex < videos.length - 1) {
       setCurrentVideoIndex(currentVideoIndex + 1)
     }
   }
@@ -29,7 +29,7 @@ export default function VideoPublicationsSection() {
   }
 
   const scrollPublicationsRight = () => {
-    if (currentPublicationIndex < Math.ceil(publications.length / 2) - 1) {
+    if (currentPublicationIndex < publications.length - 1) {
       setCurrentPublicationIndex(currentPublicationIndex + 1)
     }
   }
@@ -466,9 +466,103 @@ export default function VideoPublicationsSection() {
         {/* Content based on active tab */}
         {activeTab === 'videos' ? (
           <div>
-            {/* Responsive Videos Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-              {displayedVideos.map((video) => (
+            {/* Mobile carousel for videos */}
+            <div className="sm:hidden pt-8 pb-8 mb-6">
+              {videos.slice(currentVideoIndex, currentVideoIndex + 1).map((video) => (
+                <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative animate-fade-in`}>
+                  {/* Specular highlights */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
+                  {/* Video Thumbnail */}
+                  <div className="relative h-48 overflow-hidden">
+                    {/* Thumbnail Image */}
+                    <img 
+                      src={video.thumbnail} 
+                      alt={video.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                    
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-all duration-300"></div>
+                    
+                    {/* Play button overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 bg-white/90 rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 h-16">
+                        <svg className="w-6 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Duration badge */}
+                    <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-xs font-medium">
+                      {video.duration}
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-4 space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.views} views</span>
+                      <span className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{video.date}</span>
+                    </div>
+                    
+                    <h4 className={`text-base font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} transition-colors duration-300 leading-tight`}>
+                      {video.title}
+                    </h4>
+                    
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm leading-relaxed`}>
+                      {video.description}
+                    </p>
+                    
+                    <div className={`h-1 bg-gradient-to-r ${video.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+                  </div>
+                </div>
+              ))}
+              
+              {/* Mobile navigation controls below content */}
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <button 
+                  onClick={scrollVideosLeft} 
+                  disabled={currentVideoIndex === 0}
+                  className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-2 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                {/* Round slider indicators */}
+                <div className="flex items-center gap-2">
+                  {videos.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentVideoIndex(index)}
+                      className={`transition-all duration-300 rounded-full ${
+                        currentVideoIndex === index
+                          ? `${isDarkMode ? 'bg-white' : 'bg-gray-900'} w-2.5 h-2.5`
+                          : `${isDarkMode ? 'bg-white/30 hover:bg-white/50' : 'bg-gray-400 hover:bg-gray-600'} w-2 h-2`
+                      }`}
+                      aria-label={`Go to video ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button 
+                  onClick={scrollVideosRight} 
+                  disabled={currentVideoIndex === videos.length - 1}
+                  className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-2 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop Videos Grid */}
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
+              {(displayedVideos.length > 0 ? displayedVideos : videos).map((video) => (
                 <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
                   {/* Specular highlights */}
                   <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10"></div>
@@ -572,8 +666,115 @@ export default function VideoPublicationsSection() {
               </div>
             </div>
             
-            {/* Responsive Publications Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+            {/* Mobile carousel for publications */}
+            <div className="sm:hidden pt-8 pb-8 mb-6">
+              {publications.slice(currentPublicationIndex, currentPublicationIndex + 1).map((publication) => (
+                <a
+                  key={publication.id}
+                  href={publication.link || "https://www.researchgate.net/profile/Kedar-Hibare-2"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group block ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden cursor-pointer animate-fade-in`}
+                  aria-label={`Read publication: ${publication.title} on ResearchGate`}
+                >
+                  {/* External link indicator */}
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                    <svg className={`w-4 h-4 ${isDarkMode ? 'text-blue-400' : 'text-blue-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </div>
+                  {/* Specular highlights */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  {/* Title Section */}
+                  <div className="mb-4">
+                    <h4 className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} leading-tight mb-2`}>
+                      {publication.title}
+                    </h4>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} mb-3`}>
+                      {publication.authors}
+                    </p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} leading-relaxed`}>
+                      {publication.description || "Research publication in the field of interventional pulmonology and respiratory medicine."}
+                    </p>
+                  </div>
+
+                  {/* Separator */}
+                  <div className={`border-t ${isDarkMode ? 'border-white/20' : 'border-gray-200'} mb-4`}></div>
+
+                  {/* Bottom Section */}
+                  <div className="flex items-center justify-between">
+                    {/* Publication Details */}
+                    <div className="space-y-2">
+                      <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                        {publication.journal}
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          {publication.year}
+                        </p>
+                        {publication.citations && (
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${isDarkMode ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'}`}>
+                            {publication.citations} citations
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Read Paper Button */}
+                    <div 
+                      className={`${isDarkMode ? 'text-red-400' : 'text-red-500'} flex items-center gap-1 text-sm font-medium group-hover:gap-2 transition-all duration-300 relative z-10`}
+                    >
+                      <span>Read Paper</span>
+                      <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </a>
+              ))}
+              
+              {/* Mobile navigation controls below content */}
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <button 
+                  onClick={scrollPublicationsLeft} 
+                  disabled={currentPublicationIndex === 0}
+                  className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-2 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                {/* Round slider indicators */}
+                <div className="flex items-center gap-2">
+                  {publications.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentPublicationIndex(index)}
+                      className={`transition-all duration-300 rounded-full ${
+                        currentPublicationIndex === index
+                          ? `${isDarkMode ? 'bg-white' : 'bg-gray-900'} w-2.5 h-2.5`
+                          : `${isDarkMode ? 'bg-white/30 hover:bg-white/50' : 'bg-gray-400 hover:bg-gray-600'} w-2 h-2`
+                      }`}
+                      aria-label={`Go to publication ${index + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button 
+                  onClick={scrollPublicationsRight} 
+                  disabled={currentPublicationIndex === publications.length - 1}
+                  className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-2 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed`}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Desktop Publications Grid */}
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
               {displayedPublications.map((publication) => (
                 <a
                   key={publication.id}
