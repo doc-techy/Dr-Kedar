@@ -28,7 +28,7 @@ export default function AboutSection() {
   }, [])
 
   return (
-    <section id="about" className="py-20 lg:py-32">
+    <section id="about" className="mt-8 sm:mt-0 py-20 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header (kept) */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>

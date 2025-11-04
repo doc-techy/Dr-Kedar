@@ -36,7 +36,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
     {
       name: 'Marvel Multi-Speciality Hospital',
       address: '#153, 1st Cross Rd, 1st Block Koramangala, Besides Bandhan Bank, Bengaluru – 560034',
-      availableAt: 'Open 24/7',
+      availableAt: 'Monday, Wednesday & Friday: 5:30 PM - 6:30 PM',
       phone: '+91 9591413707',
       website: 'https://www.marvelhospitals.in/',
       mapLink: 'https://maps.google.com/?q=Marvel+Multi+Speciality+Hospital+Koramangala',
@@ -46,7 +46,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
     {
       name: 'ChanReveena Clinic',
       address: 'Ground Floor, 531/B, 19th Main Rd, Sector 3, HSR Layout, Bengaluru, Karnataka 560102',
-      availableAt: 'Mon to Saturday: 8:00 AM - 8:00 PM',
+      availableAt: 'Tuesday & Thursday: 5:30 PM - 6:30 PM',
       phone: '09606957688',
       website: 'https://chanreveena.chanrericr.com/',
       mapLink: 'https://maps.app.goo.gl/N3GTF4hrakhE12tU6',
@@ -189,6 +189,16 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                         className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
                       >
                         Contact
+                      </a>
+                    ) : hospital.name === 'SPARSH Hospital' && hospital.website ? (
+                      <a
+                        href={hospital.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-teal-700 focus:ring-4 focus:ring-blue-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
+                      >
+                        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        Book Appointment
                       </a>
                     ) : (
                       <button
