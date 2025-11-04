@@ -88,7 +88,7 @@ export default function HeroSection() {
           </div>
           
           {/* Doctor Image Section */}
-          <div className="order-1 lg:order-2 relative mt-4 sm:mt-6 lg:mt-0">
+          <div className="order-1 lg:order-2 relative mt-14 sm:mt-6 lg:mt-0">
             <div className="relative">
               
                              {/* Professional frame */}
