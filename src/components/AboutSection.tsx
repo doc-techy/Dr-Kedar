@@ -41,6 +41,17 @@ export default function AboutSection() {
           <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed font-medium`}>
             Pioneering interventional pulmonologist with international expertise, bringing cutting-edge respiratory care to India
           </p>
+          <div className="mt-8 space-y-4 text-left max-w-4xl mx-auto">
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
+              I am a pulmonologist with a passion for Interstitial Lung Disease, Pulmonary hypertension and Interventions, I’ve always looked beyond just diagnoses and protocols. I believe healing happens in the details—through empathy, evidence, and honest engagement.
+            </p>
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
+              My work spans across clinics, classrooms, and conversations—where I try to simplify the complex, challenge the status quo, and leave every interaction a little lighter and better.
+            </p>
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
+              And whether it's teaching, learning, or leading, I show up with curiosity, clarity, and a strong cup of filter coffee!
+            </p>
+          </div>
         </div>
 
         {/* Only Experience & Education retained */}
