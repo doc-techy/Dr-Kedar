@@ -467,7 +467,7 @@ export default function VideoPublicationsSection() {
         {activeTab === 'videos' ? (
           <div>
             {/* Mobile carousel for videos */}
-            <div className="sm:hidden pt-8 pb-8 mb-6">
+            <div className="sm:hidden pt-4 pb-8">
               {videos.slice(currentVideoIndex, currentVideoIndex + 1).map((video) => (
                 <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative animate-fade-in`}>
                   {/* Specular highlights */}
@@ -561,7 +561,7 @@ export default function VideoPublicationsSection() {
             </div>
 
             {/* Desktop Videos Grid */}
-            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 sm:pt-6 sm:pb-12">
               {(displayedVideos.length > 0 ? displayedVideos : videos).map((video) => (
                 <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
                   {/* Specular highlights */}
@@ -618,7 +618,7 @@ export default function VideoPublicationsSection() {
 
             {/* Load More/Less Buttons - Responsive */}
             {videos.length > 6 && (
-              <div className="flex justify-center mt-6 sm:mt-8">
+              <div className="flex justify-center">
                 {videosToShow < videos.length ? (
                   <button
                     onClick={handleLoadMore}
@@ -667,7 +667,7 @@ export default function VideoPublicationsSection() {
             </div> */}
             
             {/* Mobile carousel for publications */}
-            <div className="sm:hidden pt-8 pb-8 mb-6">
+            <div className="sm:hidden pt-4 pb-8">
               {publications.slice(currentPublicationIndex, currentPublicationIndex + 1).map((publication) => (
                 <a
                   key={publication.id}
@@ -774,7 +774,7 @@ export default function VideoPublicationsSection() {
             </div>
 
             {/* Desktop Publications Grid */}
-            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 pt-4 sm:pt-6 lg:pt-8 pb-8 sm:pb-12 lg:pb-16">
               {displayedPublications.map((publication) => (
                 <a
                   key={publication.id}
@@ -863,17 +863,6 @@ export default function VideoPublicationsSection() {
             )}
           </div>
         )}
-
-
-        {/* Read More Button */}
-        {/* <div className="flex justify-end mt-12">
-          <button className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-8 py-4 rounded-xl font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex items-center gap-2">
-            <span>Read More</span>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div> */}
       </div>
     </section>
   )

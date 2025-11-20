@@ -94,7 +94,7 @@ Whether it’s teaching, learning, or leading, I show up with curiosity, clarity
                       <div className="flex-1">
                         <p className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base lg:text-lg font-bold mb-1.5 group-hover:text-transparent group-hover:bg-gradient-to-r ${gradient.from} ${gradient.to} group-hover:bg-clip-text transition-all duration-300`}>{e.title}</p>
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm font-medium mb-1.5`}>{e.place}</p>
-                        <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${gradient.from} ${gradient.to} text-white`}>
+                        <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                           <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>

@@ -172,19 +172,18 @@ export default function CoursesPage() {
     <div className={`min-h-screen relative ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       <SectionBackground variant="gradient" />
       
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className={`absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-10 ${
-          isDarkMode ? 'bg-gradient-to-r from-blue-500 to-purple-600' : 'bg-gradient-to-r from-blue-200 to-purple-300'
-        } blur-[100px] animate-pulse`}></div>
-        <div className={`absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full opacity-5 ${
-          isDarkMode ? 'bg-gradient-to-r from-pink-500 to-orange-500' : 'bg-gradient-to-r from-pink-200 to-orange-200'
-        } blur-[80px] animate-pulse`} style={{animationDelay: '4s'}}></div>
-      </div>
-      
       <Header />
       
       <main className="pt-20 relative">
+        {/* Animated Background Elements - Only in main content area */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-10 ${
+            isDarkMode ? 'bg-gradient-to-r from-blue-500 to-purple-600' : 'bg-gradient-to-r from-blue-200 to-purple-300'
+          } blur-[100px] animate-pulse`}></div>
+          <div className={`absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full opacity-5 ${
+            isDarkMode ? 'bg-gradient-to-r from-pink-500 to-orange-500' : 'bg-gradient-to-r from-pink-200 to-orange-200'
+          } blur-[80px] animate-pulse`} style={{animationDelay: '4s'}}></div>
+        </div>
 
 
         {/* Filter Tabs & Courses Section */}
