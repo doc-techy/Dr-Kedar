@@ -141,22 +141,18 @@ export default function CoursesPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (currentStep < 2) {
-      setCurrentStep(currentStep + 1)
-    } else {
-      console.log('Form submitted:', formData)
-      alert('Application submitted successfully! We will contact you soon.')
-      setIsModalOpen(false)
-      setCurrentStep(1)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        qualification: '',
-        experience: '',
-        message: ''
-      })
-    }
+    console.log('Form submitted:', formData)
+    alert('Application submitted successfully! We will contact you soon.')
+    setIsModalOpen(false)
+    setCurrentStep(1)
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      qualification: '',
+      experience: '',
+      message: ''
+    })
   }
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -181,9 +177,6 @@ export default function CoursesPage() {
         <div className={`absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-10 ${
           isDarkMode ? 'bg-gradient-to-r from-blue-500 to-purple-600' : 'bg-gradient-to-r from-blue-200 to-purple-300'
         } blur-[100px] animate-pulse`}></div>
-        <div className={`absolute bottom-20 right-1/4 w-[500px] h-[500px] rounded-full opacity-10 ${
-          isDarkMode ? 'bg-gradient-to-r from-teal-500 to-cyan-600' : 'bg-gradient-to-r from-teal-200 to-cyan-300'
-        } blur-[100px] animate-pulse`} style={{animationDelay: '2s'}}></div>
         <div className={`absolute top-1/2 left-1/2 w-[300px] h-[300px] rounded-full opacity-5 ${
           isDarkMode ? 'bg-gradient-to-r from-pink-500 to-orange-500' : 'bg-gradient-to-r from-pink-200 to-orange-200'
         } blur-[80px] animate-pulse`} style={{animationDelay: '4s'}}></div>
@@ -332,27 +325,8 @@ export default function CoursesPage() {
                       )}
                     </div>
 
-                    {/* Pricing & CTA */}
+                    {/* CTA */}
                     <div className={`${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'} pt-3 mt-auto`}>
-                      {/* Price Section */}
-                      <div className="mb-3">
-                        <div className="flex items-baseline gap-2 flex-wrap">
-                          <div className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl font-black`}>
-                            {course.price}
-                          </div>
-                          {course.originalPrice && (
-                            <>
-                              <div className={`${isDarkMode ? 'text-gray-500' : 'text-gray-400'} text-sm line-through`}>
-                                {course.originalPrice}
-                              </div>
-                              <span className="px-2 py-0.5 rounded-md text-xs font-bold bg-gradient-to-r from-green-500 to-emerald-500 text-white">
-                                -{Math.round((1 - parseInt(String(course.price).replace(/[^0-9]/g, '')) / parseInt(String(course.originalPrice).replace(/[^0-9]/g, ''))) * 100)}%
-                              </span>
-                            </>
-                          )}
-                        </div>
-                      </div>
-
                       { (course as any).externalLink ? (
                         <a
                           href={(course as any).externalLink}
@@ -425,216 +399,88 @@ export default function CoursesPage() {
                 </button>
               </div>
 
-              {/* Step Indicator */}
-              <div className="flex items-center justify-between">
-                {[1, 2].map((step) => (
-                  <div key={step} className="flex items-center flex-1">
-                    <div className={`flex items-center gap-3 ${step === 1 ? '' : 'flex-1'}`}>
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm transition-all duration-300 ${
-                        currentStep >= step
-                          ? 'bg-gradient-to-r from-blue-600 to-teal-600 text-white scale-110'
-                          : isDarkMode
-                            ? 'bg-white/10 text-gray-500'
-                            : 'bg-gray-200 text-gray-400'
-                      }`}>
-                        {currentStep > step ? (
-                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        ) : (
-                          step
-                        )}
-                      </div>
-                      <span className={`font-semibold text-sm ${currentStep >= step ? (isDarkMode ? 'text-white' : 'text-gray-900') : (isDarkMode ? 'text-gray-500' : 'text-gray-400')}`}>
-                        {step === 1 ? 'Personal Info' : 'Professional Details'}
-                      </span>
-                    </div>
-                    {step < 2 && (
-                      <div className={`h-0.5 flex-1 mx-4 transition-all duration-300 ${
-                        currentStep > step
-                          ? 'bg-gradient-to-r from-blue-600 to-teal-600'
-                          : isDarkMode
-                            ? 'bg-white/10'
-                            : 'bg-gray-200'
-                      }`}></div>
-                    )}
-                  </div>
-                ))}
-              </div>
             </div>
 
             {/* Modal Body */}
             <form onSubmit={handleSubmit} className="p-8 overflow-y-auto max-h-[calc(90vh-200px)]">
-              {currentStep === 1 && (
-                <div className="space-y-6 animate-fade-in">
-                  <h4 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-xl font-bold mb-6`}>
-                    Personal Information
-                  </h4>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                        placeholder="Dr. John Doe"
-                      />
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                        placeholder="john.doe@email.com"
-                      />
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleInputChange}
-                        required
-                        className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-
-                    <div>
-                      <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                        Medical Qualification *
-                      </label>
-                      <input
-                        type="text"
-                        name="qualification"
-                        value={formData.qualification}
-                        onChange={handleInputChange}
-                        required
-                        className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                        placeholder="MBBS, MD, DNB, etc."
-                      />
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {currentStep === 2 && (
-                <div className="space-y-6 animate-fade-in">
-                  <h4 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-xl font-bold mb-6`}>
-                    Professional Details
-                  </h4>
-                  
+              <div className="space-y-6 animate-fade-in">
+                <h4 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-xl font-bold mb-6`}>
+                  Personal Information
+                </h4>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Years of Experience *
+                      Full Name *
                     </label>
                     <input
                       type="text"
-                      name="experience"
-                      value={formData.experience}
+                      name="name"
+                      value={formData.name}
                       onChange={handleInputChange}
                       required
                       className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
-                      placeholder="e.g., 5 years"
+                      placeholder="Dr. John Doe"
                     />
                   </div>
 
                   <div>
                     <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
-                      Why are you interested in this course?
+                      Email Address *
                     </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleInputChange}
-                      rows={6}
-                      className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none`}
-                      placeholder="Tell us about your goals, expectations, and why you want to join this program..."
+                      required
+                      className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
+                      placeholder="john.doe@email.com"
                     />
                   </div>
 
-                  {/* Course Summary */}
-                  <div className={`${isDarkMode ? 'bg-white/5 border border-white/10' : 'bg-gray-50 border border-gray-200'} rounded-xl p-6`}>
-                    <h5 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-bold mb-4`}>Course Summary</h5>
-                    <div className="space-y-3">
-                      <div className="flex justify-between items-center">
-                        <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Course</span>
-                        <span className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-semibold`}>{selectedCourse.title}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Duration</span>
-                        <span className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-semibold`}>{selectedCourse.duration}</span>
-                      </div>
-                      <div className="flex justify-between items-center">
-                        <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Mode</span>
-                        <span className={`${isDarkMode ? 'text-white' : 'text-gray-900'} font-semibold`}>{selectedCourse.mode}</span>
-                      </div>
-                      <div className={`${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'} pt-3 mt-3`}>
-                        <div className="flex justify-between items-center">
-                          <span className={`${isDarkMode ? 'text-gray-400' : 'text-gray-600'} font-bold`}>Fee</span>
-                          <div className="text-right">
-                            <div className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl font-black`}>{selectedCourse.price}</div>
-                            {selectedCourse.originalPrice && (
-                              <div className={`${isDarkMode ? 'text-gray-500' : 'text-gray-400'} text-sm line-through`}>{selectedCourse.originalPrice}</div>
-                            )}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div>
+                    <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+
+                  <div>
+                    <label className={`block text-sm font-bold ${isDarkMode ? 'text-gray-300' : 'text-gray-700'} mb-2`}>
+                      Medical Qualification *
+                    </label>
+                    <input
+                      type="text"
+                      name="qualification"
+                      value={formData.qualification}
+                      onChange={handleInputChange}
+                      required
+                      className={`w-full px-4 py-3.5 ${isDarkMode ? 'bg-white/5 border border-white/10 text-white placeholder-gray-500' : 'bg-gray-50 border border-gray-200 text-gray-900 placeholder-gray-400'} rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300`}
+                      placeholder="MBBS, MD, DNB, etc."
+                    />
                   </div>
                 </div>
-              )}
+              </div>
 
               {/* Form Actions */}
               <div className={`flex gap-4 mt-8 pt-6 ${isDarkMode ? 'border-t border-white/10' : 'border-t border-gray-200'}`}>
-                {currentStep > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => setCurrentStep(currentStep - 1)}
-                    className={`flex-1 px-6 py-3.5 ${isDarkMode ? 'bg-white/5 hover:bg-white/10 border border-white/10 text-white' : 'bg-gray-100 hover:bg-gray-200 border border-gray-200 text-gray-900'} rounded-xl transition-all duration-300 font-bold flex items-center justify-center gap-2`}
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Back
-                  </button>
-                )}
                 <button
                   type="submit"
-                  className={`${currentStep === 1 ? 'w-full' : 'flex-1'} px-6 py-3.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold flex items-center justify-center gap-2 hover:-translate-y-0.5`}
+                  className="w-full px-6 py-3.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-xl hover:shadow-xl transition-all duration-300 font-bold flex items-center justify-center gap-2 hover:-translate-y-0.5"
                 >
-                  {currentStep === 1 ? (
-                    <>
-                      Continue
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </>
-                  ) : (
-                    <>
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                      Submit Application
-                    </>
-                  )}
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Submit Application
                 </button>
               </div>
             </form>

@@ -38,51 +38,111 @@ export default function AboutSection() {
               Meet Dr. Kedar Hibare
             </span>
           </h1>
-          <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-lg sm:text-xl lg:text-2xl max-w-4xl mx-auto leading-relaxed font-medium`}>
+          {/* <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm lg:text-base max-w-4xl mx-auto leading-relaxed font-medium`}>
             Pioneering interventional pulmonologist with international expertise, bringing cutting-edge respiratory care to India
-          </p>
-          <div className="mt-8 space-y-4 text-left max-w-4xl mx-auto">
-            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
-              I am a pulmonologist with a passion for Interstitial Lung Disease, Pulmonary hypertension and Interventions, I’ve always looked beyond just diagnoses and protocols. I believe healing happens in the details—through empathy, evidence, and honest engagement.
-            </p>
-            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
-              My work spans across clinics, classrooms, and conversations—where I try to simplify the complex, challenge the status quo, and leave every interaction a little lighter and better.
-            </p>
-            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-base sm:text-lg leading-relaxed`}>
-              And whether it's teaching, learning, or leading, I show up with curiosity, clarity, and a strong cup of filter coffee!
-            </p>
+          </p> */}
+          <div className="mt-8 space-y-4 text-left max-w-5xl mx-auto">
+            <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-lg sm:text-lg leading-relaxed`}>
+            I am a pulmonologist with a passion for Interstitial Lung Disease, Pulmonary Hypertension, and Interventions. I’ve always looked beyond just diagnoses and protocols, because I believe healing happens in the details — through empathy, evidence, and honest engagement.<br></br>
+
+My work spans clinics, classrooms, and conversations, where I strive to simplify the complex, challenge the status quo, and leave every interaction a little lighter and better.<br></br>
+
+Whether it’s teaching, learning, or leading, I show up with curiosity, clarity, and a strong cup of filter coffee.</p>
           </div>
         </div>
 
         {/* Only Experience & Education retained */}
 
         {/* Experience (top, two horizontal boxes) */}
-        <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white'} rounded-2xl border ${isDarkMode ? 'border-white/10' : 'border-gray-200'} p-6 mb-8`}>
-          <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl lg:text-3xl font-extrabold mb-5`}>Experience</h3>
+        <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white'} rounded-2xl border ${isDarkMode ? 'border-white/10' : 'border-gray-200'} p-6 mb-8 relative overflow-hidden`}>
+          {/* Gradient accent at top */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-teal-500"></div>
+          
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl lg:text-3xl font-extrabold`}>
+              <span className="bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">Experience</span>
+            </h3>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {experience.slice(0, 2).map((e, i) => (
-              <div key={`exp-top-${i}`} className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} group border rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl relative overflow-hidden`}>
-                <div className={`absolute inset-0 pointer-events-none ${isDarkMode ? 'bg-gradient-to-br from-white/0 via-white/0 to-white/5' : 'bg-gradient-to-br from-white/0 via-white/0 to-white/40'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                <p className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base lg:text-lg font-bold mb-1.5`}>{e.title}</p>
-                <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm font-medium`}>{e.place}</p>
-                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{e.period}</p>
-              </div>
-            ))}
+            {experience.slice(0, 2).map((e, i) => {
+              const gradients = [
+                { from: 'from-blue-500', to: 'to-cyan-500', border: 'border-blue-500/20' },
+                { from: 'from-purple-500', to: 'to-pink-500', border: 'border-purple-500/20' }
+              ]
+              const gradient = gradients[i]
+              return (
+                <div key={`exp-top-${i}`} className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gradient-to-br from-white to-gray-50 border-gray-200'} group border-2 ${isDarkMode ? gradient.border : 'border-gray-200'} rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl relative overflow-hidden`}>
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${gradient.from} ${gradient.to} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                  
+                  {/* Left accent bar */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${gradient.from} ${gradient.to} rounded-l-2xl`}></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <div className="flex items-start gap-3 mb-3">
+                      {/* <div className={`w-8 h-8 rounded-lg bg-gradient-to-r ${gradient.from} ${gradient.to} flex items-center justify-center flex-shrink-0 mt-0.5`}>
+                        <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                      </div> */}
+                      <div className="flex-1">
+                        <p className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base lg:text-lg font-bold mb-1.5 group-hover:text-transparent group-hover:bg-gradient-to-r ${gradient.from} ${gradient.to} group-hover:bg-clip-text transition-all duration-300`}>{e.title}</p>
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm font-medium mb-1.5`}>{e.place}</p>
+                        <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-semibold bg-gradient-to-r ${gradient.from} ${gradient.to} text-white`}>
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                          {e.period}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
 
         {/* Education (second) */}
-        <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white'} rounded-2xl border ${isDarkMode ? 'border-white/10' : 'border-gray-200'} p-6`}>
-          <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl lg:text-3xl font-extrabold mb-5`}>Education</h3>
+        <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-white'} rounded-2xl border ${isDarkMode ? 'border-white/10' : 'border-gray-200'} p-6 relative overflow-hidden`}>
+          {/* Gradient accent at top */}
+          <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500"></div>
+          
+          <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-2xl lg:text-3xl font-extrabold mb-5`}>
+            <span className="bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent">Education</span>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {education.map((e, i) => (
-              <div key={`edu-${i}`} className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} group border rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl relative overflow-hidden`}>
-                <div className={`absolute inset-0 pointer-events-none ${isDarkMode ? 'bg-gradient-to-br from-white/0 via-white/0 to-white/5' : 'bg-gradient-to-br from-white/0 via-white/0 to-white/40'} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                <p className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base lg:text-lg font-bold mb-1.5`}>{e.title}</p>
-                <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm font-medium`}>{e.place}</p>
-                <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{e.period}</p>
-              </div>
-            ))}
+            {education.map((e, i) => {
+              const gradients = [
+                { from: 'from-teal-500', to: 'to-cyan-500' },
+                { from: 'from-indigo-500', to: 'to-blue-500' },
+                { from: 'from-emerald-500', to: 'to-teal-500' },
+                { from: 'from-cyan-500', to: 'to-sky-500' }
+              ]
+              const gradient = gradients[i]
+              return (
+                <div key={`edu-${i}`} className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-gray-50 border-gray-200'} group border rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl relative overflow-hidden`}>
+                  {/* Left accent bar */}
+                  <div className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${gradient.from} ${gradient.to} rounded-l-2xl`}></div>
+                  
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${gradient.from} ${gradient.to} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10">
+                    <p className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-base lg:text-lg font-bold mb-1.5`}>{e.title}</p>
+                    <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} text-sm font-medium`}>{e.place}</p>
+                    <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-500'}`}>{e.period}</p>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
         

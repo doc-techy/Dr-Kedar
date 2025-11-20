@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import img from '../../public/images/Dr-Kedar-Hibare-01.jpeg'
+import img from '../../public/images/Dr-Kedar-Hibare-01.jpg'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function HeroSection() {

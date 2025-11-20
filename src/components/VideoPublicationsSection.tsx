@@ -158,7 +158,7 @@ export default function VideoPublicationsSection() {
       category: "Case Series",
       gradient: "from-green-500 to-green-600",
       bgGradient: "from-green-50 to-green-100",
-      link: "https://www.researchgate.net/publication/393452605_Case_series_of_Y_shaped_self-expanding_metallic_stents_Y-SEMS_for_central_airway_obstruction_-_Experience_of_deployment_with_Single_Guide_Wire_technique"
+      link: "https://www.researchgate.net/publication/389400307_Case_series_of_Y_shaped_self-expanding_metallic_stents_Y-SEMS_for_central_airway_obstruction_-_Experience_of_deployment_with_'Single_Guide_Wire'_technique"
     },
     {
       id: 2,
@@ -172,7 +172,7 @@ export default function VideoPublicationsSection() {
       category: "Clinical Study",
       gradient: "from-red-500 to-red-600",
       bgGradient: "from-red-50 to-red-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/366895539_Effect_on_the_Prevalence_of_Various_Diffuse_Parenchymal_Lung_Diseases_due_to_Paradigm_Change_in_the_Guidelines?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 3,
@@ -186,7 +186,7 @@ export default function VideoPublicationsSection() {
       category: "Original Research",
       gradient: "from-orange-500 to-orange-600",
       bgGradient: "from-orange-50 to-orange-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/366956380_Rapid_Prototyping_Techniques_for_Manufacturing_Fully_Customized_Airway_Stents?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 4,
@@ -200,7 +200,7 @@ export default function VideoPublicationsSection() {
       category: "Review Article",
       gradient: "from-blue-500 to-blue-600",
       bgGradient: "from-blue-50 to-blue-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/364747629_Scientific_predictors_of_disease_outcomes_No_crystal_balls_or_parrots_picking_cards?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 5,
@@ -214,7 +214,7 @@ export default function VideoPublicationsSection() {
       category: "Clinical Study",
       gradient: "from-indigo-500 to-indigo-600",
       bgGradient: "from-indigo-50 to-indigo-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/349742665_Role_of_medical_thoracoscopy_in_the_treatment_of_complicated_parapneumonic_effusions?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 6,
@@ -228,7 +228,7 @@ export default function VideoPublicationsSection() {
       category: "Survey Study",
       gradient: "from-teal-500 to-teal-600",
       bgGradient: "from-teal-50 to-teal-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/344726969_Tracheobronchial_stent_sizing_and_deployment_practices_airway_stenting_practices_around_the_world_a_survey_study?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 7,
@@ -242,7 +242,7 @@ export default function VideoPublicationsSection() {
       category: "Clinical Study",
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/343330254_Yield_of_pleural_biopsy_in_different_types_of_tubercular_effusion?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 8,
@@ -256,7 +256,7 @@ export default function VideoPublicationsSection() {
       category: "Original Research",
       gradient: "from-cyan-500 to-cyan-600",
       bgGradient: "from-cyan-50 to-cyan-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/337587321_Airway_Stents_Changing_paradigms_in_the_management_of_airway_stenosis?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 9,
@@ -326,7 +326,7 @@ export default function VideoPublicationsSection() {
       category: "Original Research",
       gradient: "from-sky-500 to-sky-600",
       bgGradient: "from-sky-50 to-sky-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/337587321_Airway_Stents_Changing_paradigms_in_the_management_of_airway_stenosis?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
     },
     {
       id: 14,
@@ -382,7 +382,7 @@ export default function VideoPublicationsSection() {
       category: "Research Collection",
       gradient: "from-pink-500 to-pink-600",
       bgGradient: "from-pink-50 to-pink-100",
-      link: "https://www.researchgate.net/profile/Kedar-Hibare-2/publications"
+      link: "https://www.researchgate.net/publication/287841514_Indian_smokers_A_faster_downhill_course"
     }
   ]
 
@@ -423,7 +423,7 @@ export default function VideoPublicationsSection() {
         </div>
 
         {/* Responsive Toggle Buttons */}
-        <div className="flex justify-center mb-8 sm:mb-10 lg:mb-12">
+        <div className="flex justify-center mb-8 sm:mb-10 lg:mb-1">
           <div className={`${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-lg sm:rounded-xl p-1 shadow-lg relative w-fit mx-auto`}>
             {/* Animated background slider */}
             <div 
@@ -561,7 +561,7 @@ export default function VideoPublicationsSection() {
             </div>
 
             {/* Desktop Videos Grid */}
-            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
+            <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16">
               {(displayedVideos.length > 0 ? displayedVideos : videos).map((video) => (
                 <div key={video.id} className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} rounded-xl sm:rounded-2xl overflow-hidden hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 relative`}>
                   {/* Specular highlights */}
@@ -640,7 +640,7 @@ export default function VideoPublicationsSection() {
         ) : (
           <div>
             {/* ResearchGate Stats */}
-            <div className={`${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-2xl p-6 mb-8`}>
+            {/* <div className={`${isDarkMode ? 'bg-white/5 backdrop-blur-xl border border-white/10' : 'bg-white border border-gray-200'} rounded-2xl p-6 mb-8`}>
               <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-center sm:text-left">
                   <h3 className={`${isDarkMode ? 'text-white' : 'text-gray-900'} text-lg font-bold mb-2`}>
@@ -664,7 +664,7 @@ export default function VideoPublicationsSection() {
                   </svg>
                 </a>
               </div>
-            </div>
+            </div> */}
             
             {/* Mobile carousel for publications */}
             <div className="sm:hidden pt-8 pb-8 mb-6">
@@ -843,7 +843,7 @@ export default function VideoPublicationsSection() {
 
             {/* Load More/Less Buttons - Responsive */}
             {publications.length > 6 && (
-              <div className="flex justify-center mt-6 sm:mt-8">
+              <div className="flex justify-center sm:mt-8">
                 {publicationsToShow < publications.length ? (
                   <button
                     onClick={handleLoadMore}

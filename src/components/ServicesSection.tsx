@@ -91,7 +91,7 @@ export default function ServicesSection() {
     <section id="services" className="relative overflow-hidden">
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8 animate-fade-in">
+        <div className="text-center animate-fade-in">
           {/* <div className="inline-block bg-gradient-to-r from-blue-600 to-teal-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Advanced Medical Services
           </div> */}
@@ -226,44 +226,6 @@ export default function ServicesSection() {
           ))}
         </div>
 
-        {/* Desktop navigation controls below content */}
-        <div className="hidden sm:flex items-center justify-center gap-4 mt-8 mb-8 sm:mb-12 lg:mb-16">
-          <button 
-            onClick={scrollLeft} 
-            disabled={currentIndex === 0}
-            className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-3 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed hover:shadow-lg`}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          
-          {/* Round slider indicators */}
-          <div className="flex items-center gap-2">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  currentIndex === index
-                    ? `${isDarkMode ? 'bg-white' : 'bg-gray-900'} w-3 h-3`
-                    : `${isDarkMode ? 'bg-white/30 hover:bg-white/50' : 'bg-gray-400 hover:bg-gray-600'} w-2.5 h-2.5`
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
-          
-          <button 
-            onClick={scrollRight} 
-            disabled={currentIndex === services.length - 1}
-            className={`${isDarkMode ? 'text-white/80 hover:text-white disabled:text-white/30' : 'text-gray-700 hover:text-gray-900 disabled:text-gray-300'} p-3 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40 disabled:border-white/10' : 'border-gray-300 hover:border-gray-400 disabled:border-gray-200'} transition-all duration-300 disabled:cursor-not-allowed hover:shadow-lg`}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-        </div>
 
         
       </div>
