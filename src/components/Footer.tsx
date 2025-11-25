@@ -1,10 +1,11 @@
 'use client'
+import Link from 'next/link'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function Footer() {
   const { isDarkMode } = useTheme()
   return (
-    <footer className={`${isDarkMode ? 'bg-black/90 backdrop-blur-xl text-white' : 'bg-gray-900 text-white'} py-12`}>
+    <footer className={`relative z-10 ${isDarkMode ? 'bg-black/90 backdrop-blur-xl text-white' : 'bg-gray-900 text-white'} py-12`}>
       {/* Top accent bar */}
       <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-teal-600 h-1"></div>
       
@@ -29,7 +30,7 @@ export default function Footer() {
                   href="https://www.linkedin.com/in/drkedarhibare" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className={`${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors hover:scale-110`}
+                  className={`cursor-pointer ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors hover:scale-110`}
                   title="LinkedIn Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +42,7 @@ export default function Footer() {
                   href="https://www.facebook.com/kedar.hibare" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:text-blue-400 transition-colors hover:scale-110"
+                  className="cursor-pointer text-blue-500 hover:text-blue-400 transition-colors hover:scale-110"
                   title="Facebook Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -53,7 +54,7 @@ export default function Footer() {
                   href="https://www.instagram.com/kedarhibare?igsh=MWlwbHFjOGMwODZlcQ==" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-pink-500 hover:text-pink-400 transition-colors hover:scale-110"
+                  className="cursor-pointer text-pink-500 hover:text-pink-400 transition-colors hover:scale-110"
                   title="Instagram Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -65,7 +66,7 @@ export default function Footer() {
                   href="https://www.sparshhospital.com/doctors/dr-kedar-hibare/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-green-500 hover:text-green-400 transition-colors hover:scale-110"
+                  className="cursor-pointer text-green-500 hover:text-green-400 transition-colors hover:scale-110"
                   title="SPARSH Hospital Profile"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -93,28 +94,30 @@ export default function Footer() {
           <div className="lg:w-1/4">
             <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
             <div className="space-y-1">
-              <a href="#about" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
-                About Dr. Kedar Hibare
-              </a>
-              <a href="#services" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
-                Pulmonology Services
-              </a>
-              <a href="#achievements" className={`block ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
-                Achievements & Research
-              </a>
-              <a href="/book-appointment" className={`block ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors`}>
+              <Link href="/" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+                Home
+              </Link>
+              <Link href="/#services" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+                Services
+              </Link>
+              <Link href="/#video-publications" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+                Educational Content
+              </Link>
+              <Link href="/about" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+                About
+              </Link>
+              <Link href="/courses" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+                Courses
+              </Link>
+              <Link href="/book-appointment" className={`block cursor-pointer ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors`}>
                 Book Consultation
-              </a>
-            </div>
-            <div className={`mt-4 pt-4 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-600'}`}>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-400'}`}>Professional Memberships:</p>
-              <p className={`text-xs ${isDarkMode ? 'text-gray-500' : 'text-gray-500'} mt-1`}>WABIP • ERS • ACCP • Indian Chest Society</p>
+              </Link>
             </div>
           </div>
         </div>
         
         <div className={`border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-600'} mt-8 pt-8 text-center ${isDarkMode ? 'text-gray-400' : 'text-gray-400'}`}>
-          <p>&copy; 2024 Dr. Kedar Hibare - Interventional Pulmonologist. All rights reserved.</p>
+          <p>&copy; 2025 Dr. Kedar Hibare - Interventional Pulmonologist. All rights reserved.</p>
         </div>
       </div>
     </footer>
