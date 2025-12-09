@@ -24,15 +24,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
   const [submitted, setSubmitted] = useState(false)
   
   const hospitals = [
-    {
-      name: 'SPARSH Hospital',
-      address: 'HBR Layout, Hennur Road, Bengaluru - 560043',
-      availableAt: 'Mon, Wed, Fri: 9:30 AM - 4:00 PM',
-      phone: '080 61 222 000',
-      website: 'https://www.sparshhospital.com/doctors/dr-kedar-hibare/',
-      mapLink: 'https://maps.google.com',
-      description: 'Multi-specialty hospital with comprehensive pulmonology care and advanced diagnostic services'
-    },
+
     {
       name: 'Marvel Multi-Speciality Hospital',
       address: '#153, 1st Cross Rd, 1st Block Koramangala, Besides Bandhan Bank, Bengaluru – 560034',
@@ -44,7 +36,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
       callOnly: true
     },
     {
-      name: 'ChanReveena Clinic',
+      name: 'ChanRe Veena Rheumatology & Immunology Center',
       address: 'Ground Floor, 531/B, 19th Main Rd, Sector 3, HSR Layout, Bengaluru, Karnataka 560102',
       availableAt: 'Tuesday & Thursday: 5:30 PM - 6:30 PM',
       phone: '09606957688',
@@ -52,7 +44,16 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
       mapLink: 'https://maps.app.goo.gl/N3GTF4hrakhE12tU6',
       description: 'Specialty clinic with comprehensive pulmonology care and advanced diagnostic services',
       callOnly: true
-    }
+    },
+    {
+      name: 'SPARSH Hospital',
+      address: 'HBR Layout, Hennur Road, Bengaluru - 560043',
+      availableAt: 'Mon, Wed, Fri: 9:30 AM - 4:00 PM',
+      phone: '080 61 222 000',
+      website: 'https://www.sparshhospital.com/doctors/dr-kedar-hibare/',
+      mapLink: 'https://maps.google.com',
+      description: 'Multi-specialty hospital with comprehensive pulmonology care and advanced diagnostic services'
+    },
   ]
 
   const handleOpenModal = (hospital: any) => {
@@ -123,7 +124,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                 Choose Your Preferred Location
               </h2>
               <p className={`text-base sm:text-lg ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-2xl mx-auto`}>
-                Dr. Kedar Hibare is available at premium healthcare facilities in Bangalore
+                Dr. Kedar Hibare is available at this healthcare facilities in Bangalore
               </p>
             </div>
 

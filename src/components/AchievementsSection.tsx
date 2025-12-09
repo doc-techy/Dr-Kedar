@@ -72,10 +72,10 @@ export default function AchievementsSection() {
           {/* <div className="inline-block bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-6 py-2 rounded-full text-sm font-semibold mb-4">
             Excellence & Recognition
           </div> */}
-          <h2 className={`text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
+          <h2 className={`text-3xl sm:text-4xl lg:text-5xl font-bold ${isDarkMode ? 'text-white' : 'text-gray-900'} mb-6`}>
             <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Achievements & Recognition</span>
           </h2>
-          <p className={`text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
+          <p className={`text-base sm:text-lg lg:text-xl ${isDarkMode ? 'text-gray-300' : 'text-gray-600'} max-w-4xl mx-auto leading-relaxed`}>
             Pioneer in Interventional Pulmonology in India with international recognition and 
             outstanding contributions to respiratory medicine research and education.
           </p>

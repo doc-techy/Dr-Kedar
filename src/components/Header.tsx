@@ -52,18 +52,19 @@ export default function Header() {
               Home
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </Link>
-            <Link href="/#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
-              Services
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
-            </Link>
-            <Link href="/#video-publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
-              Educational Content
-              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
-            </Link>
             <Link href="/about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               About
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </Link>
+            <Link href="/publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
+            Publications
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
+            </Link>
+            <Link href="/videos" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
+            Educational Videos
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
+            </Link>
+            
             <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
               Courses
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
@@ -118,14 +119,14 @@ export default function Header() {
                   <Link href="/" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
                     Home
                   </Link>
-                  <Link href="/#services" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
-                    Pulmonology Services
-                  </Link>
-                  <Link href="/#video-publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
-                    Educational Content
-                  </Link>
                   <Link href="/about" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
-                    About Dr. Hibare
+                    About
+                  </Link>
+                  <Link href="/publications" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Publications
+                  </Link>
+                  <Link href="/videos" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Educational Videos
                   </Link>
                   <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
                     Courses

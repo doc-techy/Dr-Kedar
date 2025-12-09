@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import img from '../../public/images/Dr-Kedar-Hibare-01.jpg'
+import img from '../../public/images/Dr-Kedar-Hibare-01.jpeg'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function HeroSection() {
@@ -91,11 +91,11 @@ export default function HeroSection() {
             <div className="relative">
               
                              {/* Professional frame */}
-              <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-3 lg:p-4 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500 max-w-xs sm:max-w-sm lg:max-w-md mx-auto">
+              <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-3 lg:p-4 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500 max-w-xs sm:max-w-sm lg:max-w-xl mx-auto">
                  {/* Specular highlights for Liquid Glass effect */}
                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto">
+                <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto">
                    
                    {/* Background decorative elements */}
                    <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 md:-top-4 md:-right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-blue-400/30 rounded-full opacity-60"></div>
@@ -106,8 +106,8 @@ export default function HeroSection() {
                      <Image
                        src={img}
                        alt="Dr. Kedar Hibare - Lead Consultant Interventional Pulmonologist"
-                       width={360}
-                       height={450}
+                       width={576}
+                       height={720}
                        className="w-full h-auto object-cover"
                        priority
                      />

@@ -1,14 +1,12 @@
 'use client'
+
 import Header from '@/components/Header'
-import HeroSection from '@/components/HeroSection'
-import ServicesSection from '@/components/ServicesSection'
-import AchievementsSection from '@/components/AchievementsSection'
-import BookingSection from '@/components/BookingSection'
+import PublicationsSection from '@/components/PublicationsSection'
 import Footer from '@/components/Footer'
 import SectionBackground from '@/components/SectionBackground'
 import { useTheme } from '@/contexts/ThemeContext'
 
-function HomeContent() {
+export default function Publications() {
   const { isDarkMode } = useTheme()
   
   return (
@@ -32,10 +30,7 @@ function HomeContent() {
       
       {/* Main content */}
       <main>
-        <HeroSection />
-        <ServicesSection />
-        <AchievementsSection />
-        {/* <BookingSection /> */}
+        <PublicationsSection />
       </main>
       
       <Footer />
@@ -43,6 +38,3 @@ function HomeContent() {
   )
 }
 
-export default function Home() {
-  return <HomeContent />
-}
