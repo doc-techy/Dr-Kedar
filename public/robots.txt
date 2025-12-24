@@ -1,0 +1,20 @@
+# robots.txt for Dr. Kedar Hibare Website
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.drkedarhibare.com/sitemap.xml
+
+# Disallow admin pages
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
