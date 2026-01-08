@@ -1,4 +1,8 @@
 export default function JsonLd() {
+  // TODO: Add social media and other profile URLs to sameAs array below
+  // This helps Google consolidate all profiles into one Knowledge Panel
+  // Add URLs like: LinkedIn, ResearchGate, Twitter, Facebook, Instagram, other hospital profiles
+  
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Physician",
@@ -79,7 +83,15 @@ export default function JsonLd() {
       "Therapeutic Thoracoscopy"
     ],
     "sameAs": [
-      "https://www.sparshhospital.com/doctors/dr-kedar-hibare/"
+      "https://www.sparshhospital.com/doctors/dr-kedar-hibare/",
+      "https://www.researchgate.net/profile/Kedar-Hibare-2"
+      // Add more URLs as they become available:
+      // - LinkedIn profile URL
+      // - Twitter/X profile URL
+      // - Facebook page URL
+      // - Instagram profile URL
+      // - Other hospital profile pages
+      // - Professional association member pages
     ]
   }
 

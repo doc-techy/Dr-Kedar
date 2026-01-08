@@ -93,23 +93,41 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="lg:w-1/4">
             <h3 className="text-xl font-bold mb-4 text-white">Quick Links</h3>
-            <div className="space-y-1">
-              <Link href="/" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+            <div className="space-y-2">
+              <Link 
+                href="/" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
                 Home
               </Link>
-              <Link href="/#services" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
-                Services
-              </Link>
-              <Link href="/#video-publications" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
-                Educational Content
-              </Link>
-              <Link href="/about" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+              <Link 
+                href="/about" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
                 About
               </Link>
-              <Link href="/courses" className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors`}>
+              <Link 
+                href="/publications" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
+                Publications
+              </Link>
+              <Link 
+                href="/videos" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
+                Educational Videos
+              </Link>
+              <Link 
+                href="/courses" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
                 Courses
               </Link>
-              <Link href="/book-appointment" className={`block cursor-pointer ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors`}>
+              <Link 
+                href="/book-appointment" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors hover:translate-x-1 duration-300 font-semibold mt-2`}
+              >
                 Book Consultation
               </Link>
             </div>

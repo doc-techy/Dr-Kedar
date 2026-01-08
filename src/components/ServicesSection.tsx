@@ -1,19 +1,10 @@
 'use client'
-import { useState, useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useTheme } from '@/contexts/ThemeContext'
 
 export default function ServicesSection() {
   const { isDarkMode } = useTheme()
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [desktopStartIndex, setDesktopStartIndex] = useState(0)
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-
-  const handleDesktopNext = () => {
-    setDesktopStartIndex((prev) => {
-      const nextIndex = prev + 6
-      return nextIndex >= services.length ? 0 : nextIndex
-    })
-  }
 
   const scrollLeft = () => {
     if (currentIndex > 0) {
@@ -211,9 +202,9 @@ export default function ServicesSection() {
         </div>
 
         {/* Grid on tablet/desktop */}
-        <div className="hidden sm:flex items-center gap-4 lg:gap-6 pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16 mb-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 flex-1">
-            {services.slice(desktopStartIndex, desktopStartIndex + 6).map((service, index) => (
+        <div className="hidden sm:block pt-8 sm:pt-12 lg:pt-16 pb-8 sm:pb-12 lg:pb-16 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+            {services.map((service, index) => (
               <div 
                 key={service.title} 
                 className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-4 sm:p-5 lg:p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-xl sm:rounded-2xl relative overflow-hidden`}
@@ -250,16 +241,6 @@ export default function ServicesSection() {
               </div>
             ))}
           </div>
-
-          <button 
-            onClick={handleDesktopNext} 
-            className={`flex-shrink-0 ${isDarkMode ? 'text-white/80 hover:text-white' : 'text-gray-700 hover:text-gray-900'} p-3 rounded-full border ${isDarkMode ? 'border-white/20 hover:border-white/40' : 'border-gray-300 hover:border-gray-400'} transition-all duration-300 hover:scale-110`}
-            aria-label="Next services"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
         </div>
 
 
