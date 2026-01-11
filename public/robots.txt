@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://www.drkedarhibare.com/sitemap.xml
+Sitemap: https://www.lungfocus.com/sitemap.xml
 
 # Disallow admin pages
 User-agent: *

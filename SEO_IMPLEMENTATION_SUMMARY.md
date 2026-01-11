@@ -35,7 +35,7 @@
    - **Location**: `src/app/sitemap.ts`
    - **What it does**: Dynamically generates XML sitemap for all pages
    - **Includes**: Homepage, About, Book Appointment, Publications, Videos, Courses
-   - **Accessible at**: `https://www.drkedarhibare.com/sitemap.xml`
+   - **Accessible at**: `https://www.lungfocus.com/sitemap.xml`
    - **Why it matters**: Helps Google discover and index all pages efficiently
 
 ### 5. **Robots.txt**
@@ -74,7 +74,7 @@ All on-page technical SEO elements are now in place. However, ranking depends on
    - **Actions Required**:
      1. Add property in Google Search Console
      2. Verify ownership using the meta tag (update `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` in .env)
-     3. Submit sitemap: `https://www.drkedarhibare.com/sitemap.xml`
+     3. Submit sitemap: `https://www.lungfocus.com/sitemap.xml`
      4. Request indexing for homepage
 
 ### 5. **Local SEO Signals**
@@ -95,7 +95,7 @@ All on-page technical SEO elements are now in place. However, ranking depends on
 1. ✅ **Deploy these changes** to live website
 2. ⏳ **Set up Google Search Console**:
    - Go to https://search.google.com/search-console
-   - Add property: `www.drkedarhibare.com`
+   - Add property: `www.lungfocus.com`
    - Get verification code
    - Add to `.env` file: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-code-here`
    - Submit sitemap: `/sitemap.xml`
@@ -103,7 +103,7 @@ All on-page technical SEO elements are now in place. However, ranking depends on
 
 3. ⏳ **Update Environment Variables**:
    ```env
-   NEXT_PUBLIC_SITE_URL=https://www.drkedarhibare.com
+   NEXT_PUBLIC_SITE_URL=https://www.lungfocus.com
    NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-verification-code
    ```
 
@@ -160,13 +160,73 @@ All on-page technical SEO elements are now in place. However, ranking depends on
 
 ---
 
+## 🌐 DOMAIN STRATEGY: LungFocus.com
+
+### The Challenge
+You want your website (`www.lungfocus.com`) to appear when users search for "lung focus" or "lungfocus", since that's your brand name.
+
+### Current Status
+- **Domain**: `lungfocus.com` (Brand Name)
+- **Brand**: "Lung Focus" (Brand Name)
+- **Ranking**: Site is now optimized for "Lung Focus" and "Dr. Kedar Hibare"
+
+### 🚀 Optimization Strategy for "Lung Focus"
+
+#### 1. Update Homepage Content (Immediate)
+- **Add "Lung Focus" to Title Tag**: Change title to "Lung Focus | Dr. Kedar Hibare - Interventional Pulmonologist"
+- **Add to Meta Keywords**: Add "Lung Focus", "LungFocus Bangalore", "Lung Focus Clinic"
+- **Update H1/H2**: Include "Founder of Lung Focus" or "Welcome to Lung Focus" in the hero section text
+- **Footer**: Update copyright to "© 2025 Lung Focus by Dr. Kedar Hibare"
+
+#### 2. Create a "Lung Focus" Page (High Priority)
+- Create a dedicated page at `/lung-focus` or `/about` that explains what "Lung Focus" is
+- **Content**: "Lung Focus is a specialized respiratory care clinic founded by Dr. Kedar Hibare..."
+- This gives Google a specific page to rank for that term
+
+#### 3. Google Business Profile (Critical)
+- **Name**: If your clinic is registered as "Lung Focus", use that name on Google Maps
+- **Category**: Medical Clinic / Pulmonologist
+- **Description**: "Lung Focus by Dr. Kedar Hibare provides advanced respiratory care..."
+- **Website**: Link to your website
+
+#### 4. Structured Data Update
+- Add "Lung Focus" as the `legalName` or `alternateName` in your structured data
+- Create an `Organization` schema for "Lung Focus" in addition to `Physician` schema
+
+#### 5. Backlinks with Brand Anchor Text
+- When getting links (from hospitals, directories, press), ask them to use "Lung Focus" or "Dr. Kedar Hibare at Lung Focus" as the link text
+
+### 📊 How to Check & Improve Rankings
+
+**1. Check Rankings (Incognito Mode)**
+- Open Chrome/Safari in Incognito/Private mode
+- Search for:
+  - "Dr Kedar Hibare"
+  - "Lung Focus Bangalore"
+  - "Lung Focus Pulmonologist"
+  - "Lung Focus"
+- Note which position you appear in (Top 3, Top 10, Page 2, etc.)
+
+**2. Google Search Console (The Truth Source)**
+- Go to "Performance" tab
+- Look at "Queries" list
+- See if "lung focus" appears and what your "Average Position" is
+- If it doesn't appear, you need to add the term more prominently on your site
+
+**3. Content Improvements**
+- **Blog**: Write an article titled "Why I Started Lung Focus: A New Era in Respiratory Care"
+- **Social Media**: Use #LungFocus hashtag in all posts
+- **Email Signature**: Add "Founder, Lung Focus" to your email signature
+
+---
+
 ## 🎯 KNOWLEDGE PANEL CONSOLIDATION STRATEGY
 
 ### The Problem: Multiple Knowledge Panels
 When searching "Dr. Kedar Hibare", Google shows different Knowledge Panels from hospital websites. This happens because:
 - Hospital websites have higher domain authority
 - Google hasn't consolidated all profiles into one entity
-- Your domain hasn't established enough authority yet
+- Your domain (`lungfocus.com`) hasn't established enough authority yet
 - Hospital profiles might have more backlinks/signals
 
 ### Why Hospital Panels Appear First (Current Situation)
@@ -201,7 +261,7 @@ When searching "Dr. Kedar Hibare", Google shows different Knowledge Panels from 
 #### Phase 2: Build Authority Signals (Weeks 2-8)
 
 **1. Backlinks Priority Order:**
-   - **#1 Priority**: SPARSH Hospital doctor profile page → link to `www.drkedarhibare.com`
+   - **#1 Priority**: SPARSH Hospital doctor profile page → link to `www.lungfocus.com`
    - **#2 Priority**: LinkedIn profile → add website link prominently
    - **#3 Priority**: ResearchGate profile → add website in bio/affiliations
    - **#4 Priority**: All hospital profile pages → ensure they link to your domain
@@ -239,7 +299,7 @@ When searching "Dr. Kedar Hibare", Google shows different Knowledge Panels from 
 
 **3. Request Profile Updates on Hospital Sites:**
    - Contact all hospitals where you're listed
-   - Request they add link to `www.drkedarhibare.com` on your profile page
+   - Request they add link to `www.lungfocus.com` on your profile page
    - Request they update information to match your official profile
    - Ensure consistency in name, title, specialties
 

@@ -1,7 +1,7 @@
 # Knowledge Panel Consolidation Strategy
 
 ## 🎯 Goal
-Make YOUR Knowledge Panel (linked to `www.drkedarhibare.com`) appear as the primary/consolidated panel when users search "Dr. Kedar Hibare", instead of hospital website panels.
+Make YOUR Knowledge Panel (linked to `www.lungfocus.com`) appear as the primary/consolidated panel when users search "Dr. Kedar Hibare", instead of hospital website panels.
 
 ## 🔍 Current Situation
 - Multiple Knowledge Panels exist (from different hospital websites)
@@ -18,11 +18,11 @@ Make YOUR Knowledge Panel (linked to `www.drkedarhibare.com`) appear as the prim
 
 ### 2. Get SPARSH Hospital Backlink (Priority #1)
 - Contact SPARSH Hospital web team
-- Request they add link to `www.drkedarhibare.com` on your doctor profile page
+- Request they add link to `www.lungfocus.com` on your doctor profile page
 - This is THE most powerful backlink you can get
 
 ### 3. Update Social Media Profiles (30 minutes)
-- **LinkedIn**: Add `www.drkedarhibare.com` in "Website" field + contact section
+- **LinkedIn**: Add `www.lungfocus.com` in "Website" field + contact section
 - **ResearchGate**: Already has profile → Add website URL if not already there
 - **All Platforms**: Use EXACT same name: "Dr. Kedar Hibare"
 

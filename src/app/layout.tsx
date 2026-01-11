@@ -9,20 +9,20 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Dr. Kedar Hibare | Lead Consultant Interventional Pulmonologist Bangalore",
-  description: "Dr. Kedar Hibare - First in India to complete Interventional Pulmonology & Thoracic Oncology Fellowship. Expert in EBUS procedures, advanced bronchoscopy, thoracic oncology, and airway interventions. Book consultation at SPARSH Hospital, Bengaluru.",
-  keywords: "Dr. Kedar Hibare, Interventional Pulmonologist, Pulmonologist Bangalore, EBUS procedures, Thoracic Oncology, SPARSH Hospital, Interstitial Lung Disease, Pulmonary Hypertension, Advanced Bronchoscopy, Airway Interventions, Lung Cancer Diagnosis, Bangalore Pulmonologist",
+  title: "Dr. Kedar Hibare | Lung Focus | Interventional Pulmonologist Bangalore",
+  description: "Lung Focus by Dr. Kedar Hibare - Advanced respiratory care and interventional pulmonology. Specializing in EBUS, lung cancer diagnosis, and airway interventions at SPARSH Hospital, Bengaluru.",
+  keywords: "Lung Focus, LungFocus, Dr. Kedar Hibare, Interventional Pulmonologist, Pulmonologist Bangalore, EBUS procedures, Thoracic Oncology, SPARSH Hospital, Interstitial Lung Disease, Pulmonary Hypertension, Advanced Bronchoscopy, Airway Interventions, Lung Cancer Diagnosis",
   authors: [{ name: "Dr. Kedar Hibare" }],
   creator: "Dr. Kedar Hibare",
   publisher: "Dr. Kedar Hibare",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.drkedarhibare.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://www.lungfocus.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     title: "Dr. Kedar Hibare | Lead Consultant Interventional Pulmonologist Bangalore",
     description: "Expert Interventional Pulmonologist specializing in minimally invasive procedures for complex respiratory conditions. First in India to complete Interventional Pulmonology & Thoracic Oncology Fellowship.",
-    url: "https://www.drkedarhibare.com",
+    url: "https://www.lungfocus.com",
     siteName: "Dr. Kedar Hibare",
     images: [
       {
