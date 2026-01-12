@@ -98,7 +98,7 @@ All on-page technical SEO elements are now in place. However, ranking depends on
    - Add property: `www.lungfocus.com`
    - Get verification code
    - Add to `.env` file: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your-code-here`
-   - Submit sitemap: `/sitemap.xml`
+   - Submit sitemap: `/sitemap.xml` (Ensure build is successful first!)
    - Request indexing for homepage
 
 3. ⏳ **Update Environment Variables**:

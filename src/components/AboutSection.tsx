@@ -11,7 +11,7 @@ export default function AboutSection() {
 
   const experience = [
     { title: 'Lead Clinical & Interventional Pulmonologist' , place: 'SPARSH Hospital, Bengaluru', period: '2025 – Present' },
-    { title: 'Consultant - International Pulmonologist', place: 'Narayana Multispeciality Hospital, Bengaluru', period: '2012 – 2025' },
+    { title: 'Consultant - Interventional Pulmonologist', place: 'Narayana Multispeciality Hospital, Bengaluru', period: '2012 – 2025' },
   ]
 
   const education = [
@@ -42,7 +42,7 @@ export default function AboutSection() {
           </p> */}
           <div className="mt-8 space-y-4 text-left max-w-5xl mx-auto">
             <p className={`${isDarkMode ? 'text-gray-200' : 'text-gray-700'} text-lg sm:text-lg leading-relaxed`}>
-            I am a pulmonologist with a passion for Interstitial Lung Disease, Pulmonary Hypertension, and Interventions. I’ve always looked beyond just diagnoses and protocols, because I believe healing happens in the details — through empathy, evidence, and honest engagement.<br></br>
+            At <strong className="font-semibold text-blue-600 dark:text-blue-400">Lung Focus</strong>, I am a pulmonologist with a passion for Interstitial Lung Disease, Pulmonary Hypertension, and Interventions. I’ve always looked beyond just diagnoses and protocols, because I believe healing happens in the details — through empathy, evidence, and honest engagement.<br></br>
 
 My work spans clinics, classrooms, and conversations, where I strive to simplify the complex, challenge the status quo, and leave every interaction a little lighter and better.<br></br>
 
