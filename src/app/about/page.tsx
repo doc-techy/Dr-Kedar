@@ -29,7 +29,7 @@ export default function About() {
       <Header />
       
       {/* Main content */}
-      <main>
+      <main className={`${isDarkMode ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10' : 'bg-gradient-to-br from-blue-50 to-purple-50'}`}>
         <AboutSection />
       </main>
       

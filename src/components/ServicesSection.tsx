@@ -21,15 +21,15 @@ export default function ServicesSection() {
   const services = [
     {
       title: "Airway Interventions",
-      description: "Comprehensive airway management including rigid & flexible bronchoscopy procedures for precise lung diagnosis, along with advanced interventions like cryotherapy, APC, laser therapy, balloon dilation, and airway stenting for complex airway tumors and obstructions.",
+      description: "Comprehensive airway management with advanced bronchoscopy procedures, cryotherapy, laser therapy, balloon dilation, and airway stenting for complex airway conditions.",
       icon: "⚕️",
       gradient: "from-purple-500 to-purple-600",
       bgGradient: "from-purple-50 to-purple-100",
-      features: ["Rigid & Flexible Bronchoscopy", "Laser Therapy", "Balloon Dilation", "Airway Stenting"]
+      features: ["Rigid & Flexible Bronchoscopy", "Laser Therapy", "Balloon Dilation"]
     },
     {
       title: "Endobronchial Ultrasound (EBUS)",
-      description: "TBNA & Transbronchial Cryobiopsy for accurate tissue sampling and comprehensive lung disease diagnosis.",
+      description: "Advanced ultrasound-guided procedures including EBUS-TBNA and transbronchial cryobiopsy for accurate tissue sampling and comprehensive lung disease diagnosis.",
       icon: "🔬",
       gradient: "from-teal-500 to-teal-600",
       bgGradient: "from-teal-50 to-teal-100",
@@ -37,7 +37,7 @@ export default function ServicesSection() {
     },
     {
       title: "Lung Cancer Diagnosis",
-      description: "Comprehensive thoracic oncology care with cutting-edge diagnostic and personalized treatment solutions.",
+      description: "Comprehensive thoracic oncology care with cutting-edge diagnostic techniques and personalized treatment solutions for early detection and staging.",
       icon: "🫀",
       gradient: "from-red-500 to-red-600",
       bgGradient: "from-red-50 to-red-100",
@@ -45,7 +45,7 @@ export default function ServicesSection() {
     },
     {
       title: "Interstitial Lung Diseases",
-      description: "Expert diagnosis and management of complex lung conditions, pulmonary fibrosis, and rare respiratory disorders.",
+      description: "Expert diagnosis and comprehensive management of complex lung conditions, pulmonary fibrosis, and rare respiratory disorders with advanced treatment protocols.",
       icon: "🫁",
       gradient: "from-green-500 to-green-600",
       bgGradient: "from-green-50 to-green-100",
@@ -53,7 +53,7 @@ export default function ServicesSection() {
     },
     {
       title: "Therapeutic Thoracoscopy",
-      description: "Minimally invasive procedures including pleuroscopy and IPC placement for pleural conditions and lung diseases.",
+      description: "Minimally invasive procedures including pleuroscopy and IPC placement for pleural conditions and complex lung diseases with advanced techniques.",
       icon: "🏥",
       gradient: "from-orange-500 to-orange-600",
       bgGradient: "from-orange-50 to-orange-100",
@@ -61,7 +61,7 @@ export default function ServicesSection() {
     },
     {
       title: "Obstructive Airway Disease",
-      description: "Comprehensive management of chronic obstructive airway conditions including asthma, COPD, bronchiectasis, and other obstructive respiratory disorders with personalized treatment protocols.",
+      description: "Comprehensive management of chronic obstructive airway conditions including asthma, COPD, and bronchiectasis with personalized treatment protocols.",
       icon: "👃",
       gradient: "from-pink-500 to-pink-600",
       bgGradient: "from-pink-50 to-pink-100",
@@ -69,7 +69,7 @@ export default function ServicesSection() {
     },
     {
       title: "Pulmonary Vascular Disease",
-      description: "Expert diagnosis and treatment of pulmonary vascular disorders including pulmonary hypertension, pulmonary embolism, and other conditions affecting lung circulation and blood vessels.",
+      description: "Expert diagnosis and treatment of pulmonary vascular disorders including pulmonary hypertension and embolism with advanced diagnostic techniques.",
       icon: "🩸",
       gradient: "from-indigo-500 to-indigo-600",
       bgGradient: "from-indigo-50 to-indigo-100",
@@ -77,7 +77,7 @@ export default function ServicesSection() {
     },
     {
       title: "Tuberculosis",
-      description: "Management of tuberculosis including tuberculosis diagnosis and treatment.",
+      description: "Comprehensive management of tuberculosis including accurate diagnosis, treatment protocols, and follow-up care for complete recovery and prevention.",
       icon: "🦠",
       gradient: "from-yellow-500 to-yellow-600",
       bgGradient: "from-yellow-50 to-yellow-100",
@@ -103,7 +103,7 @@ export default function ServicesSection() {
   }, [services.length])
 
   return (
-    <section id="services" className="relative overflow-hidden">
+    <section id="services" className="pt-8 lg:pt-12 relative overflow-hidden">
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center animate-fade-in">
@@ -124,7 +124,7 @@ export default function ServicesSection() {
           {services.slice(currentIndex, currentIndex + 1).map((service, index) => (
                 <div 
                   key={index} 
-                  className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 sm:p-5 lg:p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-xl sm:rounded-2xl relative overflow-hidden`}
+                  className={`group ${isDarkMode ? 'bg-white/8 backdrop-blur-3xl border border-white/15' : 'bg-white border border-gray-200'} p-6 sm:p-5 lg:p-6 hover:shadow-3xl transition-all duration-500 hover:-translate-y-2 animate-fade-in rounded-xl sm:rounded-2xl relative overflow-hidden min-h-[380px] flex flex-col`}
               style={{animationDelay: `${index * 0.1}s`}}
                 >
                   {/* Specular highlights for Liquid Glass effect */}
@@ -142,12 +142,12 @@ export default function ServicesSection() {
                   <h3 className={`text-xl sm:text-lg font-bold ${isDarkMode ? 'text-white group-hover:text-blue-400' : 'text-gray-900 group-hover:text-blue-600'} mb-3 sm:mb-3 transition-colors duration-300`}>
                     {service.title}
                   </h3>
-                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-4 sm:mb-4 text-sm sm:text-sm`}>
+                  <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-700'} leading-relaxed mb-4 sm:mb-4 text-sm sm:text-sm flex-grow`}>
                     {service.description}
                   </p>
               
               {/* Features */}
-              <div className="space-y-2 mb-3 sm:mb-4">
+              <div className="space-y-2 mb-3 sm:mb-4 flex-grow">
                 {service.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className={`flex items-start text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-700'}`}>
                     <div className={`w-2 h-2 bg-gradient-to-r ${service.gradient} rounded-full mr-2 mt-1 group-hover:scale-125 transition-transform duration-300 flex-shrink-0`}></div>
@@ -157,7 +157,7 @@ export default function ServicesSection() {
               </div>
               
               {/* CTA */}
-              <div className={`h-1 bg-gradient-to-r ${service.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500`}></div>
+              <div className={`h-1 bg-gradient-to-r ${service.gradient} rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 mt-auto`}></div>
             </div>
           ))}
           

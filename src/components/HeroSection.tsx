@@ -8,7 +8,7 @@ export default function HeroSection() {
   const { isDarkMode } = useTheme()
   
   return (
-    <section className="relative overflow-hidden min-h-screen pb-6 sm:pb-8 lg:pb-10">
+    <section className="relative overflow-hidden min-h-screen pb-0">
       
              <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center min-h-screen pt-16 sm:pt-20">
@@ -87,22 +87,22 @@ export default function HeroSection() {
           </div>
           
           {/* Doctor Image Section */}
-          <div className="order-1 lg:order-2 relative mt-14 sm:mt-6 lg:mt-0">
+          <div className="order-1 lg:order-2 relative mt-4 sm:mt-6 lg:mt-0 -mx-4 sm:mx-0">
             <div className="relative">
               
                              {/* Professional frame */}
-              <div className="relative bg-white/8 backdrop-blur-3xl border border-white/15 rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-3 lg:p-4 shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500 max-w-xs sm:max-w-sm lg:max-w-xl mx-auto">
+              <div className="relative bg-transparent sm:bg-white/8 backdrop-blur-none sm:backdrop-blur-3xl border-0 sm:border sm:border-white/15 rounded-none sm:rounded-xl lg:rounded-2xl p-0 sm:p-3 md:p-3 lg:p-4 shadow-none sm:shadow-2xl relative overflow-hidden group hover:shadow-3xl transition-all duration-500 w-full sm:max-w-sm lg:max-w-xl sm:mx-auto">
                  {/* Specular highlights for Liquid Glass effect */}
                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto">
+                <div className="relative w-full sm:max-w-sm md:max-w-md lg:max-w-xl sm:mx-auto">
                    
                    {/* Background decorative elements */}
-                   <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 md:-top-4 md:-right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-blue-400/30 rounded-full opacity-60"></div>
-                   <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 md:-bottom-4 md:-left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-teal-400/30 rounded-full opacity-40"></div>
+                   <div className="hidden sm:block absolute -top-1 -right-1 sm:-top-2 sm:-right-2 md:-top-4 md:-right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 bg-blue-400/30 rounded-full opacity-60"></div>
+                   <div className="hidden sm:block absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 md:-bottom-4 md:-left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 bg-teal-400/30 rounded-full opacity-40"></div>
                    
                    {/* Main image */}
-                   <div className="relative rounded-lg sm:rounded-xl overflow-hidden">
+                   <div className="relative rounded-none sm:rounded-lg lg:rounded-xl overflow-hidden">
                      <Image
                        src={img}
                        alt="Dr. Kedar Hibare - Lead Consultant Interventional Pulmonologist"

@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection'
 import ServicesSection from '@/components/ServicesSection'
 import AchievementsSection from '@/components/AchievementsSection'
 import BookingSection from '@/components/BookingSection'
+import FaqSection from '@/components/FaqSection'
 import Footer from '@/components/Footer'
 import SectionBackground from '@/components/SectionBackground'
 import { useTheme } from '@/contexts/ThemeContext'
@@ -31,11 +32,12 @@ function HomeContent() {
       <Header />
       
       {/* Main content */}
-      <main>
+      <main className={`${isDarkMode ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10' : 'bg-gradient-to-br from-blue-50 to-purple-50'}`}>
         <HeroSection />
         <ServicesSection />
         <AchievementsSection />
         {/* <BookingSection /> */}
+        <FaqSection />
       </main>
       
       <Footer />

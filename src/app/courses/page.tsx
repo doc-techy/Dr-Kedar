@@ -174,7 +174,7 @@ export default function CoursesPage() {
       
       <Header />
       
-      <main className="pt-20 relative">
+      <main className={`pt-20 relative ${isDarkMode ? 'bg-gradient-to-br from-blue-500/10 to-purple-500/10' : 'bg-gradient-to-br from-blue-50 to-purple-50'}`}>
         {/* Animated Background Elements - Only in main content area */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <div className={`absolute top-20 left-1/4 w-[500px] h-[500px] rounded-full opacity-10 ${

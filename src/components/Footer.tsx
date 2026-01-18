@@ -125,6 +125,12 @@ export default function Footer() {
                 Courses
               </Link>
               <Link 
+                href="/faq" 
+                className={`block cursor-pointer ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-300 hover:text-white'} transition-colors hover:translate-x-1 duration-300`}
+              >
+                FAQ
+              </Link>
+              <Link 
                 href="/book-appointment" 
                 className={`block cursor-pointer ${isDarkMode ? 'text-blue-400 hover:text-blue-300' : 'text-blue-300 hover:text-blue-200'} transition-colors hover:translate-x-1 duration-300 font-semibold mt-2`}
               >
