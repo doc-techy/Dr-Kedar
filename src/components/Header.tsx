@@ -69,6 +69,10 @@ export default function Header() {
               Courses
               <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
             </Link>
+            <Link href="/blog" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} transition-colors font-medium text-xs uppercase tracking-wider relative group py-2`}>
+              Blog
+              <span className={`absolute bottom-0 left-0 w-0 h-0.5 ${isDarkMode ? 'bg-blue-400' : 'bg-blue-600'} transition-all duration-300 group-hover:w-full`}></span>
+            </Link>
 
             <Link 
               href="/book-appointment" 
@@ -130,6 +134,9 @@ export default function Header() {
                   </Link>
                   <Link href="/courses" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
                     Courses
+                  </Link>
+                  <Link href="/blog" className={`${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'} transition-all duration-300 font-medium text-sm uppercase tracking-wider py-2 px-4 rounded-lg`} onClick={toggleMenu}>
+                    Blog
                   </Link>
                   
                   <div className={`border-t ${isDarkMode ? 'border-gray-600' : 'border-gray-300'} pt-4 px-4`}>
