@@ -5,6 +5,7 @@ import Footer from '@/components/Footer'
 import SectionBackground from '@/components/SectionBackground'
 import { useTheme } from '@/contexts/ThemeContext'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Blog() {
   const { isDarkMode } = useTheme()
@@ -14,55 +15,82 @@ export default function Blog() {
       title: 'Asthma',
       id: 'asthma',
       description: 'Understanding asthma management, treatment options, and lifestyle modifications for better respiratory health.',
-      available: true
+      available: true,
+      icon: '🫁',
+      gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+      color: 'emerald'
     },
     {
       title: 'COPD',
       id: 'copd',
       description: 'Chronic Obstructive Pulmonary Disease: prevention, management, and advanced treatment approaches.',
-      available: false
+      available: false,
+      icon: '🌬️',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Interstitial Lung Disease',
       id: 'interstitial-lung-disease',
       description: 'Comprehensive information about interstitial lung diseases, diagnosis, and treatment modalities.',
-      available: false
+      available: false,
+      icon: '🔬',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Pulmonary Hypertension',
       id: 'pulmonary-hypertension',
       description: 'Understanding pulmonary hypertension, its causes, symptoms, and modern treatment strategies.',
-      available: false
+      available: false,
+      icon: '💓',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Tuberculosis',
       id: 'tuberculosis',
       description: 'TB awareness, prevention, diagnosis, and treatment protocols for effective management.',
-      available: false
+      available: false,
+      icon: '🦠',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Lung Function Testing',
       id: 'lung-function-testing',
       description: 'Learn about various pulmonary function tests, their significance, and what to expect.',
-      available: false
+      available: false,
+      icon: '📊',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Smoking Cessation',
       id: 'smoking-cessation',
       description: 'Resources and strategies to help quit smoking and improve lung health.',
-      available: false
+      available: false,
+      icon: '🚭',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Lung Cancer',
       id: 'lung-cancer',
       description: 'Early detection, screening, diagnosis, and treatment options for lung cancer.',
-      available: false
+      available: false,
+      icon: '🎗️',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     },
     {
       title: 'Bronchoscopy',
       id: 'bronchoscopy',
       description: 'Advanced bronchoscopic procedures, indications, and what patients need to know.',
-      available: false
+      available: false,
+      icon: '🔍',
+      gradient: 'from-slate-400 to-slate-500',
+      color: 'slate'
     }
   ]
   
@@ -93,7 +121,7 @@ export default function Blog() {
             <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 ${
               isDarkMode ? 'text-white' : 'text-gray-900'
             }`}>
-              Medical Blog
+              <span className="bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent">Medical Blog</span>
             </h1>
             <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
               isDarkMode ? 'text-gray-300' : 'text-gray-600'
@@ -103,118 +131,130 @@ export default function Blog() {
           </div>
 
           {/* Blog Categories Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
             {blogCategories.map((category, index) => {
               const categoryLink = `/blog/${category.id}`
               const isAvailable = category.available
               
-              // If available, render as clickable Link
               if (isAvailable) {
                 return (
                   <Link
                     key={category.id}
                     href={categoryLink}
-                    className={`group relative overflow-hidden rounded-2xl p-8 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl block cursor-pointer ${
+                    className={`group relative flex flex-col h-full overflow-hidden rounded-2xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 ${
                       isDarkMode 
-                        ? 'bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-blue-400/30 hover:border-blue-400/60' 
-                        : 'bg-white border border-blue-200 hover:border-blue-400 shadow-lg'
+                        ? 'border border-blue-400/30 hover:border-blue-400/60 shadow-lg shadow-blue-500/10' 
+                        : 'border border-blue-200 hover:border-blue-400 shadow-lg'
                     }`}
                   >
-                    {/* Gradient overlay on hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br from-blue-600/0 to-teal-600/0 group-hover:from-blue-600/10 group-hover:to-teal-600/10 transition-all duration-300`}></div>
+                    {/* Image at top - only for available blogs */}
+                    {category.id === 'asthma' && (
+                      <div className="relative w-full h-48 overflow-hidden">
+                        <Image
+                          src="/images/asthma.jpeg"
+                          alt="Asthma triggers guide"
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                        {/* Fade effect at bottom of image */}
+                        <div className={`absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t ${
+                          isDarkMode 
+                            ? 'from-gray-900/95 to-transparent' 
+                            : 'from-white/95 to-transparent'
+                        }`}></div>
+                      </div>
+                    )}
                     
-                    <div className="relative z-10">
-                      {/* Category Number */}
-                      <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 ${
-                        isDarkMode 
-                          ? 'bg-gradient-to-br from-blue-500 to-teal-500' 
-                          : 'bg-gradient-to-br from-blue-600 to-teal-600'
-                      }`}>
-                        <span className="text-white font-bold text-lg">{index + 1}</span>
+                    {/* Text content with faded background */}
+                    <div className={`flex-1 relative ${
+                      category.id === 'asthma'
+                        ? `px-6 pt-6 pb-4 ${
+                            isDarkMode
+                              ? 'bg-gradient-to-b from-gray-900/95 via-gray-900/90 to-gray-900/95 backdrop-blur-sm'
+                              : 'bg-gradient-to-b from-white/95 via-white/90 to-white/95 backdrop-blur-sm'
+                          }`
+                        : `px-6 pt-6 pb-4 ${
+                            isDarkMode
+                              ? 'bg-gradient-to-br from-gray-900/90 to-gray-800/90'
+                              : 'bg-white'
+                          }`
+                    }`}>
+                      {/* Title and Learn More on same line */}
+                      <div className="flex items-center justify-between mb-2 gap-4">
+                        <h2 className={`text-2xl font-bold transition-colors duration-300 flex-1 ${
+                          isDarkMode 
+                            ? 'text-white group-hover:text-blue-400' 
+                            : 'text-gray-900 group-hover:text-blue-600'
+                        }`}>
+                          {category.title}
+                        </h2>
+                        
+                        {/* Learn More */}
+                        <div className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-semibold text-xs transition-all duration-300 whitespace-nowrap ${
+                          isDarkMode
+                            ? 'bg-blue-500/20 text-blue-300 group-hover:bg-blue-500/30 backdrop-blur-sm'
+                            : 'bg-blue-100/90 text-blue-700 group-hover:bg-blue-200 backdrop-blur-sm'
+                        }`}>
+                          <span>Learn More</span>
+                          <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                          </svg>
+                        </div>
                       </div>
                       
-                      {/* Category Title */}
-                      <h2 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${
-                        isDarkMode 
-                          ? 'text-white group-hover:text-blue-400' 
-                          : 'text-gray-900 group-hover:text-blue-600'
-                      }`}>
-                        {category.title}
-                      </h2>
-                      
-                      {/* Category Description */}
+                      {/* Description */}
                       <p className={`text-sm leading-relaxed ${
-                        isDarkMode ? 'text-gray-400' : 'text-gray-600'
+                        isDarkMode ? 'text-gray-300' : 'text-gray-700'
                       }`}>
                         {category.description}
                       </p>
                       
-                      {/* Learn More Arrow */}
-                      <div className="mt-6 flex items-center">
-                        <span className={`text-sm font-medium mr-2 ${
-                          isDarkMode 
-                            ? 'text-blue-400 group-hover:text-blue-300' 
-                            : 'text-blue-600 group-hover:text-blue-700'
-                        }`}>
-                          Learn More
-                        </span>
-                        <svg 
-                          className={`w-5 h-5 transition-transform duration-300 transform group-hover:translate-x-1 ${
-                            isDarkMode ? 'text-blue-400' : 'text-blue-600'
-                          }`}
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                        </svg>
-                      </div>
+                      {/* Gradient overlay on hover */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}></div>
                     </div>
                   </Link>
                 )
               }
               
-              // If not available, render as non-clickable div
+              // Coming Soon
               return (
                 <div
                   key={category.id}
-                  className={`relative overflow-hidden rounded-2xl p-8 transition-all duration-300 ${
+                  className="relative"
+                >
+                  <div className={`relative h-full overflow-hidden rounded-2xl p-6 transition-all duration-300 ${
                     isDarkMode 
                       ? 'bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 opacity-75' 
                       : 'bg-gray-100 border border-gray-300 opacity-75'
-                  }`}
-                >
-                  <div className="relative z-10">
-                    {/* Category Number */}
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 ${
-                      isDarkMode 
-                        ? 'bg-gradient-to-br from-gray-600 to-gray-700' 
-                        : 'bg-gradient-to-br from-gray-400 to-gray-500'
-                    }`}>
-                      <span className="text-white font-bold text-lg">{index + 1}</span>
-                    </div>
+                  }`}>
                     
-                    {/* Category Title */}
-                    <h2 className={`text-2xl font-bold mb-4 ${
-                      isDarkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                      {category.title}
-                    </h2>
+                    {/* Disabled shimmer */}
+                    <div className="absolute inset-0 -translate-x-full animate-shimmer bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
                     
-                    {/* Category Description */}
-                    <p className={`text-sm leading-relaxed ${
-                      isDarkMode ? 'text-gray-500' : 'text-gray-500'
-                    }`}>
-                      {category.description}
-                    </p>
-                    
-                    {/* Coming Soon */}
-                    <div className="mt-6 flex items-center">
-                      <span className={`text-sm font-medium ${
-                        isDarkMode ? 'text-gray-500' : 'text-gray-500'
+                    <div className="relative z-10">
+                      <h2 className={`text-2xl font-bold mb-3 ${
+                        isDarkMode ? 'text-gray-500' : 'text-gray-400'
                       }`}>
+                        {category.title}
+                      </h2>
+                      
+                      <p className={`text-sm leading-relaxed mb-6 ${
+                        isDarkMode ? 'text-gray-600' : 'text-gray-500'
+                      }`}>
+                        {category.description}
+                      </p>
+                      
+                      <div className={`inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm ${
+                        isDarkMode
+                          ? 'bg-gray-800/50 text-gray-500 border border-gray-700/50'
+                          : 'bg-gray-100/50 text-gray-400 border border-gray-300/50'
+                      }`}>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                         Coming Soon
-                      </span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -238,12 +278,12 @@ export default function Blog() {
             }`}>
               Schedule a consultation to discuss your respiratory health concerns
             </p>
-            <a
+            <Link
               href="/book-appointment"
               className="inline-block bg-gradient-to-r from-blue-400 to-teal-400 hover:from-blue-500 hover:to-teal-500 text-white px-8 py-3 font-semibold text-sm uppercase tracking-wider transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 rounded-lg"
             >
               Book Consultation
-            </a>
+            </Link>
           </div>
         </div>
       </main>
