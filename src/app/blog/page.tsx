@@ -12,13 +12,26 @@ export default function Blog() {
   
   const blogCategories = [
     {
-      title: 'Asthma',
+      title: 'Asthma Triggers & Precautions',
       id: 'asthma',
       description: 'Understanding asthma management, treatment options, and lifestyle modifications for better respiratory health.',
       available: true,
       icon: '🫁',
       gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
-      color: 'emerald'
+      color: 'emerald',
+      image: '/images/asthma.jpeg',
+      imageAlt: 'Asthma triggers guide'
+    },
+    {
+      title: 'Steroids in Asthma',
+      id: 'asthma-steroids',
+      description: 'Steroids are central to asthma treatment, yet often misunderstood. Learn the key differences between inhaled and oral steroids.',
+      available: true,
+      icon: '💊',
+      gradient: 'from-blue-500 via-indigo-500 to-purple-500',
+      color: 'blue',
+      image: '/images/astma2.jpeg',
+      imageAlt: 'Steroids in asthma guide'
     },
     {
       title: 'COPD',
@@ -147,12 +160,12 @@ export default function Blog() {
                         : 'border border-blue-200 hover:border-blue-400 shadow-lg'
                     }`}
                   >
-                    {/* Image at top - only for available blogs */}
-                    {category.id === 'asthma' && (
+                    {/* Image at top - for available blogs with images */}
+                    {category.image && (
                       <div className="relative w-full h-48 overflow-hidden">
                         <Image
-                          src="/images/asthma.jpeg"
-                          alt="Asthma triggers guide"
+                          src={category.image}
+                          alt={category.imageAlt || category.title}
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -168,7 +181,7 @@ export default function Blog() {
                     
                     {/* Text content with faded background */}
                     <div className={`flex-1 relative ${
-                      category.id === 'asthma'
+                      category.image
                         ? `px-6 pt-6 pb-4 ${
                             isDarkMode
                               ? 'bg-gradient-to-b from-gray-900/95 via-gray-900/90 to-gray-900/95 backdrop-blur-sm'
