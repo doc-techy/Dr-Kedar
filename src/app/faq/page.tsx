@@ -111,10 +111,7 @@ export default function FAQ() {
               <strong className="font-semibold">Sparsh Hospital</strong> — This is where I am available during the day.
             </li>
             <li>
-              <strong className="font-semibold">Marvel Hospital</strong> — Monday, Wednesday and Friday
-            </li>
-            <li>
-              <strong className="font-semibold">ChanRe Veena Rheumatology & Immunology Center</strong> — Tuesday and Thursday
+              <strong className="font-semibold">Child Central Clinic</strong> — Monday, Wednesday and Friday, 05:15 pm – 07:30 pm. 717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034. For appointments call 80500 35925.
             </li>
           </ul>
         </div>

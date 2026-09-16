@@ -19,7 +19,10 @@ export default function Footer() {
               <p>🏥 SPARSH Hospital, Hennur Road</p>
               <p>📍 HBR Layout, Hennur Road, Bengaluru - 560043</p>
               <p>📞 080 61 222 000</p>
-              <p>🌐 Languages: English, Hindi, Kannada</p>
+              <p className="pt-3">🏥 Child Central Clinic, Koramangala</p>
+              <p>📍 717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034</p>
+              <p>📞 80500 35925 · Mon, Wed, Fri 05:15 pm – 07:30 pm</p>
+              <p className="pt-3">🌐 Languages: English, Hindi, Kannada</p>
             </div>
             
             {/* Social Media Links */}

@@ -24,25 +24,13 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
   const [submitted, setSubmitted] = useState(false)
   
   const hospitals = [
-
     {
-      name: 'Marvel Multi-Speciality Hospital',
-      address: '#153, 1st Cross Rd, 1st Block Koramangala, Besides Bandhan Bank, Bengaluru – 560034',
-      availableAt: 'Monday, Wednesday & Friday: 5:30 PM - 6:30 PM',
-      phone: '+91 9591413707',
-      website: 'https://www.marvelhospitals.in/',
-      mapLink: 'https://maps.google.com/?q=Marvel+Multi+Speciality+Hospital+Koramangala',
-      description: 'Integrated multi-speciality hospital with 24x7 ICU, pharmacy, lab and ambulance services',
-      callOnly: true
-    },
-    {
-      name: 'ChanRe Veena Rheumatology & Immunology Center',
-      address: 'Ground Floor, 531/B, 19th Main Rd, Sector 3, HSR Layout, Bengaluru, Karnataka 560102',
-      availableAt: 'Tuesday & Thursday: 5:30 PM - 6:30 PM',
-      phone: '09606957688',
-      website: 'https://chanreveena.chanrericr.com/',
-      mapLink: 'https://maps.app.goo.gl/N3GTF4hrakhE12tU6',
-      description: 'Specialty clinic with comprehensive pulmonology care and advanced diagnostic services',
+      name: 'Child Central Clinic',
+      address: '717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034, Karnataka',
+      availableAt: 'Monday, Wednesday and Fridays: 05:15 PM - 07:30 PM',
+      phone: '80500 35925',
+      mapLink: 'https://maps.app.goo.gl/oBE6DvKpExG5GXwM9?g_st=iw',
+      description: 'Evening clinic in Koramangala for appointments',
       callOnly: true
     },
     {
@@ -129,7 +117,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
             </div>
 
             {/* Hospital Sections */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-stretch max-w-4xl mx-auto">
               {hospitals.map((hospital, index) => (
                 <div key={index} className={`group relative ${isDarkMode ? 'bg-white/5 border-white/10 hover:border-blue-400/50' : 'bg-gradient-to-br from-gray-50 to-white border-gray-200 hover:border-blue-200'} border rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 hover:shadow-xl transition-all duration-300 flex flex-col h-full`}>
                   {/* Hospital Header */}

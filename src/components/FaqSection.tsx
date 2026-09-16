@@ -22,7 +22,7 @@ export default function FaqSection() {
     },
     {
       question: "Where can I consult you in Bengaluru?",
-      answer: "I practise at multiple centres: Sparsh Hospital (available during the day), Marvel Hospital (Monday, Wednesday, Friday), and ChanRe Veena Rheumatology & Immunology Center (Tuesday, Thursday). Patients commonly visit from Koramangala, Indiranagar, HSR Layout, BTM Layout, and areas around Silk Board Junction.",
+      answer: "I practise at multiple centres: Sparsh Hospital (available during the day) and Child Central Clinic, Koramangala (Monday, Wednesday and Friday, 05:15 pm – 07:30 pm; appointments: 80500 35925). Patients commonly visit from Koramangala, Indiranagar, HSR Layout, BTM Layout, and areas around Silk Board Junction.",
     },
   ]
 
