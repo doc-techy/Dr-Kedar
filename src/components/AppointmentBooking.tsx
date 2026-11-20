@@ -12,7 +12,7 @@ interface ClinicLocation {
   name: string
   address: string
   availableAt: string
-  phone: string
+  phone: string | string[]
   mapLink: string
   description: string
   website?: string
@@ -36,10 +36,10 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
   
   const hospitals: ClinicLocation[] = [
     {
-      name: 'Child Central Clinic',
+      name: 'Child Central',
       address: '717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034, Karnataka',
       availableAt: 'Monday, Wednesday and Fridays: 05:15 PM - 07:30 PM',
-      phone: '80500 35925',
+      phone: ['80500 35925', '080 4093 3525'],
       mapLink: 'https://maps.app.goo.gl/oBE6DvKpExG5GXwM9?g_st=iw',
       description: 'Evening clinic in Koramangala for appointments',
       bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ38mrlL_bXxaDY5Mz4F7Ka2pdKFlWB1J0KLfLloqJ_rGIEmMMSrwFw_kTd0Ylip4a3de3yG2IDn?gv=true',
@@ -171,8 +171,16 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                       <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600 mt-0.5 sm:mt-1 flex-shrink-0" />
                       <div>
                       <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-xs sm:text-sm`}>Phone</h4>
-                      {hospital.phone ? (
-                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.phone}</p>
+                      {Array.isArray(hospital.phone) ? (
+                        hospital.phone.map((number) => (
+                          <p key={number} className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>
+                            <a href={`tel:${number.replace(/\s/g, '')}`} className="hover:underline">{number}</a>
+                          </p>
+                        ))
+                      ) : hospital.phone ? (
+                        <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>
+                          <a href={`tel:${hospital.phone.replace(/\s/g, '')}`} className="hover:underline">{hospital.phone}</a>
+                        </p>
                       ) : (
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>See website for contact</p>
                       )}
