@@ -12,15 +12,48 @@ export default function Blog() {
   
   const blogCategories = [
     {
-      title: 'Asthma Triggers & Precautions',
-      id: 'asthma',
-      description: 'Understanding asthma management, treatment options, and lifestyle modifications for better respiratory health.',
+      title: 'Pulmonology at Child Central',
+      id: 'child-central',
+      description: 'Adult lung care at Child Central, Koramangala: what to expect at a visit, who the service is for, and how to book.',
       available: true,
-      icon: '🫁',
-      gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
-      color: 'emerald',
-      image: '/images/asthma.jpeg',
-      imageAlt: 'Asthma triggers guide'
+      icon: '🏥',
+      gradient: 'from-sky-500 via-blue-500 to-teal-500',
+      color: 'sky',
+      image: '/images/pulmonology-care.jpg',
+      imageAlt: 'Pulmonology care for asthma, COPD, cough, breathlessness and sleep'
+    },
+    {
+      title: 'TB Treatment Side Effects',
+      id: 'tb-side-effects',
+      description: 'What the four TB medicines can cause, how to protect your liver, and why you should not stop treatment on your own.',
+      available: true,
+      icon: '💊',
+      gradient: 'from-rose-500 via-orange-500 to-amber-500',
+      color: 'rose',
+      image: '/images/tb-medicines.jpeg',
+      imageAlt: 'TB medicines used in standard treatment'
+    },
+    {
+      title: 'TB: Why Six Months Matters',
+      id: 'tuberculosis',
+      description: 'TB is curable when treatment is taken correctly. Why the full six months matters more than feeling better in a few weeks.',
+      available: true,
+      icon: '🦠',
+      gradient: 'from-amber-500 via-orange-500 to-rose-500',
+      color: 'amber',
+      image: '/images/tb-treatment.jpeg',
+      imageAlt: 'Understanding tuberculosis guide'
+    },
+    {
+      title: 'Quit Smoking',
+      id: 'smoking-cessation',
+      description: 'A 10-point guide to quitting: triggers, proven treatments, and how the body recovers after you stop.',
+      available: true,
+      icon: '🚭',
+      gradient: 'from-teal-500 via-emerald-500 to-green-500',
+      color: 'teal',
+      image: '/images/quit-smoking.jpeg',
+      imageAlt: 'Timeline of recovery after quitting smoking'
     },
     {
       title: 'Steroids in Asthma',
@@ -32,6 +65,17 @@ export default function Blog() {
       color: 'blue',
       image: '/images/astma2.jpeg',
       imageAlt: 'Steroids in asthma guide'
+    },
+    {
+      title: 'Asthma Triggers & Precautions',
+      id: 'asthma',
+      description: 'Understanding asthma management, treatment options, and lifestyle modifications for better respiratory health.',
+      available: true,
+      icon: '🫁',
+      gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+      color: 'emerald',
+      image: '/images/asthma.jpeg',
+      imageAlt: 'Asthma triggers guide'
     },
     {
       title: 'COPD',
@@ -61,29 +105,11 @@ export default function Blog() {
       color: 'slate'
     },
     {
-      title: 'Tuberculosis',
-      id: 'tuberculosis',
-      description: 'TB awareness, prevention, diagnosis, and treatment protocols for effective management.',
-      available: false,
-      icon: '🦠',
-      gradient: 'from-slate-400 to-slate-500',
-      color: 'slate'
-    },
-    {
       title: 'Lung Function Testing',
       id: 'lung-function-testing',
       description: 'Learn about various pulmonary function tests, their significance, and what to expect.',
       available: false,
       icon: '📊',
-      gradient: 'from-slate-400 to-slate-500',
-      color: 'slate'
-    },
-    {
-      title: 'Smoking Cessation',
-      id: 'smoking-cessation',
-      description: 'Resources and strategies to help quit smoking and improve lung health.',
-      available: false,
-      icon: '🚭',
       gradient: 'from-slate-400 to-slate-500',
       color: 'slate'
     },

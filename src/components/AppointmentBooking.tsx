@@ -8,6 +8,17 @@ interface AppointmentBookingProps {
   className?: string
 }
 
+interface ClinicLocation {
+  name: string
+  address: string
+  availableAt: string
+  phone: string
+  mapLink: string
+  description: string
+  website?: string
+  bookingUrl?: string
+}
+
 export function AppointmentBooking({ className = '' }: AppointmentBookingProps) {
   const { isDarkMode } = useTheme()
   const [showModal, setShowModal] = useState(false)
@@ -23,7 +34,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   
-  const hospitals = [
+  const hospitals: ClinicLocation[] = [
     {
       name: 'Child Central Clinic',
       address: '717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034, Karnataka',
@@ -31,7 +42,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
       phone: '80500 35925',
       mapLink: 'https://maps.app.goo.gl/oBE6DvKpExG5GXwM9?g_st=iw',
       description: 'Evening clinic in Koramangala for appointments',
-      callOnly: true
+      bookingUrl: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ38mrlL_bXxaDY5Mz4F7Ka2pdKFlWB1J0KLfLloqJ_rGIEmMMSrwFw_kTd0Ylip4a3de3yG2IDn?gv=true',
     },
     {
       name: 'SPARSH Hospital',
@@ -172,12 +183,15 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
 
                   {/* Contact/Appointment CTA */}
                   <div className="text-center mt-auto flex-shrink-0">
-                    {(hospital as any).callOnly && hospital.phone ? (
+                    {hospital.bookingUrl ? (
                       <a
-                        href={`tel:${hospital.phone.replace(/[^0-9+]/g, '')}`}
-                        className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:from-green-700 hover:to-emerald-700 focus:ring-4 focus:ring-green-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
+                        href={hospital.bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center px-4 sm:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-blue-600 to-teal-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-teal-700 focus:ring-4 focus:ring-blue-200 transition-all duration-300 shadow-lg group-hover:shadow-xl text-xs sm:text-sm w-full justify-center"
                       >
-                        Contact
+                        <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                        Book an appointment
                       </a>
                     ) : hospital.name === 'SPARSH Hospital' && hospital.website ? (
                       <a
