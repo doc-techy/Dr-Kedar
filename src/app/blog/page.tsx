@@ -12,6 +12,18 @@ export default function Blog() {
   
   const blogCategories = [
     {
+      title: 'Sleep Hygiene',
+      id: 'sleep-hygiene',
+      description: 'Your bedroom is not a newsroom. Habits, routines and the environment that shape how well you sleep.',
+      available: true,
+      icon: '🌙',
+      gradient: 'from-indigo-500 via-blue-500 to-cyan-500',
+      color: 'indigo',
+      image: '/images/sleep-hygiene.png',
+      imageAlt: 'Healthy sleep habits',
+      imagePosition: 'object-top'
+    },
+    {
       title: 'Pulmonology at Child Central',
       id: 'child-central',
       description: 'Adult lung care at Child Central, Koramangala: what to expect at a visit, who the service is for, and how to book.',
@@ -193,7 +205,7 @@ export default function Blog() {
                           src={category.image}
                           alt={category.imageAlt || category.title}
                           fill
-                          className="object-cover"
+                          className={`object-cover ${'imagePosition' in category && category.imagePosition ? category.imagePosition : 'object-center'}`}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                         {/* Fade effect at bottom of image */}
