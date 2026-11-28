@@ -25,12 +25,14 @@ export default function Footer() {
               <p>
                 <a href="tel:08040933525" className="hover:text-white transition-colors">📞 080 4093 3525</a>
               </p>
-              <p>Monday to Friday, 05:00 pm – 07:30 pm</p>
+              <p>Monday to Friday, 5:00 pm – 7:30 pm</p>
               <p className="pt-3">🏥 SPARSH Hospital, Hennur Road</p>
               <p>📍 HBR Layout, Hennur Road, Bengaluru - 560043</p>
               <p>
                 <a href="tel:08061222000" className="hover:text-white transition-colors">📞 080 61 222 000</a>
               </p>
+              <p>Monday to Saturday, 9:30 am – 4:00 pm</p>
+              <p>Appointments only till 2:30 pm</p>
               <p className="pt-3">🌐 Languages: English, Hindi, Kannada</p>
             </div>
             

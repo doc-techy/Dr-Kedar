@@ -12,6 +12,7 @@ interface ClinicLocation {
   name: string
   address: string
   availableAt: string
+  hoursNote?: string
   phone: string | string[]
   mapLink: string
   description: string
@@ -38,7 +39,7 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
     {
       name: 'Child Central',
       address: '717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034, Karnataka',
-      availableAt: 'Monday, Wednesday and Fridays: 05:15 PM - 07:30 PM',
+      availableAt: 'Monday to Friday, 5:00 pm – 7:30 pm',
       phone: ['80500 35925', '080 4093 3525'],
       mapLink: 'https://maps.app.goo.gl/oBE6DvKpExG5GXwM9?g_st=iw',
       description: 'Evening clinic in Koramangala for appointments',
@@ -47,7 +48,8 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
     {
       name: 'SPARSH Hospital',
       address: 'HBR Layout, Hennur Road, Bengaluru - 560043',
-      availableAt: 'Mon, Wed, Fri: 9:30 AM - 4:00 PM',
+      availableAt: 'Monday to Saturday, 9:30 am – 4:00 pm',
+      hoursNote: 'Appointments only till 2:30 pm',
       phone: '080 61 222 000',
       website: 'https://www.sparshhospital.com/doctors/dr-kedar-hibare/',
       mapLink: 'https://maps.google.com',
@@ -164,6 +166,9 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                       <div>
                         <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-xs sm:text-sm`}>Available At</h4>
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.availableAt}</p>
+                        {hospital.hoursNote && (
+                          <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.hoursNote}</p>
+                        )}
                       </div>
                     </div>
 
