@@ -108,7 +108,7 @@ export default function FAQ() {
           <p>I practise at multiple centres so patients can choose what's most convenient.</p>
           <ul className="space-y-3">
             <li>
-              <strong className="font-semibold">Sparsh Hospital</strong> — Monday to Saturday, 9:30 am – 4:00 pm. Appointments only till 2:30 pm.
+              <strong className="font-semibold">Sparsh Hospital</strong> — Monday to Saturday, 9:30 am – 4:00 pm.
             </li>
             <li>
               <strong className="font-semibold">Child Central Clinic</strong> — Monday to Friday, 5:00 pm – 7:30 pm. 717/1, 16th Main, 6th B Cross Rd, Koramangala 3rd Block, Bengaluru 560034. For appointments call 80500 35925.

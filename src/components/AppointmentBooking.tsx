@@ -12,7 +12,6 @@ interface ClinicLocation {
   name: string
   address: string
   availableAt: string
-  hoursNote?: string
   phone: string | string[]
   mapLink: string
   description: string
@@ -49,7 +48,6 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
       name: 'SPARSH Hospital',
       address: 'HBR Layout, Hennur Road, Bengaluru - 560043',
       availableAt: 'Monday to Saturday, 9:30 am – 4:00 pm',
-      hoursNote: 'Appointments only till 2:30 pm',
       phone: '080 61 222 000',
       website: 'https://www.sparshhospital.com/doctors/dr-kedar-hibare/',
       mapLink: 'https://maps.google.com',
@@ -166,9 +164,6 @@ export function AppointmentBooking({ className = '' }: AppointmentBookingProps) 
                       <div>
                         <h4 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-900'} text-xs sm:text-sm`}>Available At</h4>
                         <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.availableAt}</p>
-                        {hospital.hoursNote && (
-                          <p className={`${isDarkMode ? 'text-gray-300' : 'text-gray-600'} text-xs sm:text-sm`}>{hospital.hoursNote}</p>
-                        )}
                       </div>
                     </div>
 

@@ -22,7 +22,7 @@ export default function FaqSection() {
     },
     {
       question: "Where can I consult you in Bengaluru?",
-      answer: "I practise at multiple centres: Sparsh Hospital, Hennur Road (Monday to Saturday, 9:30 am – 4:00 pm; appointments only till 2:30 pm) and Child Central Clinic, Koramangala (Monday to Friday, 5:00 pm – 7:30 pm; appointments: 80500 35925). Patients commonly visit from Koramangala, Indiranagar, HSR Layout, BTM Layout, and areas around Silk Board Junction.",
+      answer: "I practise at multiple centres: Sparsh Hospital, Hennur Road (Monday to Saturday, 9:30 am – 4:00 pm) and Child Central Clinic, Koramangala (Monday to Friday, 5:00 pm – 7:30 pm; appointments: 80500 35925). Patients commonly visit from Koramangala, Indiranagar, HSR Layout, BTM Layout, and areas around Silk Board Junction.",
     },
   ]
 

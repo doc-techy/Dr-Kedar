@@ -14,8 +14,8 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="flex-1">
             <h3 className="text-xl font-bold mb-4 text-white">Dr. Kedar Hibare</h3>
-            <p className={`${isDarkMode ? 'text-blue-400' : 'text-blue-300'} mb-4 font-medium`}>Lead Consultant - Clinical & Interventional Pulmonologist</p>
             <div className={`space-y-1 ${isDarkMode ? 'text-gray-300' : 'text-gray-300'}`}>
+              <p className={`${isDarkMode ? 'text-blue-400' : 'text-blue-300'} font-medium`}>Consultant Pulmonologist</p>
               <p>🏥 Child Central</p>
               <p>📍 717/1, 16th Main, 6th B Cross Road, Koramangala 3rd Block, Bengaluru 560034, Karnataka</p>
               <p className="pt-2">For appointments call</p>
@@ -26,13 +26,13 @@ export default function Footer() {
                 <a href="tel:08040933525" className="hover:text-white transition-colors">📞 080 4093 3525</a>
               </p>
               <p>Monday to Friday, 5:00 pm – 7:30 pm</p>
-              <p className="pt-3">🏥 SPARSH Hospital, Hennur Road</p>
+              <p className={`pt-3 font-medium ${isDarkMode ? 'text-blue-400' : 'text-blue-300'}`}>Lead Consultant - Clinical & Interventional Pulmonologist</p>
+              <p>🏥 SPARSH Hospital, Hennur Road</p>
               <p>📍 HBR Layout, Hennur Road, Bengaluru - 560043</p>
               <p>
                 <a href="tel:08061222000" className="hover:text-white transition-colors">📞 080 61 222 000</a>
               </p>
               <p>Monday to Saturday, 9:30 am – 4:00 pm</p>
-              <p>Appointments only till 2:30 pm</p>
               <p className="pt-3">🌐 Languages: English, Hindi, Kannada</p>
             </div>
             
